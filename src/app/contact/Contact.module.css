@@ -1,0 +1,132 @@
+.page {
+  padding-top: 150px;
+  padding-bottom: 100px;
+  background: white;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.infoItem {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.iconBox {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-alt);
+  color: var(--primary);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infoItem h4 {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin-bottom: 4px;
+}
+
+.infoItem p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.socialBox {
+  margin-top: 20px;
+  padding-top: 40px;
+  border-top: 1px solid #eee;
+}
+
+.socialBox h4 {
+  margin-bottom: 20px;
+  color: var(--secondary);
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  padding: 10px 20px;
+  background: var(--bg-alt);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: var(--transition-smooth);
+}
+
+.socialLink:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.form {
+  background: var(--bg-alt);
+  padding: 50px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  padding: 14px 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  transition: var(--transition-smooth);
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(198, 235, 30, 0.1);
+}
+
+@media (max-width: 768px) {
+  .form {
+    padding: 30px 20px;
+  }
+}

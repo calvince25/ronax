@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+:root {
+  /* Colors */
+  --primary: #C6EB1E;
+  --primary-hover: #b1d21a;
+  --secondary: #112B23;
+  --secondary-light: #1a4135;
+  --accent: #ffffff;
+  --text-main: #171717;
+  --text-muted: #666666;
+  --bg-main: #ffffff;
+  --bg-alt: #f8fbf9;
+  --bg-dark: #112B23;
+  
+  /* Spacing */
+  --section-padding: 80px 20px;
+  --container-max-width: 1200px;
+  
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--secondary);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+/* Layout Containers */
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* Sharp Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 4px; /* Sharper borders */
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--secondary);
+  box-shadow: 0 4px 0 #A8C719; /* Sharp bevel effect */
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #A8C719;
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #A8C719;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+/* WordPress-style Sharp Cards */
+.card-sharp {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 0; /* Totally sharp */
+  padding: 40px;
+  transition: var(--transition-smooth);
+}
+
+.card-sharp:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.section {
+  padding: var(--section-padding);
+}
+
+.text-center { text-align: center; }
+
+/* Text Gradients */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, #a1bf18 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}

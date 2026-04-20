@@ -1,0 +1,90 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 250px;
+  width: 100%;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.priceTag {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+
+.cardDescription {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.link:hover {
+  color: var(--primary-hover);
+  gap: 12px;
+}
+
+.footerCtas {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}

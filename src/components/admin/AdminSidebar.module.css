@@ -1,0 +1,109 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: #1a1a1a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+
+.top {
+  padding: 40px 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoIcon {
+  font-size: 1.5rem;
+}
+
+.logoText {
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, #fff, #c6eb1e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav {
+  flex: 1;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.navLink :global(svg) {
+  transition: transform 0.3s ease;
+}
+
+.navLink:hover :global(svg) {
+  transform: translateX(3px);
+}
+
+.activeLink {
+  background: rgba(198, 235, 30, 0.12);
+  color: #c6eb1e !important;
+}
+
+.activeLink :global(svg) {
+  color: #c6eb1e;
+}
+
+.bottom {
+  padding: 30px 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  color: #ff4d4d;
+  font-weight: 500;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background: rgba(255, 77, 77, 0.1);
+}

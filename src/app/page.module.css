@@ -1,0 +1,115 @@
+.locationsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .locationsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.locationCard {
+  background: var(--bg-alt);
+  padding: 0; /* Remove padding to allow image to span full width */
+  border-radius: 4px; /* Sharper */
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.locationImgWrapper {
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+.locImg {
+  object-fit: cover;
+}
+
+.locationInfo {
+  padding: 30px;
+}
+
+.locationCard:hover {
+  background: white;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  border-color: var(--primary);
+}
+
+.locationInfo h3 {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+
+.locationInfo p {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.locationLink {
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.locationLink:hover {
+  color: var(--primary-hover);
+}
+
+.finalCta {
+  background: var(--secondary);
+  padding: 100px 0;
+  color: white;
+  text-align: center;
+}
+
+.ctaContent h2 {
+  font-size: 3rem;
+  margin-bottom: 24px;
+}
+
+.ctaContent p {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  padding: 18px 40px;
+  font-size: 1.1rem;
+}
+
+.btn-outline-white {
+  border-color: white;
+  color: white;
+}
+
+.btn-outline-white:hover {
+  background: white;
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .ctaContent h2 {
+    font-size: 2rem;
+  }
+}

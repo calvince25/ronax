@@ -1,0 +1,135 @@
+.page {
+  padding-top: 150px;
+  padding-bottom: 100px;
+  background: var(--bg-alt);
+  min-height: 100vh;
+}
+
+.formWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  background: white;
+  padding: 60px;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+@media (min-width: 1024px) {
+  .formWrapper {
+    grid-template-columns: 1.2fr 2fr;
+  }
+}
+
+.formInfo h3 {
+  font-size: 1.8rem;
+  color: var(--secondary);
+  margin-bottom: 24px;
+}
+
+.formInfo ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.formInfo li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.formInfo li::before {
+  content: '✓';
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.guarantee {
+  padding: 30px;
+  background: var(--bg-alt);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  padding: 14px 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(198, 235, 30, 0.1);
+}
+
+@media (max-width: 768px) {
+  .formWrapper {
+    padding: 30px 20px;
+  }
+  
+  .formInfo h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.status {
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.success {
+  background: rgba(198, 235, 30, 0.1);
+  color: #5d7003;
+  border: 1px solid var(--primary);
+}
+
+.error {
+  background: #fff5f5;
+  color: #e53e3e;
+  border: 1px solid #fed7d7;
+}

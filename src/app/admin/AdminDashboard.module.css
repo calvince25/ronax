@@ -1,0 +1,149 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statCard {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.statIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue { background: #e0f2fe; color: #0ea5e9; }
+.yellow { background: #fef3c7; color: #d97706; }
+.green { background: #dcfce7; color: #22c55e; }
+.purple { background: #f3e8ff; color: #a855f7; }
+
+.statInfo h4 {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.statInfo p {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.section {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.sectionHeader h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.viewAll {
+  color: #0ea5e9;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  padding: 20px 16px;
+  border-bottom: 1px solid #f9f9f9;
+  font-size: 0.95rem;
+}
+
+.customerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.email {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.statusBadge {
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pending { background: #fef3c7; color: #d97706; }
+.confirmed { background: #dcfce7; color: #166534; }
+.cancelled { background: #fee2e2; color: #991b1b; }
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  font-weight: 600;
+  color: #666;
+}

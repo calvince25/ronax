@@ -1,0 +1,66 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.content {
+  flex: 1;
+  margin-left: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: 100px;
+  padding: 0 40px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.headerInfo h1 {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.headerInfo p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #f8f9fa;
+  border-radius: 50px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  background: #c6eb1e;
+  color: #1a1a1a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.pageContent {
+  padding: 40px;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    margin-left: 0;
+  }
+}

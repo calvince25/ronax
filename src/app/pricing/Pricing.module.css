@@ -1,0 +1,173 @@
+.page {
+  padding-top: 150px;
+  padding-bottom: 100px;
+  background: var(--bg-alt);
+  min-height: 100vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 30px;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition-smooth);
+  border: 1px solid #eee;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.popular {
+  border-color: var(--primary);
+  background: var(--secondary);
+  color: white;
+}
+
+.popular .name, 
+.popular .description, 
+.popular .unit {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.popular .price {
+  color: white;
+}
+
+.popularBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: var(--secondary);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.iconBox {
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+.name {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--secondary);
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.currency {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.unit {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 40px;
+  flex-grow: 1;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.check {
+  color: var(--primary);
+}
+
+.cta {
+  width: 100%;
+}
+
+.paymentInfo {
+  margin-top: 80px;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #eee;
+}
+
+.paymentInfo h3 {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.paymentInfo p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding-top: 150px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  color: #888;
+}
