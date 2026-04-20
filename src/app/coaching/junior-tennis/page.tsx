@@ -4,22 +4,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Coaching.module.css';
 import { Trophy, Smile, Shield } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
-const JuniorTennis = () => {
+export const revalidate = 60; // revalidate every minute
+
+const JuniorTennis = async () => {
+  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'junior-tennis').single();
+
+  const title = program?.title || "Junior Tennis Programs";
+  const subtitle = program?.subtitle || "Building the Next Generation";
+  const leadDesc = program?.lead_description || "Instilling a love for the game in young athletes. Our junior programs focus on hand-eye coordination, basic technique, and sportsmanship.";
+  const mainDesc = program?.main_description || "Under Coach Ronax, juniors follow a structured development pathway. We use the 'Red, Orange, Green' ball progression system to ensure students learn at a pace that matches their physical and technical growth.";
+  const imageUrl = program?.image_url || "/images/junior.png";
+
   return (
     <div className={styles.page}>
       <div className="container">
         <SectionHeading 
-          title="Junior Tennis Programs" 
-          subtitle="Building the Next Generation" 
+          title={title} 
+          subtitle={subtitle} 
         />
         
         <div className={styles.detailWrapper}>
           <div className={styles.detailContent}>
             <div className={styles.imageHeader}>
               <Image 
-                src="/images/junior.png" 
-                alt="Junior Tennis Training" 
+                src={imageUrl} 
+                alt={title} 
                 width={800} 
                 height={400} 
                 className={styles.mainImg}
@@ -27,12 +38,12 @@ const JuniorTennis = () => {
             </div>
             
             <p className={styles.lead}>
-              Instilling a love for the game in young athletes. Our junior programs focus on hand-eye coordination, basic technique, and sportsmanship.
+              {leadDesc}
             </p>
             
             <h3>Ages 5 to 17</h3>
             <p>
-              Under Coach Ronax, juniors follow a structured development pathway. We use the "Red, Orange, Green" ball progression system to ensure students learn at a pace that matches their physical and technical growth.
+              {mainDesc}
             </p>
             
             <div className={styles.pillarGrid}>

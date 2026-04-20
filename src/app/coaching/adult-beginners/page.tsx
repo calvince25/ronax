@@ -4,22 +4,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Coaching.module.css';
 import { Target, Zap, Clock } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
-const AdultBeginners = () => {
+export const revalidate = 60; // revalidate every minute
+
+const AdultBeginners = async () => {
+  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'adult-beginners').single();
+
+  const title = program?.title || "Adult Beginners";
+  const subtitle = program?.subtitle || "Start Your Tennis Journey Today";
+  const leadDesc = program?.lead_description || "It is never too late to pick up a racket. Our Adult Beginner program is designed to take you from zero to rally in record time.";
+  const mainDesc = program?.main_description || "We understand that starting a new sport as an adult can be intimidating. That is why Coach Ronax uses a simplified, mechanics-first approach. We focus on the most important fundamentals: contact point, balance, and follow-through.";
+  const imageUrl = program?.image_url || "/images/tennis-ball.png";
+
   return (
     <div className={styles.page}>
       <div className="container">
         <SectionHeading 
-          title="Adult Beginners" 
-          subtitle="Start Your Tennis Journey Today" 
+          title={title} 
+          subtitle={subtitle} 
         />
         
         <div className={styles.detailWrapper}>
           <div className={styles.detailContent}>
             <div className={styles.imageHeader}>
               <Image 
-                src="/images/tennis-ball.png" 
-                alt="Tennis Ball Macro" 
+                src={imageUrl} 
+                alt={title} 
                 width={800} 
                 height={400} 
                 className={styles.mainImg}
@@ -27,12 +38,12 @@ const AdultBeginners = () => {
             </div>
             
             <p className={styles.lead}>
-              It is never too late to pick up a racket. Our Adult Beginner program is designed to take you from zero to rally in record time.
+              {leadDesc}
             </p>
             
             <h3>Designed for New Players</h3>
             <p>
-              We understand that starting a new sport as an adult can be intimidating. That is why Coach Ronax uses a simplified, mechanics-first approach. We focus on the most important fundamentals: contact point, balance, and follow-through.
+              {mainDesc}
             </p>
             
             <div className={styles.gridFeatures}>

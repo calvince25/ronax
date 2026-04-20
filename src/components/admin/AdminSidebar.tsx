@@ -8,7 +8,10 @@ import {
   FileText, 
   Tag, 
   LogOut,
-  Home
+  Home,
+  Users,
+  Image as ImageIcon,
+  BookOpen
 } from 'lucide-react';
 import styles from './AdminSidebar.module.css';
 
@@ -17,6 +20,9 @@ const navLinks = [
   { href: '/admin/bookings', icon: <CalendarCheck size={20} />, label: 'Bookings', exact: false },
   { href: '/admin/blog', icon: <FileText size={20} />, label: 'Blog Posts', exact: false },
   { href: '/admin/prices', icon: <Tag size={20} />, label: 'Pricing', exact: false },
+  { href: '/admin/programs', icon: <BookOpen size={20} />, label: 'Programs', exact: false },
+  { href: '/admin/gallery', icon: <ImageIcon size={20} />, label: 'Gallery', exact: false },
+  { href: '/admin/users', icon: <Users size={20} />, label: 'Users', exact: false },
 ];
 
 const AdminSidebar = () => {

@@ -1,0 +1,161 @@
+.container {
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  font-size: 1.8rem;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: var(--text-muted);
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  color: #666;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.email {
+  font-size: 1rem;
+  color: var(--secondary);
+  margin-bottom: 4px;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badgeAdmin {
+  background: rgba(198, 235, 30, 0.2);
+  color: var(--secondary);
+}
+
+.badgePending {
+  background: rgba(255, 165, 0, 0.1);
+  color: #d97706;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.approveBtn, .rejectBtn, .revokeBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  justify-content: center;
+}
+
+.approveBtn {
+  background: var(--secondary);
+  color: white;
+}
+
+.approveBtn:hover {
+  background: #111;
+}
+
+.rejectBtn {
+  background: rgba(255, 77, 77, 0.1);
+  color: #ff4d4d;
+}
+
+.rejectBtn:hover {
+  background: rgba(255, 77, 77, 0.2);
+}
+
+.revokeBtn {
+  background: white;
+  border: 1px solid #ddd;
+  color: var(--text-muted);
+}
+
+.revokeBtn:hover {
+  border-color: #ff4d4d;
+  color: #ff4d4d;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  background: white;
+  border-radius: 16px;
+  border: 1px dashed #ccc;
+}

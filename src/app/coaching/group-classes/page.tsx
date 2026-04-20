@@ -4,22 +4,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Coaching.module.css';
 import { Users, Calendar, CheckCircle } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
-const GroupClasses = () => {
+export const revalidate = 60; // revalidate every minute
+
+const GroupClasses = async () => {
+  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'group-classes').single();
+
+  const title = program?.title || "Group Tennis Classes";
+  const subtitle = program?.subtitle || "Social, Competitive & Fun";
+  const leadDesc = program?.lead_description || "Join a vibrant community of players. Our group classes are designed to improve your game in a dynamic, social environment.";
+  const mainDesc = program?.main_description || "Our group sessions focus on high-volume hitting, tactical drills, and live ball games. It is the perfect way to apply technical skills in real match-play scenarios while meeting other tennis enthusiasts in Nairobi.";
+  const imageUrl = program?.image_url || "/images/group-class.png";
+
   return (
     <div className={styles.page}>
       <div className="container">
         <SectionHeading 
-          title="Group Tennis Classes" 
-          subtitle="Social, Competitive & Fun" 
+          title={title} 
+          subtitle={subtitle} 
         />
         
         <div className={styles.detailWrapper}>
           <div className={styles.detailContent}>
             <div className={styles.imageHeader}>
               <Image 
-                src="/images/group-class.png" 
-                alt="Group Tennis Class" 
+                src={imageUrl} 
+                alt={title} 
                 width={800} 
                 height={400} 
                 className={styles.mainImg}
@@ -27,12 +38,12 @@ const GroupClasses = () => {
             </div>
             
             <p className={styles.lead}>
-              Join a vibrant community of players. Our group classes are designed to improve your game in a dynamic, social environment.
+              {leadDesc}
             </p>
             
             <h3>What to Expect</h3>
             <p>
-              Our group sessions focus on high-volume hitting, tactical drills, and live ball games. It is the perfect way to apply technical skills in real match-play scenarios while meeting other tennis enthusiasts in Nairobi.
+              {mainDesc}
             </p>
             
             <div className={styles.featuresSharp}>

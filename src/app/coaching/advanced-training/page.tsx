@@ -4,22 +4,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Coaching.module.css';
 import { ShieldCheck, Trophy, Target } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
-const AdvancedTraining = () => {
+export const revalidate = 60; // revalidate every minute
+
+const AdvancedTraining = async () => {
+  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'advanced-training').single();
+
+  const title = program?.title || "Advanced & Competitive";
+  const subtitle = program?.subtitle || "Precision. Power. Performance.";
+  const leadDesc = program?.lead_description || "For tournament players and high-level recreational athletes. Experience the intensity of professional-grade training.";
+  const mainDesc = program?.main_description || "Advanced training moves beyond basic technique and dives into tactical patterns, mental resilience, and physical conditioning. Coach Ronax uses video analysis to identify micro-flaws in strokes and match-play strategy to give you a competitive edge in Nairobi's tennis circuits.";
+  const imageUrl = program?.image_url || "/images/hero-coach.png";
+
   return (
     <div className={styles.page}>
       <div className="container">
         <SectionHeading 
-          title="Advanced & Competitive" 
-          subtitle="Precision. Power. Performance." 
+          title={title} 
+          subtitle={subtitle} 
         />
         
         <div className={styles.detailWrapper}>
           <div className={styles.detailContent}>
             <div className={styles.imageHeader}>
               <Image 
-                src="/images/hero-coach.png" 
-                alt="Advanced Training" 
+                src={imageUrl} 
+                alt={title} 
                 width={800} 
                 height={400} 
                 className={styles.mainImg}
@@ -27,12 +38,12 @@ const AdvancedTraining = () => {
             </div>
             
             <p className={styles.lead}>
-              For tournament players and high-level recreational athletes. Experience the intensity of professional-grade training.
+              {leadDesc}
             </p>
             
             <h3>High-Performance Coaching</h3>
             <p>
-              Advanced training moves beyond basic technique and dives into tactical patterns, mental resilience, and physical conditioning. Coach Ronax uses video analysis to identify micro-flaws in strokes and match-play strategy to give you a competitive edge in Nairobi's tennis circuits.
+              {mainDesc}
             </p>
             
             <div className={styles.benefitsGrid}>

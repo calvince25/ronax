@@ -3,16 +3,19 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import Image from 'next/image';
 import styles from '../coach-ronax/About.module.css';
 
-const images = [
-  { src: '/images/hero-coach.png', alt: 'Coach Ronax Portrait' },
-  { src: '/images/private.png', alt: 'Private Lesson Session' },
-  { src: '/images/junior.png', alt: 'Junior Practice' },
-  { src: '/images/group-class.png', alt: 'Group Class' },
-  { src: '/images/tennis-ball.png', alt: 'Tennis Core Focus' },
-  { src: '/images/hero-coach.png', alt: 'Technical Assessment' },
-];
+import { supabase } from '@/lib/supabase';
 
-const Gallery = () => {
+export const revalidate = 60;
+
+const Gallery = async () => {
+  const { data: images } = await supabase.from('gallery').select('*').order('display_order', { ascending: true }).order('created_at', { ascending: false });
+  const galleryImages = images?.length ? images : [
+    { image_url: '/images/hero-coach.png', alt_text: 'Coach Ronax Portrait' },
+    { image_url: '/images/private.png', alt_text: 'Private Lesson Session' },
+    { image_url: '/images/junior.png', alt_text: 'Junior Practice' },
+    { image_url: '/images/group-class.png', alt_text: 'Group Class' },
+    { image_url: '/images/tennis-ball.png', alt_text: 'Tennis Core Focus' },
+  ];
   return (
     <div className={styles.page}>
       <div className="container">
@@ -22,16 +25,16 @@ const Gallery = () => {
         />
         
         <div className={styles.galleryGrid}>
-          {images.map((img, i) => (
-            <div key={i} className={styles.galleryItem}>
+          {galleryImages.map((img, i) => (
+            <div key={img.id || i} className={styles.galleryItem}>
               <Image 
-                src={img.src} 
-                alt={img.alt} 
+                src={img.image_url} 
+                alt={img.alt_text || 'Gallery Image'} 
                 fill 
                 className={styles.galleryImg} 
               />
               <div className={styles.galleryOverlay}>
-                <span>{img.alt}</span>
+                <span>{img.alt_text}</span>
               </div>
             </div>
           ))}

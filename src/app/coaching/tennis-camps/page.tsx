@@ -4,22 +4,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Coaching.module.css';
 import { Sun, Users, Flame } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
-const TennisCamps = () => {
+export const revalidate = 60; // revalidate every minute
+
+const TennisCamps = async () => {
+  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'tennis-camps').single();
+
+  const title = program?.title || "Holiday Tennis Camps";
+  const subtitle = program?.subtitle || "Intensive Training. Lasting Friendships.";
+  const leadDesc = program?.lead_description || "Make the most of the school break with our immersive holiday camps. It is a week of intensive tennis, physical education, and fun.";
+  const mainDesc = program?.main_description || "Held during the April, August, and December school holidays, our camps are designed for all levels. We combine professional instruction with team-based challenges and tournaments to keep students engaged and improving rapidly.";
+  const imageUrl = program?.image_url || "/images/group-class.png";
+
   return (
     <div className={styles.page}>
       <div className="container">
         <SectionHeading 
-          title="Holiday Tennis Camps" 
-          subtitle="Intensive Training. Lasting Friendships." 
+          title={title} 
+          subtitle={subtitle} 
         />
         
         <div className={styles.detailWrapper}>
           <div className={styles.detailContent}>
             <div className={styles.imageHeader}>
               <Image 
-                src="/images/group-class.png" 
-                alt="Tennis Camp Action" 
+                src={imageUrl} 
+                alt={title} 
                 width={800} 
                 height={400} 
                 className={styles.mainImg}
@@ -27,12 +38,12 @@ const TennisCamps = () => {
             </div>
             
             <p className={styles.lead}>
-              Make the most of the school break with our immersive holiday camps. It is a week of intensive tennis, physical education, and fun.
+              {leadDesc}
             </p>
             
             <h3>Seasonal Camps</h3>
             <p>
-              Held during the April, August, and December school holidays, our camps are designed for all levels. We combine professional instruction with team-based challenges and tournaments to keep students engaged and improving rapidly.
+              {mainDesc}
             </p>
             
             <div className={styles.campHighlights}>

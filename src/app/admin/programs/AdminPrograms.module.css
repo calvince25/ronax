@@ -1,0 +1,32 @@
+.container { padding: 20px; }
+.header { margin-bottom: 30px; display: flex; flex-direction: column; gap: 10px; }
+.header h2 { font-size: 1.8rem; color: var(--secondary); margin-bottom: 8px; }
+.header p { color: var(--text-muted); }
+.seedBtn { background: var(--secondary); color: white; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; align-self: flex-start; }
+.loading { text-align: center; padding: 50px; color: #666; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+.card { background: white; border-radius: 16px; border: 1px solid #eee; overflow: hidden; display: flex; flex-direction: column; }
+.previewImage { width: 100%; height: 180px; object-fit: cover; }
+.noImage { width: 100%; height: 180px; background: #f0f0f0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #aaa; gap: 10px; font-weight: 600; }
+.cardBody { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.slugBadge { background: #eee; align-self: flex-start; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; color: #555; margin-bottom: 12px; font-family: monospace; }
+.cardBody h3 { color: var(--secondary); margin-bottom: 8px; font-size: 1.3rem; }
+.lead { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+.editBtn { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(198, 235, 30, 0.2); color: var(--secondary); padding: 12px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: background 0.3s ease; }
+.editBtn:hover { background: var(--primary); }
+
+.modalOverlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+.modalContent { background: white; border-radius: 20px; width: 100%; max-width: 700px; max-height: 90vh; overflow-y: auto; padding: 30px; }
+.modalHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.closeBtn { background: none; border: none; cursor: pointer; color: #888; }
+.closeBtn:hover { color: #ff4d4d; }
+.form { display: flex; flex-direction: column; gap: 20px; }
+.inputGroup { display: flex; flex-direction: column; gap: 8px; }
+.inputGroup label { font-weight: 600; color: var(--secondary); font-size: 0.95rem; }
+.inputGroup input, .inputGroup textarea { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; }
+.inputGroup input:focus, .inputGroup textarea:focus { outline: none; border-color: var(--primary); }
+.modalActions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px; }
+.cancelBtn { padding: 12px 24px; border-radius: 8px; background: #eee; border: none; font-weight: 600; cursor: pointer; }
+.saveBtn { display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; background: var(--primary); color: var(--secondary); border: none; font-weight: 700; cursor: pointer; }

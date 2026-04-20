@@ -4,24 +4,36 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Coaching.module.css';
 
-const PrivateLessons = () => {
+import { supabase } from '@/lib/supabase';
+
+export const revalidate = 60; // revalidate every minute
+
+const PrivateLessons = async () => {
+  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'private-lessons').single();
+
+  const title = program?.title || "Private 1-on-1 Tennis Lessons";
+  const subtitle = program?.subtitle || "Personalized Performance";
+  const leadDesc = program?.lead_description || "Elevate your game with dedicated attention from Coach Ronax. Private lessons are the fastest way to master technique and tactical awareness.";
+  const mainDesc = program?.main_description || "In a private setting, every minute is focused on your specific needs. Whether you are correcting a serve, perfecting your backhand, or learning match strategy, 1-on-1 coaching provides the immediate feedback necessary for rapid improvement.";
+  const imageUrl = program?.image_url || "/images/private.png";
+
   return (
     <div className={styles.page}>
       <div className="container">
         <SectionHeading 
-          title="Private 1-on-1 Tennis Lessons" 
-          subtitle="Personalized Performance" 
+          title={title} 
+          subtitle={subtitle} 
         />
         
         <div className={styles.detailWrapper}>
           <div className={styles.detailContent}>
             <p className={styles.lead}>
-              Elevate your game with dedicated attention from Coach Ronax. Private lessons are the fastest way to master technique and tactical awareness.
+              {leadDesc}
             </p>
             
             <h3>Why Private Lessons?</h3>
             <p>
-              In a private setting, every minute is focused on your specific needs. Whether you are correcting a serve, perfecting your backhand, or learning match strategy, 1-on-1 coaching provides the immediate feedback necessary for rapid improvement.
+              {mainDesc}
             </p>
             
             <div className={styles.benefits}>
@@ -69,7 +81,7 @@ const PrivateLessons = () => {
 
           <aside className={styles.sidebar}>
             <div className={styles.sidebarCard}>
-              <Image src="/images/private.png" alt="Private Lesson with Ronax" width={400} height={300} className={styles.sidebarImage} />
+              <Image src={imageUrl} alt={title} width={400} height={300} className={styles.sidebarImage} />
               <h4>Program Details</h4>
               <ul>
                 <li><strong>Durations:</strong> 60 / 90 mins</li>
