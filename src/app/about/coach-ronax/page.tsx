@@ -5,14 +5,15 @@ import Link from 'next/link';
 export default function AboutCoach() {
   return (
     <>
-      <div className="relative w-full h-[60vh] min-h-[500px] bg-brand-dark flex items-center">
+      <div className="relative w-full h-[60vh] min-h-[500px] bg-brand-black flex items-center">
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBqdW1waW5nJTIwY2VsZWJyYXRpbmd8ZW58MXx8fHwxNzc2NzU0ODM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Tennis player celebration"
-            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-[#1A2E1A]/70"></div>
+          <div className="absolute inset-0 bg-brand-dark/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-brand-dark/40"></div>
         </div>
         <div className="relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12">
           <h1 className="text-white font-barlow text-[64px] md:text-[84px] font-bold uppercase tracking-tight leading-[0.9] mb-6 max-w-4xl">

@@ -17,14 +17,15 @@ export default async function AdultBeginners() {
 
   return (
     <>
-      <div className="relative w-full h-[50vh] min-h-[400px] bg-brand-dark flex items-center">
+      <div className="relative w-full h-[50vh] min-h-[400px] bg-brand-black flex items-center">
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <ImageWithFallback
             src={imageUrl}
             alt={title}
-            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-[#1A2E1A]/70"></div>
+          <div className="absolute inset-0 bg-brand-dark/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-brand-dark/40"></div>
         </div>
         <div className="relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12">
           <h1 className="text-white font-barlow text-[64px] md:text-[80px] font-bold uppercase tracking-tight leading-[0.95] mb-6">

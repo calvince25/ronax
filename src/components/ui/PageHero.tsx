@@ -23,15 +23,15 @@ const PageHero: React.FC<PageHeroProps> = ({
   children
 }) => {
   return (
-    <div className={`relative w-full ${height} min-h-[400px] bg-brand-dark flex items-center`}>
+    <div className={`relative w-full ${height} min-h-[400px] bg-brand-black flex items-center`}>
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <ImageWithFallback
           src={imageSrc}
           alt={title}
-          className="w-full h-full object-cover opacity-60 mix-blend-overlay"
+          className="w-full h-full object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-brand-dark" style={{ opacity: overlayOpacity }}></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-transparent to-brand-dark/20"></div>
+        <div className="absolute inset-0 bg-brand-dark/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-brand-dark/40"></div>
       </div>
       
       <div className={`relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12 ${textAlign === 'center' ? 'text-center' : 'text-left'}`}>
