@@ -1,13 +1,23 @@
+'use client';
+
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { Check, Clock, Users, MapPin, Calendar } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
-export const revalidate = 60;
+export default function PrivateLessons() {
+  const { openBookingModal } = useBooking();
+  const [program, setProgram] = React.useState<any>(null);
 
-export default async function PrivateLessons() {
-  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'private-lessons').single();
+  React.useEffect(() => {
+    const fetchProgram = async () => {
+      const { data } = await supabase.from('programs').select('*').eq('slug', 'private-lessons').single();
+      if (data) setProgram(data);
+    };
+    fetchProgram();
+  }, []);
 
   const title = program?.title || "Private 1-on-1 Tennis Lessons";
   const subtitle = program?.subtitle || "Personalized Performance";
@@ -91,9 +101,12 @@ export default async function PrivateLessons() {
                         ))}
                     </div>
                     <div className="mt-12 flex flex-col sm:flex-row gap-6">
-                        <Link href="/contact" className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-8 py-4 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 text-center">
-                            Book Session Now
-                        </Link>
+                        <button 
+                          onClick={() => openBookingModal('Private Lessons')}
+                          className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-8 py-4 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 text-center cursor-pointer"
+                        >
+                            Book Now
+                        </button>
                         <Link href="/pricing" className="bg-transparent hover:bg-white/5 border border-white/20 text-white font-bold text-[11px] tracking-[0.2em] px-8 py-4 rounded-full uppercase transition-all text-center">
                             Full Pricing List
                         </Link>
@@ -146,9 +159,12 @@ export default async function PrivateLessons() {
                       <p className="font-dm text-sm font-medium mb-6 leading-relaxed">
                           New students can book a 60-minute technical assessment for a special rate of Ksh 1,500.
                       </p>
-                      <Link href="/contact" className="inline-block bg-brand-dark text-white font-bold text-[10px] tracking-[0.2em] px-6 py-3 rounded-full uppercase hover:bg-black transition-colors">
-                          Claim Assessment
-                      </Link>
+                      <button 
+                        onClick={() => openBookingModal('Private Lessons')}
+                        className="inline-block bg-brand-dark text-white font-bold text-[10px] tracking-[0.2em] px-6 py-3 rounded-full uppercase hover:bg-black transition-colors cursor-pointer"
+                      >
+                          Book Now
+                      </button>
                   </div>
               </div>
             </aside>

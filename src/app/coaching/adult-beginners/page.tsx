@@ -1,13 +1,23 @@
+'use client';
+
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { Check, Target, Zap, Clock, HelpCircle } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
-export const revalidate = 60;
+export default function AdultBeginners() {
+  const { openBookingModal } = useBooking();
+  const [program, setProgram] = React.useState<any>(null);
 
-export default async function AdultBeginners() {
-  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'adult-beginners').single();
+  React.useEffect(() => {
+    const fetchProgram = async () => {
+      const { data } = await supabase.from('programs').select('*').eq('slug', 'adult-beginners').single();
+      if (data) setProgram(data);
+    };
+    fetchProgram();
+  }, []);
 
   const title = program?.title || "Adult Beginners";
   const subtitle = program?.subtitle || "Start Your Tennis Journey Today";
@@ -79,9 +89,12 @@ export default async function AdultBeginners() {
                          Book a special 1-hour assessment for beginners at only Ksh 1,500. We'll help you find your rhythm.
                       </p>
                    </div>
-                   <Link href="/contact" className="bg-brand-dark hover:bg-black text-white font-bold text-[11px] tracking-[0.2em] px-10 py-5 rounded-full uppercase transition-all shadow-xl shrink-0">
-                      Book Assessment
-                   </Link>
+                   <button 
+                     onClick={() => openBookingModal('Adult Beginners')}
+                     className="bg-brand-dark hover:bg-black text-white font-bold text-[11px] tracking-[0.2em] px-10 py-5 rounded-full uppercase transition-all shadow-xl shrink-0 cursor-pointer"
+                   >
+                      Book Now
+                   </button>
                 </div>
               </div>
             </div>

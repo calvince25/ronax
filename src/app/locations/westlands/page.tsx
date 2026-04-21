@@ -1,11 +1,16 @@
+'use client';
+
 import React from 'react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Locations.module.css';
 import { MapPin, Clock, Shield, Wifi } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
 const WestlandsLocation = () => {
+  const { openBookingModal } = useBooking();
+
   return (
     <div className={styles.page}>
       <div className="container">
@@ -54,8 +59,13 @@ const WestlandsLocation = () => {
 
             <div className={styles.ctaCard}>
               <h3>Ready to Train in Westlands?</h3>
-              <p>Book your free trial lesson or a private session today.</p>
-              <Link href="/book/trial-lesson" className="btn btn-primary">Book Now</Link>
+              <p>Book your assessment lesson or a private session today.</p>
+              <button 
+                onClick={() => openBookingModal('Westlands')}
+                className="btn btn-primary cursor-pointer"
+              >
+                Book Now
+              </button>
             </div>
           </div>
 
@@ -80,9 +90,13 @@ const WestlandsLocation = () => {
                   loading="lazy"
                 ></iframe>
               </div>
-              <Link href="/book/trial-lesson" className="btn btn-primary" style={{ width: '100%', marginTop: '20px' }}>
+              <button 
+                onClick={() => openBookingModal('Westlands')}
+                className="btn btn-primary cursor-pointer" 
+                style={{ width: '100%', marginTop: '20px' }}
+              >
                 Book at Westlands
-              </Link>
+              </button>
             </div>
           </aside>
         </div>

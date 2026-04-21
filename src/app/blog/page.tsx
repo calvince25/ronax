@@ -1,11 +1,6 @@
 'use client';
 
-import React from 'react';
-import SectionHeading from '@/components/ui/SectionHeading';
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from './Blog.module.css';
-import { supabase } from '@/lib/supabase';
+import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 
 const BlogPage = () => {
   const [posts, setPosts] = React.useState<any[]>([]);
@@ -40,7 +35,11 @@ const BlogPage = () => {
         
         <div className={styles.featured}>
           <div className={styles.featuredImage}>
-            <Image src="/images/hero.png" alt="Featured Post" fill className={styles.image} />
+            <ImageWithFallback 
+              src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=2000" 
+              alt="Featured Post" 
+              className="w-full h-full object-cover" 
+            />
           </div>
           <div className={styles.featuredContent}>
             <span className={styles.category}>Nairobi Tennis</span>
@@ -54,7 +53,11 @@ const BlogPage = () => {
           {posts.map((post, i) => (
             <div key={i} className={styles.card}>
               <div className={styles.cardImage}>
-                <Image src={post.image_url || '/images/hero.png'} alt={post.title} fill className={styles.image} />
+                <ImageWithFallback 
+                  src={post.image_url || 'https://images.unsplash.com/photo-1627341398579-2d128de1dc8c?q=80&w=1080'} 
+                  alt={post.title} 
+                  className="w-full h-full object-cover" 
+                />
               </div>
               <div className={styles.cardBody}>
                 <span className={styles.cardCategory}>{post.category}</span>
@@ -71,6 +74,6 @@ const BlogPage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default BlogPage;

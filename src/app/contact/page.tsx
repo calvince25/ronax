@@ -1,15 +1,20 @@
+'use client';
+
 import React from 'react';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
+import { useBooking } from '@/context/BookingContext';
 
 export default function Contact() {
+  const { openBookingModal } = useBooking();
+
   return (
     <>
       <PageHero 
         title="Get In Touch"
         subtitle="Contact Us"
         description="Ready to hit the court? Have questions about our coaching programs or locations? Send us a message or contact us directly."
-        imageSrc="https://images.unsplash.com/photo-1627341398579-2d128de1dc8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwYXQlMjBuZXR8ZW58MXx8fHwxNzc2NzU1NzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        imageSrc="https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?q=80&w=2000"
       />
 
       <div className="py-24 pb-40 px-8 md:px-12 bg-brand-white">
@@ -35,7 +40,7 @@ export default function Contact() {
                   <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Subject</label>
                   <select className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors appearance-none">
                     <option>General Inquiry</option>
-                    <option>Free Trial Lesson</option>
+                    <option>Trial Session</option>
                     <option>Private Coaching</option>
                     <option>Junior Programs</option>
                   </select>
@@ -87,14 +92,17 @@ export default function Contact() {
 
                <div className="bg-brand-dark text-white p-12 rounded-sm relative overflow-hidden">
                   <div className="relative z-10">
-                    <h3 className="font-barlow text-3xl font-bold uppercase mb-4 tracking-wide">Direct Booking</h3>
+                    <h3 className="font-barlow text-3xl font-bold uppercase mb-4 tracking-wide text-brand-green">Direct Booking</h3>
                     <p className="font-dm text-white/70 text-sm font-light mb-8 max-w-[320px]">
-                      The fastest way to secure a slot is through WhatsApp. Just mention your preferred location and skill level.
+                      The fastest way to secure a slot is through our automated booking system.
                     </p>
-                    <a href="https://wa.me/254799756831?text=Hi%20Coach%20Ronax%2C%20I'd%20like%20to%20book%20a%20tennis%20session." className="inline-flex items-center gap-3 bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.15em] px-8 py-4 rounded-full uppercase transition-all shadow-lg hover:-translate-y-1">
+                    <button 
+                      onClick={() => openBookingModal()}
+                      className="inline-flex items-center gap-3 bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.15em] px-8 py-4 rounded-full uppercase transition-all shadow-lg hover:-translate-y-1 cursor-pointer"
+                    >
                       <MessageCircle size={18} />
-                      <span>Chat On WhatsApp</span>
-                    </a>
+                      <span>Book Now</span>
+                    </button>
                   </div>
                   <div className="absolute bottom-[-20%] right-[-10%] opacity-10 rotate-[-15deg]">
                     <Phone size={250} />

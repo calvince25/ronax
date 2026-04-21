@@ -113,7 +113,7 @@ const BookingsManager = () => {
                     </td>
                     <td>
                       <div className={styles.sessionCard}>
-                        <span className={styles.level}>{booking.level}</span>
+                        <span className={styles.level}>{booking.program}</span>
                         <span className={styles.location}>{booking.location}</span>
                         <span className={styles.date}>{new Date(booking.created_at).toLocaleDateString()}</span>
                       </div>

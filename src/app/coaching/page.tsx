@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
+import { useBooking } from '@/context/BookingContext';
 
 export default function CoachingHub() {
+  const { openBookingModal } = useBooking();
   const categories = [
     {
       title: 'Private Lessons',
@@ -89,9 +93,12 @@ export default function CoachingHub() {
           <p className="text-white/70 font-dm text-lg mb-12 font-light">
             Book a complimentary 20-minute assessment with Coach Ronax to evaluate your skill level.
           </p>
-          <Link href="/contact" className="inline-block bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[12px] tracking-[0.15em] px-10 py-5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20">
-            Schedule Assessment
-          </Link>
+          <button 
+            onClick={() => openBookingModal()}
+            className="inline-block bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[12px] tracking-[0.15em] px-10 py-5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 cursor-pointer"
+          >
+            Book Now
+          </button>
         </div>
       </section>
     </>

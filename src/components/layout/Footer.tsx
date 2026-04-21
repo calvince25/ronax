@@ -42,6 +42,8 @@ const Footer = () => {
           <h4 className="font-barlow text-lg font-bold uppercase tracking-[0.1em] mb-8 text-white">Quick Links</h4>
           <ul className="space-y-4 text-gray-400 text-[13px] font-light uppercase tracking-wider">
             <li><Link href="/about/coach-ronax" className="hover:text-brand-green transition-colors">About Coach Ronax</Link></li>
+            <li><Link href="/gallery" className="hover:text-brand-green transition-colors">Gallery</Link></li>
+            <li><Link href="/blog" className="hover:text-brand-green transition-colors">Latest Blogs</Link></li>
             <li><Link href="/locations" className="hover:text-brand-green transition-colors">Our Locations</Link></li>
             <li><Link href="/pricing" className="hover:text-brand-green transition-colors">Pricing & Plans</Link></li>
             <li><Link href="/contact" className="hover:text-brand-green transition-colors">Contact Us</Link></li>

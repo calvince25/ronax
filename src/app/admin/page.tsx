@@ -108,7 +108,7 @@ const Dashboard = () => {
               <tr>
                 <th>Customer</th>
                 <th>Location</th>
-                <th>Level</th>
+                <th>Program</th>
                 <th>Date</th>
                 <th>Status</th>
               </tr>
@@ -123,7 +123,7 @@ const Dashboard = () => {
                     </div>
                   </td>
                   <td>{booking.location}</td>
-                  <td>{booking.level}</td>
+                  <td>{booking.program}</td>
                   <td>{new Date(booking.created_at).toLocaleDateString()}</td>
                   <td>
                     <span className={`${styles.statusBadge} ${styles[booking.status]}`}>

@@ -1,22 +1,30 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import PageHero from '@/components/ui/PageHero';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
+import { useBooking } from '@/context/BookingContext';
 
 export default function Home() {
+  const { openBookingModal } = useBooking();
+
   return (
     <>
       <PageHero 
         title="Revolutionary Tennis Coaching"
         subtitle="Nairobi's #1 Tennis Hub"
-        description="Train with Ronax, Nairobi's top tennis coach. Private lessons, junior programs & group classes. Book your free trial lesson today."
+        description="Train with Ronax, Nairobi's top tennis coach. Private lessons, junior programs & group classes. Book your session today."
         imageSrc="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
         height="h-screen"
         textAlign="left"
       >
-        <Link href="/contact" className="inline-block bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[12px] tracking-[0.15em] px-10 py-4 rounded-full uppercase transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-brand-green/20">
-          Book Free Trial Lesson
-        </Link>
+        <button 
+          onClick={() => openBookingModal()}
+          className="inline-block bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[12px] tracking-[0.15em] px-10 py-4 rounded-full uppercase transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-brand-green/20 cursor-pointer"
+        >
+          Book Now
+        </button>
       </PageHero>
 
       <section className="bg-brand-white pt-40 pb-32 px-8 md:px-12 relative z-20 overflow-visible">

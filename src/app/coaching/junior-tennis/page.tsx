@@ -1,13 +1,23 @@
+'use client';
+
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { Check, Trophy, Smile, Shield, Star } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
-export const revalidate = 60;
+export default function JuniorTennis() {
+  const { openBookingModal } = useBooking();
+  const [program, setProgram] = React.useState<any>(null);
 
-export default async function JuniorTennis() {
-  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'junior-tennis').single();
+  React.useEffect(() => {
+    const fetchProgram = async () => {
+      const { data } = await supabase.from('programs').select('*').eq('slug', 'junior-tennis').single();
+      if (data) setProgram(data);
+    };
+    fetchProgram();
+  }, []);
 
   const title = program?.title || "Junior Tennis Programs";
   const subtitle = program?.subtitle || "Building the Next Generation";
@@ -90,9 +100,12 @@ export default async function JuniorTennis() {
                         ))}
                     </div>
                     <div className="mt-12">
-                        <Link href="/contact" className="inline-block bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-10 py-4 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20">
-                            Register Your Child
-                        </Link>
+                        <button 
+                          onClick={() => openBookingModal('Junior Program')}
+                          className="inline-block bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-10 py-4 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 cursor-pointer"
+                        >
+                            Book Now
+                        </button>
                     </div>
                 </div>
                 <div className="absolute right-[-5%] bottom-[-20%] opacity-[0.03] rotate-[-15deg]">
@@ -131,13 +144,16 @@ export default async function JuniorTennis() {
                   </div>
 
                   <div className="bg-brand-green p-8 rounded-sm text-brand-dark">
-                      <h4 className="font-barlow text-xl font-bold uppercase tracking-wider mb-4 text-white">Free Trial?</h4>
+                      <h4 className="font-barlow text-xl font-bold uppercase tracking-wider mb-4 text-white">Join A Session</h4>
                       <p className="font-dm text-sm font-medium mb-6 leading-relaxed">
-                          New juniors can join their first group session for free to find the right level.
+                          New juniors can book an assessment session to find the right level for their development.
                       </p>
-                      <Link href="/contact" className="inline-block bg-brand-dark text-white font-bold text-[10px] tracking-[0.2em] px-6 py-3 rounded-full uppercase hover:bg-black transition-colors">
-                          Book Free Trial
-                      </Link>
+                      <button 
+                        onClick={() => openBookingModal('Junior Program')}
+                        className="inline-block bg-brand-dark text-white font-bold text-[10px] tracking-[0.2em] px-6 py-3 rounded-full uppercase hover:bg-black transition-colors cursor-pointer"
+                      >
+                          Book Now
+                      </button>
                   </div>
               </div>
             </aside>

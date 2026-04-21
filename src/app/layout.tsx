@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "Revolutionary Tennis | Coach Ronax – Tennis Coaching in Nairobi",
     template: "%s | Revolutionary Tennis"
   },
-  description: "Train with Ronax, Nairobi's top tennis coach. Private lessons, junior programs & group classes. Book your free trial lesson today. Revolutionary Tennis.",
+  description: "Train with Ronax, Nairobi's top tennis coach. Private lessons, junior programs & group classes. Book your session today. Revolutionary Tennis.",
   keywords: ["tennis coach Nairobi", "tennis lessons Nairobi", "learn tennis Kenya", "tennis coaching Kenya"],
   openGraph: {
     title: "Revolutionary Tennis | Coach Ronax",
@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   },
 };
 
+import { BookingProvider } from "@/context/BookingContext";
+import BookingModal from "@/components/booking/BookingModal";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,10 +31,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased overflow-x-hidden">
-        <NavbarWrapper />
-        <main>{children}</main>
-        <FooterWrapper />
-        <WhatsappWrapper />
+        <BookingProvider>
+          <NavbarWrapper />
+          <main>{children}</main>
+          <FooterWrapper />
+          <WhatsappWrapper />
+          <BookingModal />
+        </BookingProvider>
       </body>
     </html>
   );

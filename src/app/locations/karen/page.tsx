@@ -1,11 +1,16 @@
+'use client';
+
 import React from 'react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Locations.module.css';
 import { MapPin, Clock, Trees, Shield } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
 const KarenLocation = () => {
+  const { openBookingModal } = useBooking();
+
   return (
     <div className={styles.page}>
       <div className="container">
@@ -44,8 +49,13 @@ const KarenLocation = () => {
 
             <div className={styles.ctaCard}>
               <h3>Ready to Train in Karen?</h3>
-              <p>Book a private session or an initial assessment at our Karen hub.</p>
-              <Link href="/book/trial-lesson" className="btn btn-primary">Book Now</Link>
+              <p>Book a private session or an assessment at our Karen hub.</p>
+              <button 
+                onClick={() => openBookingModal('Karen')}
+                className="btn btn-primary cursor-pointer"
+              >
+                Book Now
+              </button>
             </div>
           </div>
 

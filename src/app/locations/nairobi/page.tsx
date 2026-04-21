@@ -1,11 +1,16 @@
+'use client';
+
 import React from 'react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Locations.module.css';
-import { MapPin, Clock, Buildings } from 'lucide-react';
+import { MapPin, Clock } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
 const NairobiLocation = () => {
+  const { openBookingModal } = useBooking();
+
   return (
     <div className={styles.page}>
       <div className="container">
@@ -41,7 +46,12 @@ const NairobiLocation = () => {
             <div className={styles.ctaCard}>
               <h3>Book Your City Session</h3>
               <p>Get a workout in before the work day starts. Check availability for our Upper Hill courts.</p>
-              <Link href="/book/trial-lesson" className="btn btn-primary">Book Now</Link>
+              <button 
+                onClick={() => openBookingModal('Nairobi CBD')}
+                className="btn btn-primary cursor-pointer"
+              >
+                Book Now
+              </button>
             </div>
           </div>
 

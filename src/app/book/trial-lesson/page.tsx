@@ -77,7 +77,7 @@ const TrialLessonBooking = () => {
     <div className={styles.page}>
       <div className="container">
         <SectionHeading 
-          title="Book Your Free Trial Lesson" 
+          title="Book Your Session" 
           subtitle="Start Your Journey" 
         />
         
@@ -85,13 +85,13 @@ const TrialLessonBooking = () => {
           <div className={styles.formInfo}>
             <h3>What to Expect?</h3>
             <ul>
-              <li>60-minute intensive assessment</li>
+              <li>60-minute technical assessment</li>
               <li>Equipment provided if needed</li>
               <li>Personalized development plan</li>
-              <li>No commitment required</li>
+              <li>Transparent coaching rates</li>
             </ul>
             <div className={styles.guarantee}>
-              <p>Join 200+ students who started their journey with a free trial.</p>
+              <p>Join 200+ students who have elevated their game with Revolutionary Tennis.</p>
             </div>
           </div>
 

@@ -1,13 +1,23 @@
+'use client';
+
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { Check, ShieldCheck, Trophy, Target, PlayCircle } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
-export const revalidate = 60;
+export default function AdvancedTraining() {
+  const { openBookingModal } = useBooking();
+  const [program, setProgram] = React.useState<any>(null);
 
-export default async function AdvancedTraining() {
-  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'advanced-training').single();
+  React.useEffect(() => {
+    const fetchProgram = async () => {
+      const { data } = await supabase.from('programs').select('*').eq('slug', 'advanced-training').single();
+      if (data) setProgram(data);
+    };
+    fetchProgram();
+  }, []);
 
   const title = program?.title || "Advanced & Competitive";
   const subtitle = program?.subtitle || "Precision. Power. Performance.";
@@ -79,9 +89,12 @@ export default async function AdvancedTraining() {
                          Intensive squads specifically for players entering local KTF tournaments or seeking college recruitment.
                       </p>
                    </div>
-                   <Link href="/contact" className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-10 py-5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 shrink-0">
-                      Book Assessment
-                   </Link>
+                   <button 
+                     onClick={() => openBookingModal('Advanced Training')}
+                     className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-10 py-5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 shrink-0 cursor-pointer"
+                   >
+                      Book Now
+                   </button>
                 </div>
               </div>
             </div>

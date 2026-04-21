@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import { Check, Star, Zap, ShieldCheck } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 import PageHero from '@/components/ui/PageHero';
 
 const getIcon = (iconName: string) => {
@@ -17,6 +18,7 @@ const getIcon = (iconName: string) => {
 };
 
 export default function Pricing() {
+  const { openBookingModal } = useBooking();
   const [plans, setPlans] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -85,9 +87,12 @@ export default function Pricing() {
                   </div>
                   
                   <div className="p-8 pt-0 bg-white">
-                    <Link href="/contact" className={`block text-center ${plan.popular ? 'bg-brand-dark text-white hover:bg-black font-bold' : 'bg-brand-dark text-white hover:bg-black'} text-[11px] tracking-[0.15em] px-8 py-4 rounded-full uppercase transition-all shadow-lg hover:shadow-xl w-full`}>
-                      {plan.popular ? 'Book Preferred' : 'Book Session'}
-                    </Link>
+                    <button 
+                      onClick={() => openBookingModal(plan.name)}
+                      className={`block text-center ${plan.popular ? 'bg-brand-dark text-white hover:bg-black font-bold' : 'bg-brand-dark text-white hover:bg-black'} text-[11px] tracking-[0.15em] px-8 py-4 rounded-full uppercase transition-all shadow-lg hover:shadow-xl w-full cursor-pointer`}
+                    >
+                      Book Now
+                    </button>
                   </div>
                 </div>
               ))}

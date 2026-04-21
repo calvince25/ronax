@@ -11,6 +11,7 @@ export default function AdminGallery() {
   const [uploading, setUploading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [altText, setAltText] = useState('');
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     fetchGallery();
@@ -21,7 +22,6 @@ export default function AdminGallery() {
     const { data, error } = await supabase
       .from('gallery')
       .select('*')
-      .order('display_order', { ascending: true })
       .order('created_at', { ascending: false });
 
     if (data) setImages(data);
@@ -58,7 +58,8 @@ export default function AdminGallery() {
       .from('gallery')
       .insert({
         image_url: publicUrlData.publicUrl,
-        alt_text: altText || 'Gallery Image'
+        alt_text: altText || 'Gallery Image',
+        description: description
       });
 
     if (dbError) {
@@ -66,6 +67,7 @@ export default function AdminGallery() {
     } else {
       setFile(null);
       setAltText('');
+      setDescription('');
       fetchGallery();
     }
     
@@ -105,23 +107,34 @@ export default function AdminGallery() {
       <div className={styles.uploadSection}>
         <h3>Add New Image</h3>
         <form onSubmit={handleUpload} className={styles.uploadForm}>
-          <div className={styles.inputGroup}>
-            <label>Select Image File</label>
-            <input 
-              type="file" 
-              accept="image/*" 
-              onChange={e => setFile(e.target.files?.[0] || null)} 
-              required
-            />
+          <div className={styles.inputGrid}>
+            <div className={styles.inputGroup}>
+              <label>Select Image File</label>
+              <input 
+                type="file" 
+                accept="image/*" 
+                onChange={e => setFile(e.target.files?.[0] || null)} 
+                required
+              />
+            </div>
+            <div className={styles.inputGroup}>
+              <label>Alt Text (SEO)</label>
+              <input 
+                type="text" 
+                value={altText} 
+                onChange={e => setAltText(e.target.value)} 
+                placeholder="e.g. Coach Ronax teaching"
+                required
+              />
+            </div>
           </div>
           <div className={styles.inputGroup}>
-            <label>Image Description (Alt Text for SEO)</label>
-            <input 
-              type="text" 
-              value={altText} 
-              onChange={e => setAltText(e.target.value)} 
-              placeholder="e.g. Coach Ronax teaching an advanced forehand"
-              required
+            <label>Event Description</label>
+            <textarea 
+              value={description} 
+              onChange={e => setDescription(e.target.value)} 
+              placeholder="Tell us about this event or photo..."
+              rows={3}
             />
           </div>
           <button type="submit" disabled={!file || uploading} className={styles.uploadBtn}>

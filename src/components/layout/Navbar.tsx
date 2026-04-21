@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
+import { useBooking } from '@/context/BookingContext';
+
 const RacketIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-current">
     <ellipse cx="8" cy="8" rx="5" ry="7" transform="rotate(-45 8 8)" />
@@ -17,6 +19,7 @@ const RacketIcon = () => (
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { openBookingModal } = useBooking();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -34,6 +37,8 @@ const Navbar = () => {
     { name: 'ABOUT', path: '/about/coach-ronax' },
     { name: 'COACHING', path: '/coaching' },
     { name: 'LOCATIONS', path: '/locations' },
+    { name: 'GALLERY', path: '/gallery' },
+    { name: 'BLOG', path: '/blog' },
     { name: 'PRICING', path: '/pricing' },
     { name: 'CONTACT', path: '/contact' },
   ];
@@ -44,7 +49,7 @@ const Navbar = () => {
         isScrolled ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg py-4' : 'bg-transparent'
       }`}
     >
-      <Link href="/" className="flex items-center gap-3 text-white group">
+      <Link href="/" className="flex items-center gap-3 text-white group" onClick={() => setMobileMenuOpen(false)}>
         <RacketIcon />
         <span className="font-dm font-normal tracking-[0.2em] text-sm uppercase mt-0.5 group-hover:text-brand-green transition-colors">Revolutionary</span>
       </Link>
@@ -62,12 +67,12 @@ const Navbar = () => {
             {item.name}
           </Link>
         ))}
-        <Link 
-          href="/contact" 
-          className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[10px] tracking-[0.15em] px-6 py-2.5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 hover:-translate-y-0.5"
+        <button 
+          onClick={() => openBookingModal()}
+          className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[10px] tracking-[0.15em] px-6 py-2.5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 hover:-translate-y-0.5 cursor-pointer"
         >
-          Book Free Trial
-        </Link>
+          Book Now
+        </button>
       </div>
 
       {/* Mobile Toggle */}
@@ -88,28 +93,35 @@ const Navbar = () => {
             <X size={32} />
           </button>
           
-          {navLinks.map((item) => (
-            <Link 
-              key={item.name} 
-              href={item.path} 
-              className={`text-2xl tracking-[0.2em] transition-colors uppercase font-bold ${
-                pathname === item.path ? 'text-brand-green' : 'text-white hover:text-brand-green'
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
+          <div className="flex flex-col items-center gap-6 overflow-y-auto max-h-[70vh] py-4">
+            {navLinks.map((item) => (
+              <Link 
+                key={item.name} 
+                href={item.path} 
+                className={`text-2xl tracking-[0.2em] transition-colors uppercase font-bold ${
+                  pathname === item.path ? 'text-brand-green' : 'text-white hover:text-brand-green'
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
           
-          <Link 
-            href="/contact" 
-            className="bg-brand-green text-white font-bold text-[14px] tracking-[0.15em] px-10 py-4 rounded-full uppercase mt-4"
-            onClick={() => setMobileMenuOpen(false)}
+          <button 
+            onClick={() => {
+              setMobileMenuOpen(false);
+              openBookingModal();
+            }}
+            className="bg-brand-green text-white font-bold text-[14px] tracking-[0.15em] px-10 py-4 rounded-full uppercase mt-4 cursor-pointer"
           >
-            Book Free Trial
-          </Link>
+            Book Now
+          </button>
         </div>
       )}
+    </nav>
+  );
+}
     </nav>
   );
 };

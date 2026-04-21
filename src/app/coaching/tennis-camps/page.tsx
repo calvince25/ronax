@@ -1,13 +1,23 @@
+'use client';
+
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { Check, Sun, Users, Flame, Calendar, MapPin } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
-export const revalidate = 60;
+export default function TennisCamps() {
+  const { openBookingModal } = useBooking();
+  const [program, setProgram] = React.useState<any>(null);
 
-export default async function TennisCamps() {
-  const { data: program } = await supabase.from('programs').select('*').eq('slug', 'tennis-camps').single();
+  React.useEffect(() => {
+    const fetchProgram = async () => {
+      const { data } = await supabase.from('programs').select('*').eq('slug', 'tennis-camps').single();
+      if (data) setProgram(data);
+    };
+    fetchProgram();
+  }, []);
 
   const title = program?.title || "Holiday Tennis Camps";
   const subtitle = program?.subtitle || "Intensive Training. Lasting Friendships.";
@@ -79,9 +89,12 @@ export default async function TennisCamps() {
                          Our camps fill up quickly! Secure your child's spot for the upcoming school holidays to avoid disappointment.
                       </p>
                    </div>
-                   <Link href="/contact" className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-10 py-5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 shrink-0">
-                      Inquire About Dates
-                   </Link>
+                   <button 
+                     onClick={() => openBookingModal('Tennis Camps')}
+                     className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-10 py-5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 shrink-0 cursor-pointer"
+                   >
+                      Book Now
+                   </button>
                 </div>
               </div>
             </div>
