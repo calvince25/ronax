@@ -1,5 +1,10 @@
 'use client';
 
+import React from 'react';
+import SectionHeading from '@/components/ui/SectionHeading';
+import Link from 'next/link';
+import styles from './Blog.module.css';
+import { supabase } from '@/lib/supabase';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 
 const BlogPage = () => {
