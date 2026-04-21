@@ -1,71 +1,130 @@
 import React from 'react';
-import SectionHeading from '@/components/ui/SectionHeading';
-import Link from 'next/link';
-import styles from './Locations.module.css';
-import { MapPin, ArrowRight, ExternalLink } from 'lucide-react';
+import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
+import { MapPin, Clock, Calendar } from 'lucide-react';
 
-const locations = [
-  {
-    name: 'Westlands',
-    address: 'Westlands, Nairobi, Kenya',
-    description: 'Our primary hub featuring high-quality hard courts and excellent facilities.',
-    link: '/locations/westlands',
-    mapUrl: 'https://maps.google.com/?q=Westlands+Tennis+Courts'
-  },
-  {
-    name: 'Karen',
-    address: 'Karen, Nairobi, Kenya',
-    description: 'Private and serene courts perfect for focused 1-on-1 training and junior clinics.',
-    link: '/locations/karen',
-    mapUrl: 'https://maps.google.com/?q=Karen+Tennis+Courts'
-  },
-  {
-    name: 'Nairobi CBD / Upper Hill',
-    address: 'Nairobi, Kenya',
-    description: 'Centrally located courts easily accessible for office hours and weekend sessions.',
-    link: '/locations/nairobi',
-    mapUrl: 'https://maps.google.com/?q=Nairobi+Upper+Hill+Tennis'
-  }
-];
+export default function Locations() {
+  const venues = [
+    {
+      name: 'Westlands Hub',
+      address: 'Riverside Drive, Westlands, Nairobi',
+      description: 'Our primary coaching hub featuring three pristine hard courts with floodlights for evening sessions.',
+      image: 'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb3VydHxlbnwxfHx8fDE3NzY3NTU3OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      hours: 'Mon - Sun: 6:00 AM - 9:00 PM'
+    },
+    {
+      name: 'Karen Excellence Center',
+      address: 'Karen Road, Karen, Nairobi',
+      description: 'A tranquil environment with two clay courts and a premium clubhouse, perfect for weekend family sessions.',
+      image: 'https://images.unsplash.com/photo-1773081364166-74db8910af47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBmYWNpbGl0eXxlbnwxfHx8fDE3NzY3NTU3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      hours: 'Tue - Sun: 7:00 AM - 7:00 PM'
+    },
+    {
+      name: 'Nairobi Club Circuit',
+      address: 'Upper Hill Area, Nairobi',
+      description: 'Used primarily for tournament play and advanced match simulation on international-standard surfaces.',
+      image: 'https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      hours: 'By Appointment Only'
+    }
+  ];
 
-const LocationsHub = () => {
   return (
-    <div className={styles.page}>
-      <div className="container">
-        <SectionHeading 
-          title="Where to Find Us in Nairobi" 
-          subtitle="Our Training Locations" 
-        />
-        
-        <div className={styles.grid}>
-          {locations.map((loc, i) => (
-            <div key={i} className={styles.card}>
-              <div className={styles.content}>
-                <div className={styles.iconBox}><MapPin size={24} /></div>
-                <h3 className={styles.title}>{loc.name}</h3>
-                <p className={styles.address}>{loc.address}</p>
-                <p className={styles.description}>{loc.description}</p>
-                <div className={styles.actions}>
-                  <Link href={loc.link} className={styles.link}>
-                    View Court Details <ArrowRight size={18} />
-                  </Link>
-                  <a href={loc.mapUrl} target="_blank" rel="noopener noreferrer" className={styles.mapLink}>
-                    Google Maps <ExternalLink size={16} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+    <>
+      <div className="relative w-full h-[50vh] min-h-[400px] bg-brand-dark flex items-center">
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1660463529569-17f8c4d16fbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb2FjaCUyMGNsYXklMjBjb3VydHxlbnwxfHx8fDE3NzY3NTU4NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            alt="Tennis courts canopy"
+            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+          />
+          <div className="absolute inset-0 bg-[#1A2E1A]/70"></div>
         </div>
-
-        <div className={styles.infoBox}>
-          <h3>Want Coach Ronax at Your Court?</h3>
-          <p>We also offer mobile coaching services at private residences and community courts across Nairobi. Contact us for details.</p>
-          <Link href="/contact" className="btn btn-outline">Inquire About Home Sessions</Link>
+        <div className="relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12 text-center">
+          <h1 className="text-white font-barlow text-[64px] md:text-[80px] font-bold uppercase tracking-tight leading-[0.95] mb-6">
+            Our Training <br />
+            <span className="text-brand-green">Locations In Nairobi</span>
+          </h1>
+          <div className="w-12 h-1 bg-brand-green mb-8 mx-auto"></div>
+          <p className="text-white/80 font-dm text-[16px] max-w-2xl font-light leading-relaxed mx-auto">
+            Experience world-class coaching in the most convenient and beautiful venues across the city.
+          </p>
         </div>
       </div>
-    </div>
-  );
-};
 
-export default LocationsHub;
+      <div className="py-32 px-8 md:px-12 bg-brand-white">
+        <div className="max-w-[1440px] mx-auto w-full">
+          <div className="space-y-32">
+            {venues.map((venue, index) => (
+              <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-16 md:gap-24`}>
+                <div className="w-full md:w-1/2">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-sm group">
+                        <ImageWithFallback
+                          src={venue.image}
+                          alt={venue.name}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute top-6 left-6 bg-brand-green text-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
+                           PREMIUM VENUE
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="w-full md:w-1/2">
+                    <div className="flex items-center gap-2 text-brand-green mb-6 font-dm font-bold text-[11px] tracking-[0.2em] uppercase">
+                        <MapPin size={16} />
+                        <span>Nairobi, KE</span>
+                    </div>
+                    <h2 className="font-barlow text-[48px] leading-[1.1] font-bold text-brand-black mb-8 uppercase tracking-normal">
+                       {venue.name}
+                    </h2>
+                    <p className="font-dm text-brand-black text-[15px] leading-[1.7] mb-8 font-medium">
+                       {venue.address}
+                    </p>
+                    <p className="font-dm text-gray-500 text-[14px] leading-[1.8] mb-12 font-light">
+                       {venue.description}
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row gap-8 py-8 border-t border-gray-100">
+                        <div className="flex items-center gap-4">
+                           <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-brand-green">
+                              <Clock size={18} />
+                           </div>
+                           <div className="flex flex-col">
+                              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Opening Hours</span>
+                              <span className="text-[13px] font-medium text-brand-black">{venue.hours}</span>
+                           </div>
+                        </div>
+                        <div className="flex items-center gap-4">
+                           <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-brand-green">
+                              <Calendar size={18} />
+                           </div>
+                           <div className="flex flex-col">
+                              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Availability</span>
+                              <span className="text-[13px] font-medium text-brand-black">Year-Round</span>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <section className="bg-brand-dark py-32 px-8 md:px-12">
+          <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-12 bg-brand-green p-12 md:p-20 rounded-sm">
+             <div className="max-w-xl">
+                <h2 className="text-white font-barlow text-[42px] md:text-[52px] font-bold uppercase leading-[1.05] mb-6">
+                   Can't find a <span className="text-brand-dark">location near you?</span>
+                </h2>
+                <p className="text-white/90 font-dm text-lg font-light">
+                   We also offer home coaching at private residential courts. Inquire about availability in your area.
+                </p>
+             </div>
+             <a href="https://wa.me/254799756831?text=Hi%20Coach%20Ronax%2C%20do%20you%20offer%20home%20coaching%3F" target="_blank" rel="noopener noreferrer" className="bg-brand-dark hover:bg-black text-white font-bold text-[12px] tracking-[0.15em] px-12 py-5 rounded-full uppercase transition-all shadow-2xl shrink-0">
+                Inquire Now
+             </a>
+          </div>
+      </section>
+    </>
+  );
+}

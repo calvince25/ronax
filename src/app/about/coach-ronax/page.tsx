@@ -1,90 +1,104 @@
 import React from 'react';
-import SectionHeading from '@/components/ui/SectionHeading';
+import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
-import Image from 'next/image';
-import styles from './About.module.css';
-import { Trophy, Award, Users, Star, Quote } from 'lucide-react';
 
-const CoachRonax = () => {
+export default function AboutCoach() {
   return (
-    <div className={styles.page}>
-      <div className="container">
-        <SectionHeading 
-          title="Meet Coach Ronax" 
-          subtitle="The Visionary Behind Revolutionary Tennis" 
-        />
-        
-        <div className={styles.heroSection}>
-          <div className={styles.heroImageWrapper}>
-            <Image 
-              src="/images/hero.png" 
-              alt="Coach Ronax in Action" 
-              fill 
-              className={styles.heroImage}
-            />
+    <>
+      <div className="relative w-full h-[60vh] min-h-[500px] bg-brand-dark flex items-center">
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBqdW1waW5nJTIwY2VsZWJyYXRpbmd8ZW58MXx8fHwxNzc2NzU0ODM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            alt="Tennis player celebration"
+            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+          />
+          <div className="absolute inset-0 bg-[#1A2E1A]/70"></div>
+        </div>
+        <div className="relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12">
+          <h1 className="text-white font-barlow text-[64px] md:text-[84px] font-bold uppercase tracking-tight leading-[0.9] mb-6 max-w-4xl">
+            The Passion Behind <br />
+            <span className="text-brand-green">Revolutionary Tennis</span>
+          </h1>
+          <div className="w-12 h-1 bg-brand-green mb-8"></div>
+          <p className="text-white/80 font-dm text-[16px] max-w-xl font-light leading-relaxed">
+            Meet Coach Ronax — teaching technique, discipline, and the love of the game on the most picturesque courts in Nairobi.
+          </p>
+        </div>
+      </div>
+
+      <div className="py-32 px-8 md:px-12 bg-brand-white">
+        <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row items-start gap-16 md:gap-24">
+          <div className="w-full md:w-1/2">
+            <h2 className="font-barlow text-[52px] leading-[1.1] font-bold text-brand-black mb-10 uppercase tracking-normal">
+               About Coach Ronax
+            </h2>
+            <div className="space-y-6 font-dm text-gray-600 text-[16px] leading-[1.8] font-light">
+              <p>
+                As one of Nairobi's most respected tennis professionals, Coach Ronax has spent over 15 years perfecting a coaching methodology that balances rigid technical discipline with the fluid enjoyment of the sport.
+              </p>
+              <p>
+                His journey started with a simple belief: that tennis is more than just a game—it's a vehicle for personal growth, health, and community. Today, he operates at several premium venues across Westlands and Karen, bringing international standards to the local scene.
+              </p>
+              <p className="font-medium text-brand-black">
+                "My mission is to help every student, from a 5-year-old picking up their first racket to a competitive veteran, find their unique technical rhythm."
+              </p>
+            </div>
+            
+            <div className="mt-12 grid grid-cols-2 gap-8">
+                <div>
+                   <h4 className="font-barlow text-brand-green text-xl font-bold uppercase mb-2">Philosophy</h4>
+                   <p className="text-sm text-gray-500 font-light leading-relaxed">Mechanics-first training paired with tactical pattern development.</p>
+                </div>
+                <div>
+                   <h4 className="font-barlow text-brand-green text-xl font-bold uppercase mb-2">Expertise</h4>
+                   <p className="text-sm text-gray-500 font-light leading-relaxed">Junior development, biomechanical correction, and high-performance drills.</p>
+                </div>
+            </div>
           </div>
-          <div className={styles.heroContent}>
-            <h3>A Passion for Modern Tennis</h3>
-            <p className={styles.lead}>
-              With over 8 years of professional coaching experience, Ronax has dedicated his career to bringing world-class training methods to Nairobi's tennis community.
-            </p>
-            <p>
-              Certified by the International Tennis Federation (ITF), Ronax specializes in technical correction, match strategy, and youth development. His "Revolutionary" approach focuses on biomechanical efficiency and mental toughness.
-            </p>
-            <div className={styles.stats}>
-              <div className={styles.statBox}>
-                <span className={styles.statVal}>200+</span>
-                <span className={styles.statLab}>Students Trained</span>
-              </div>
-              <div className={styles.statBox}>
-                <span className={styles.statVal}>8+</span>
-                <span className={styles.statLab}>Years Exp.</span>
-              </div>
-              <div className={styles.statBox}>
-                <span className={styles.statVal}>ITF</span>
-                <span className={styles.statLab}>Certified</span>
-              </div>
+          
+          <div className="w-full md:w-1/2 relative">
+            <div className="aspect-[3/4] overflow-hidden rounded-sm shadow-2xl relative z-10">
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                alt="Coach Ronax on court"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-brand-green flex items-center justify-center p-8 text-white z-20 hidden md:flex">
+                <span className="font-barlow text-[11px] font-bold tracking-[0.2em] leading-tight uppercase">Certified by the Kenya Tennis Federation</span>
             </div>
           </div>
         </div>
-
-        <div className={styles.philosophy}>
-          <div className={styles.quoteBlock}>
-            <Quote size={40} className={styles.quoteIcon} />
-            <blockquote>
-              Tennis is 90% mental and 10% physical. My goal is to build athletes who are not only technically sound but also psychologically resilient. Every student has a unique rhythm, and my job is to find it.
-            </blockquote>
-            <cite>— Coach Ronax</cite>
-          </div>
-        </div>
-
-        <div className={styles.detailsGrid}>
-          <div className={styles.detailCard}>
-            <Trophy size={32} />
-            <h4>Playing Background</h4>
-            <p>Former competitive player with deep insights into tournament pressure and match tactics.</p>
-          </div>
-          <div className={styles.detailCard}>
-            <Award size={32} />
-            <h4>Certifications</h4>
-            <p>ITF Level 1 & 2, Professional Development Credits from world-leading academies.</p>
-          </div>
-          <div className={styles.detailCard}>
-            <Users size={32} />
-            <h4>Coaching Style</h4>
-            <p>Encouraging, disciplined, and strictly evidence-based. No fluff, just results.</p>
-          </div>
-        </div>
-
-        <div className={styles.finalCta}>
-          <h3>Ready to Train with the Best?</h3>
-          <Link href="/book/trial-lesson" className="btn btn-primary btn-large">
-            Book a Session with Ronax
-          </Link>
-        </div>
       </div>
-    </div>
-  );
-};
 
-export default CoachRonax;
+      <section className="bg-brand-white pb-32 px-8 md:px-12">
+          <div className="max-w-[1440px] mx-auto w-full">
+            <div className="w-full mb-16">
+              <h2 className="font-barlow text-[42px] font-bold text-brand-black uppercase mb-4">Our Core Values</h2>
+              <div className="w-12 h-1 bg-brand-green"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+               {[
+                 { title: "EXCELLENCE", text: "We strive for technical perfection in every stroke and tactical precision in every match." },
+                 { title: "INTEGRITY", text: "Sportsmanship and fair play are at the heart of everything we teach on court." },
+                 { title: "COMMUNITY", text: "We believe in building a vibrant, supportive community of tennis lovers across Kenya." }
+               ].map((v, i) => (
+                 <div key={i} className="bg-gray-50 p-10 rounded-sm border border-gray-100 group hover:border-brand-green transition-colors">
+                    <h3 className="font-barlow text-2xl font-bold mb-4 tracking-wider group-hover:text-brand-green transition-colors">{v.title}</h3>
+                    <p className="font-dm text-gray-500 text-sm leading-relaxed font-light">{v.text}</p>
+                 </div>
+               ))}
+            </div>
+          </div>
+      </section>
+
+      <section className="bg-brand-green py-20 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8">
+          <h2 className="text-white font-barlow text-[42px] font-bold uppercase leading-none">Ready to start your journey?</h2>
+          <Link href="/contact" className="bg-brand-dark hover:bg-brand-dark/90 text-white font-bold text-[12px] tracking-[0.15em] px-12 py-5 rounded-full uppercase transition-all shadow-xl">
+             Book Your Trial Session
+          </Link>
+      </section>
+    </>
+  );
+}
