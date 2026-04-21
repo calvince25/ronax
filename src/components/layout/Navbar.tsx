@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 px-8 md:px-12 py-6 flex items-center justify-between ${
-        isScrolled || !isHome ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg py-4' : 'bg-transparent'
+        isScrolled ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg py-4' : 'bg-transparent'
       }`}
     >
       <Link href="/" className="flex items-center gap-3 text-white group">

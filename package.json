@@ -9,7 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.103.3",
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.104.0",
     "@tailwindcss/postcss": "^4.2.3",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.8.0",

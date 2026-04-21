@@ -65,15 +65,15 @@
 .statVal {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--primary);
-  font-family: 'Outfit', sans-serif;
+  color: #3CB54A; /* brand-green */
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .statLab {
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--secondary);
+  color: #1A2E1A; /* brand-dark */
   letter-spacing: 1px;
 }
 

@@ -71,6 +71,9 @@ const Footer = () => {
         <div className="text-gray-500 text-[10px] tracking-[0.2em] font-medium uppercase">
           © {new Date().getFullYear()} Revolutionary Tennis. All rights reserved.
         </div>
+        <div className="text-gray-500 text-[10px] tracking-[0.2em] font-medium uppercase">
+          Designed by <a href="https://growthlab.co.ke" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-white transition-colors">growthlab.co.ke</a>
+        </div>
         <div className="flex gap-8 text-gray-500 text-[10px] tracking-[0.2em] font-medium uppercase">
              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

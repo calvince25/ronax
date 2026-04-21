@@ -1,40 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
+import PageHero from '@/components/ui/PageHero';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 
 export default function Home() {
   return (
     <>
-      <div className="relative w-full h-screen min-h-[750px] bg-brand-dark flex items-center">
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Tennis player crouching at net"
-            className="w-full h-full object-cover object-[70%_30%] opacity-50 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2E1A]/95 via-[#1A2E1A]/60 to-transparent"></div>
-        </div>
-
-        <div className="relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12 pt-16">
-          <div className="max-w-[650px]">
-            <h1 className="text-white font-barlow text-[72px] md:text-[84px] leading-[0.95] font-bold tracking-normal uppercase mb-8">
-              Nairobi's #1<br />
-              Tennis Coach<br />
-              Train With Ronax
-            </h1>
-            
-            <div className="w-10 h-[3px] bg-white mb-8"></div>
-            
-            <p className="text-white/80 font-dm text-[15px] leading-relaxed mb-12 max-w-[420px] font-light">
-              Train with Ronax, Nairobi's top tennis coach. Private lessons, junior programs & group classes. Book your free trial lesson today.
-            </p>
-            
-            <Link href="/contact" className="inline-block bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[12px] tracking-[0.15em] px-10 py-4 rounded-full uppercase transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-brand-green/20">
-              Book Free Trial Lesson
-            </Link>
-          </div>
-        </div>
-      </div>
+      <PageHero 
+        title="Revolutionary Tennis Coaching"
+        subtitle="Nairobi's #1 Tennis Hub"
+        description="Train with Ronax, Nairobi's top tennis coach. Private lessons, junior programs & group classes. Book your free trial lesson today."
+        imageSrc="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        height="h-screen"
+        textAlign="left"
+      >
+        <Link href="/contact" className="inline-block bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[12px] tracking-[0.15em] px-10 py-4 rounded-full uppercase transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-brand-green/20">
+          Book Free Trial Lesson
+        </Link>
+      </PageHero>
 
       <section className="bg-brand-white pt-40 pb-32 px-8 md:px-12 relative z-20 overflow-visible">
         <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-12">

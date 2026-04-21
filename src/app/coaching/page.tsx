@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
+import PageHero from '@/components/ui/PageHero';
 
 export default function CoachingHub() {
   const categories = [
@@ -44,26 +45,12 @@ export default function CoachingHub() {
 
   return (
     <>
-      <div className="relative w-full h-[50vh] min-h-[400px] bg-brand-dark flex items-center">
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1773081364166-74db8910af47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBmYWNpbGl0eXxlbnwxfHx8fDE3NzY3NTU3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Tennis facility"
-            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-[#1A2E1A]/60"></div>
-        </div>
-        <div className="relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12 text-center">
-          <h1 className="text-white font-barlow text-[64px] md:text-[80px] font-bold uppercase tracking-tight leading-[0.95] mb-6">
-            Tennis Coaching <br />
-            <span className="text-brand-green">Programs In Nairobi</span>
-          </h1>
-          <div className="w-12 h-1 bg-brand-green mb-8 mx-auto"></div>
-          <p className="text-white/80 font-dm text-[16px] max-w-2xl font-light leading-relaxed mx-auto">
-            From your very first rally to tournament-level performance. Find the perfect program to elevate your game on court.
-          </p>
-        </div>
-      </div>
+      <PageHero 
+        title="Tennis Coaching Programs"
+        subtitle="Professional Training"
+        description="From your very first rally to tournament-level performance. Find the perfect program to elevate your game on court."
+        imageSrc="https://images.unsplash.com/photo-1773081364166-74db8910af47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBmYWNpbGl0eXxlbnwxfHx8fDE3NzY3NTU3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      />
 
       <div className="py-32 px-8 md:px-12 bg-brand-white">
         <div className="max-w-[1440px] mx-auto w-full">

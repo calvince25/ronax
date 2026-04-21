@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavbarWrapper from "@/components/layout/NavbarWrapper";
 import FooterWrapper from "@/components/layout/FooterWrapper";
+import WhatsappWrapper from "@/components/layout/WhatsappWrapper";
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +31,7 @@ export default function RootLayout({
         <NavbarWrapper />
         <main>{children}</main>
         <FooterWrapper />
+        <WhatsappWrapper />
       </body>
     </html>
   );

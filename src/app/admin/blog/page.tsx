@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { Plus, Pencil, Trash2, X, Save } from 'lucide-react';
+import { Plus, Pencil, Trash2, X, Save, Upload, Loader2, Image as ImageIcon } from 'lucide-react';
 import styles from './AdminBlog.module.css';
 
 const emptyPost = {
@@ -22,6 +22,8 @@ const AdminBlogPage = () => {
   const [editingPost, setEditingPost] = useState<any>(null);
   const [form, setForm] = useState(emptyPost);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
 
   const fetchPosts = async () => {
     setLoading(true);
@@ -61,6 +63,32 @@ const AdminBlogPage = () => {
       }
       return updated;
     });
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (!selectedFile) return;
+
+    setUploading(true);
+    const fileExt = selectedFile.name.split('.').pop();
+    const fileName = `blog-${Date.now()}.${fileExt}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from('public-images')
+      .upload(fileName, selectedFile);
+
+    if (uploadError) {
+      alert('Upload error: ' + uploadError.message);
+      setUploading(false);
+      return;
+    }
+
+    const { data: publicUrlData } = supabase.storage
+      .from('public-images')
+      .getPublicUrl(fileName);
+
+    setForm(prev => ({ ...prev, image_url: publicUrlData.publicUrl }));
+    setUploading(false);
   };
 
   const handleSave = async () => {
@@ -171,8 +199,44 @@ const AdminBlogPage = () => {
                 </div>
               </div>
               <div className={styles.inputGroup}>
-                <label>Image URL</label>
-                <input name="image_url" value={form.image_url} onChange={handleChange} placeholder="https://..." />
+                <label>Featured Image</label>
+                <div className={styles.imageUploadContainer}>
+                  {form.image_url && (
+                    <div className={styles.imagePreview}>
+                      <img src={form.image_url} alt="Preview" />
+                      <button 
+                        type="button" 
+                        onClick={() => setForm(prev => ({ ...prev, image_url: '' }))}
+                        className={styles.removeImage}
+                      >
+                        <X size={14} />
+                      </button>
+                    </div>
+                  )}
+                  <div className={styles.uploadControls}>
+                    <input 
+                      type="file" 
+                      id="blog-image-upload" 
+                      accept="image/*" 
+                      onChange={handleImageUpload} 
+                      className={styles.fileInput}
+                      disabled={uploading}
+                    />
+                    <label htmlFor="blog-image-upload" className={styles.uploadLabel}>
+                      {uploading ? <Loader2 className="animate-spin" size={18} /> : <Upload size={18} />}
+                      {uploading ? 'Uploading...' : 'Upload Image'}
+                    </label>
+                    <div className={styles.urlInput}>
+                        <span>Or use URL</span>
+                        <input 
+                          name="image_url" 
+                          value={form.image_url} 
+                          onChange={handleChange} 
+                          placeholder="https://..." 
+                        />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className={styles.inputGroup}>
                 <label>Excerpt / Summary</label>

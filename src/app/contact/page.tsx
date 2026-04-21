@@ -1,29 +1,16 @@
 import React from 'react';
-import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import PageHero from '@/components/ui/PageHero';
 
 export default function Contact() {
   return (
     <>
-      <div className="relative w-full h-[45vh] min-h-[350px] bg-brand-dark flex items-center">
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1627341398579-2d128de1dc8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwYXQlMjBuZXR8ZW58MXx8fHwxNzc2NzU1NzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Contact us tennis action"
-            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-[#1A2E1A]/60"></div>
-        </div>
-        <div className="relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12 text-center">
-          <h1 className="text-white font-barlow text-[64px] md:text-[80px] font-bold uppercase tracking-tight leading-[0.95] mb-6">
-            Get In <span className="text-brand-green">Touch</span>
-          </h1>
-          <div className="w-12 h-1 bg-brand-green mb-8 mx-auto"></div>
-          <p className="text-white/80 font-dm text-[16px] max-w-2xl font-light leading-relaxed mx-auto">
-            Ready to hit the court? Have questions about our coaching programs or locations? Send us a message or contact us directly.
-          </p>
-        </div>
-      </div>
+      <PageHero 
+        title="Get In Touch"
+        subtitle="Contact Us"
+        description="Ready to hit the court? Have questions about our coaching programs or locations? Send us a message or contact us directly."
+        imageSrc="https://images.unsplash.com/photo-1627341398579-2d128de1dc8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwYXQlMjBuZXR8ZW58MXx8fHwxNzc2NzU1NzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      />
 
       <div className="py-24 pb-40 px-8 md:px-12 bg-brand-white">
         <div className="max-w-[1440px] mx-auto w-full">

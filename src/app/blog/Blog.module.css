@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
-  background: var(--bg-dark);
+  background: #1A2E1A; /* brand-dark */
   color: white;
   border-radius: 30px;
   overflow: hidden;
@@ -38,8 +38,8 @@
 
 .category {
   display: inline-block;
-  background: var(--primary);
-  color: var(--secondary);
+  background: #3CB54A; /* brand-green */
+  color: white;
   padding: 4px 12px;
   border-radius: 50px;
   font-weight: 700;
@@ -106,7 +106,7 @@
 }
 
 .cardCategory {
-  color: var(--primary);
+  color: #3CB54A; /* brand-green */
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -137,12 +137,12 @@
 }
 
 .readMore {
-  color: var(--secondary);
+  color: #1A2E1A; /* brand-dark */
   font-weight: 700;
 }
 
 .readMore:hover {
-  color: var(--primary-hover);
+  color: #3CB54A; /* brand-green */
 }
 
 .loading {
