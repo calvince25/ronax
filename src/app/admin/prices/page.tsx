@@ -190,6 +190,7 @@ const AdminPricesPage = () => {
                   <input name="unit" value={form.unit} onChange={handleChange} placeholder="e.g. per hour" />
                 </div>
               </div>
+              <div className={styles.formRow}>
                 <div className={styles.inputGroup}>
                   <label>Icon</label>
                   <select name="icon" value={form.icon} onChange={handleChange}>
