@@ -42,7 +42,7 @@ export default function AdminLayout({
       setUserRole(profile?.role || 'pending');
       
       if (pathname === '/admin/login') {
-        window.location.href = '/admin';
+        router.push('/admin');
       }
 
       setLoading(false);

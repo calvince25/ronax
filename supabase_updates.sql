@@ -1,24 +1,51 @@
--- SQL to add description to gallery table
+-- ============================================================
+-- STEP 1: Run this in Supabase SQL Editor
+-- Go to: https://supabase.com → Your Project → SQL Editor
+-- ============================================================
+
+-- Confirm your email and allow login (bypasses email verification)
+UPDATE auth.users
+SET 
+  email_confirmed_at = NOW(),
+  raw_app_meta_data = raw_app_meta_data || '{"provider":"email","providers":["email"]}',
+  raw_user_meta_data = raw_user_meta_data || '{"email_verified": true}',
+  updated_at = NOW()
+WHERE email = 'omondicalvince4714@gmail.com';
+
+-- ============================================================
+-- STEP 2: Ensure your profile exists with admin role
+-- ============================================================
+
+-- Insert profile if it doesn't exist, or update if it does
+INSERT INTO public.profiles (id, role)
+SELECT 
+  id,
+  'admin'
+FROM auth.users 
+WHERE email = 'omondicalvince4714@gmail.com'
+ON CONFLICT (id) DO UPDATE 
+  SET role = 'admin';
+
+-- ============================================================
+-- STEP 3: Ensure the bookings table has 'level' column (not 'program')
+-- ============================================================
+
+-- Add level column if it doesn't exist (for the booking modal)
+ALTER TABLE bookings ADD COLUMN IF NOT EXISTS level TEXT;
+ALTER TABLE bookings ADD COLUMN IF NOT EXISTS phone TEXT;
+
+-- ============================================================
+-- STEP 4: Add gallery description column
+-- ============================================================
 ALTER TABLE gallery ADD COLUMN IF NOT EXISTS description TEXT;
 
--- SQL to ensure bookings table handles the new lead capture fields
-CREATE TABLE IF NOT EXISTS bookings (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    phone TEXT NOT NULL,
-    location TEXT NOT NULL,
-    program TEXT NOT NULL,
-    message TEXT,
-    status TEXT DEFAULT 'pending',
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
--- Enable RLS for bookings
-ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
-
--- Allow public inserts
-CREATE POLICY "Allow public inserts" ON bookings FOR INSERT WITH CHECK (true);
-
--- Allow authenticated users to view
-CREATE POLICY "Allow authenticated users to view" ON bookings FOR SELECT USING (auth.role() = 'authenticated');
+-- ============================================================
+-- VERIFICATION: Check your user is correctly set up
+-- ============================================================
+SELECT 
+  u.email, 
+  u.email_confirmed_at,
+  p.role
+FROM auth.users u
+LEFT JOIN public.profiles p ON p.id = u.id
+WHERE u.email = 'omondicalvince4714@gmail.com';
