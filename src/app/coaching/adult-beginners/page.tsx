@@ -10,11 +10,15 @@ import { useBooking } from '@/context/BookingContext';
 export default function AdultBeginners() {
   const { openBookingModal } = useBooking();
   const [program, setProgram] = React.useState<any>(null);
+  const [prices, setPrices] = React.useState<any[]>([]);
 
   React.useEffect(() => {
     const fetchProgram = async () => {
       const { data } = await supabase.from('programs').select('*').eq('slug', 'adult-beginners').single();
       if (data) setProgram(data);
+
+      const { data: priceData } = await supabase.from('prices').select('*').eq('category', 'Adult Beginners').order('display_order', { ascending: true });
+      if (priceData) setPrices(priceData);
     };
     fetchProgram();
   }, []);
@@ -81,7 +85,44 @@ export default function AdultBeginners() {
                 </div>
               </div>
 
-              <div className="mt-20 p-10 bg-brand-green rounded-sm text-brand-dark relative overflow-hidden">
+              <div className="mt-20 p-10 bg-brand-dark rounded-sm text-white relative overflow-hidden">
+                <div className="relative z-10">
+                    <h3 className="font-barlow text-3xl font-bold uppercase mb-8 tracking-wide">Investment In Your Game</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {prices.map((p, i) => (
+                          <div key={i} className="flex flex-col border-l border-white/10 pl-6 py-2">
+                             <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-2">{p.name}</span>
+                             <div className="font-barlow text-3xl font-bold mb-1">
+                                <span className="text-sm font-normal opacity-60 mr-1">Ksh</span>
+                                {p.price}
+                             </div>
+                             <span className="text-[11px] font-light text-white/50">{p.unit}</span>
+                          </div>
+                        ))}
+                        {prices.length === 0 && (
+                          <div className="col-span-full text-white/50 font-dm italic text-sm">
+                            Custom pricing available. Contact Coach Ronax for details.
+                          </div>
+                        )}
+                    </div>
+                    <div className="mt-12 flex flex-col sm:flex-row gap-6">
+                        <button 
+                          onClick={() => openBookingModal('Adult Beginners')}
+                          className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] px-8 py-4 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 text-center cursor-pointer"
+                        >
+                            Book Now
+                        </button>
+                        <Link href="/pricing" className="bg-transparent hover:bg-white/5 border border-white/20 text-white font-bold text-[11px] tracking-[0.2em] px-8 py-4 rounded-full uppercase transition-all text-center">
+                            Full Pricing List
+                        </Link>
+                    </div>
+                </div>
+                <div className="absolute right-[-5%] bottom-[-20%] opacity-[0.03] rotate-[-15deg]">
+                    <Target size={300} />
+                </div>
+              </div>
+
+              <div className="mt-12 p-10 bg-brand-green rounded-sm text-brand-dark relative overflow-hidden">
                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                    <div className="max-w-md">
                       <h3 className="font-barlow text-3xl font-bold uppercase mb-4 tracking-wide text-white">First Step On Court?</h3>

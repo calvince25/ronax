@@ -161,3 +161,21 @@ VALUES
   ('https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=1200', 'Karen Private Court Sessions', 'Exclusive private sessions at our Karen courts — serene, focused, and premium.'),
   ('https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?q=80&w=1200', 'Adults Beginner Class', 'It''s never too late to start. Our adult beginner program makes learning fun and comfortable.')
 ON CONFLICT DO NOTHING;
+
+-- ============================================================
+-- STEP 10: Insert Default Pricing Plans
+-- ============================================================
+
+INSERT INTO public.prices (name, price, unit, description, features, icon, popular, display_order, category)
+VALUES 
+  ('Single Session', '2,500', 'Hour', 'One-on-one focused training', ARRAY['Technical analysis', 'Customized drills'], 'Star', false, 1, 'Private Lessons'),
+  ('5 Session Pack', '11,500', '5 Hours', 'Accelerated improvement', ARRAY['Technical analysis', 'Video review', 'Save 1,000'], 'Zap', true, 2, 'Private Lessons'),
+  ('10 Session Pack', '22,000', '10 Hours', 'Best value for dedication', ARRAY['Technical analysis', 'Tournament prep', 'Best Value'], 'ShieldCheck', false, 3, 'Private Lessons'),
+  
+  ('Drop-in', '1,500', 'Session', 'Single group session', ARRAY['Social play', 'Tactical drills'], 'Star', false, 1, 'Group Classes'),
+  ('Monthly (4)', '5,000', 'Month', 'Once a week training', ARRAY['Social play', 'Consistent progress'], 'Zap', true, 2, 'Group Classes'),
+  ('Unlimited', '12,000', 'Month', 'Access all groups', ARRAY['Social play', 'High volume hitting'], 'ShieldCheck', false, 3, 'Group Classes'),
+  
+  ('Single Lesson', '1,500', 'Session', 'Fun development session', ARRAY['Ages 5-17', 'Skill-based groups'], 'Star', false, 1, 'Junior Tennis'),
+  ('Termly (10)', '13,500', 'Term', 'Best for progress', ARRAY['Ages 5-17', 'Report cards', 'Save 1,500'], 'Zap', true, 2, 'Junior Tennis')
+ON CONFLICT DO NOTHING;
