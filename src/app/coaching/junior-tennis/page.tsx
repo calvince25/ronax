@@ -17,7 +17,7 @@ export default function JuniorTennis() {
       const { data } = await supabase.from('programs').select('*').eq('slug', 'junior-tennis').single();
       if (data) setProgram(data);
 
-      const { data: priceData } = await supabase.from('prices').select('*').eq('category', 'Junior Tennis').order('display_order', { ascending: true });
+      const { data: priceData } = await supabase.from('prices').select('*').eq('category', 'Junior Program').order('display_order', { ascending: true });
       if (priceData) setPrices(priceData);
     };
     fetchProgram();

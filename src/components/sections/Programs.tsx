@@ -21,7 +21,7 @@ const programs = [
     price: 'From KES 1,500/session'
   },
   {
-    title: 'Junior Tennis Programs',
+    title: 'Junior Program',
     description: 'Building the next generation of champions. Fun, structured training for kids aged 5-17.',
     image: '/images/junior.png',
     link: '/coaching/junior-tennis',

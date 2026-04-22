@@ -5,6 +5,14 @@ import { supabase } from '@/lib/supabase';
 import { Plus, Pencil, Trash2, X, Save, Star, Zap, ShieldCheck } from 'lucide-react';
 import styles from './AdminPrices.module.css';
 
+const CATEGORIES = [
+  'Private Lessons',
+  'Group Classes',
+  'Junior Program',
+  'Adult Beginners',
+  'Advanced Training'
+];
+
 const emptyPrice = {
   name: '',
   price: '',
@@ -14,7 +22,7 @@ const emptyPrice = {
   icon: 'Star',
   popular: false,
   display_order: 0,
-  category: 'General'
+  category: CATEGORIES[0]
 };
 
 const AdminPricesPage = () => {
@@ -176,8 +184,12 @@ const AdminPricesPage = () => {
                   <input name="name" value={form.name} onChange={handleChange} placeholder="e.g. Private Lessons" />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Category (Group Name)</label>
-                  <input name="category" value={form.category} onChange={handleChange} placeholder="e.g. Private Lessons, Juniors" />
+                  <label>Category (Group Name) *</label>
+                  <select name="category" value={form.category} onChange={handleChange}>
+                    {CATEGORIES.map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div className={styles.formRow}>

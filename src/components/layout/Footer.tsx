@@ -33,7 +33,7 @@ const Footer = () => {
           <ul className="space-y-4 text-gray-400 text-[13px] font-light uppercase tracking-wider">
             <li><Link href="/coaching" className="hover:text-brand-green transition-colors">Private Lessons</Link></li>
             <li><Link href="/coaching" className="hover:text-brand-green transition-colors">Group Classes</Link></li>
-            <li><Link href="/coaching" className="hover:text-brand-green transition-colors">Junior Tennis</Link></li>
+            <li><Link href="/coaching" className="hover:text-brand-green transition-colors">Junior Program</Link></li>
             <li><Link href="/coaching" className="hover:text-brand-green transition-colors">Adult Beginners</Link></li>
           </ul>
         </div>
