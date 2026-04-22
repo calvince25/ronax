@@ -13,7 +13,8 @@ const emptyPrice = {
   features: [] as string[],
   icon: 'Star',
   popular: false,
-  display_order: 0
+  display_order: 0,
+  category: 'General'
 };
 
 const AdminPricesPage = () => {
@@ -51,7 +52,8 @@ const AdminPricesPage = () => {
       features: Array.isArray(price.features) ? price.features : [],
       icon: price.icon || 'Star',
       popular: price.popular || false,
-      display_order: price.display_order || 0
+      display_order: price.display_order || 0,
+      category: price.category || 'General'
     });
     setFeatureInput('');
     setShowModal(true);
@@ -85,7 +87,8 @@ const AdminPricesPage = () => {
       features: form.features,
       icon: form.icon,
       popular: form.popular,
-      display_order: form.display_order
+      display_order: form.display_order,
+      category: form.category
     };
 
     if (editingPrice) {
@@ -173,15 +176,20 @@ const AdminPricesPage = () => {
                   <input name="name" value={form.name} onChange={handleChange} placeholder="e.g. Private Lessons" />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Price (KES) *</label>
-                  <input name="price" value={form.price} onChange={handleChange} placeholder="e.g. 2,500" />
+                  <label>Category</label>
+                  <input name="category" value={form.category} onChange={handleChange} placeholder="e.g. Adult Coaching" />
                 </div>
               </div>
               <div className={styles.formRow}>
                 <div className={styles.inputGroup}>
+                  <label>Price (KES) *</label>
+                  <input name="price" value={form.price} onChange={handleChange} placeholder="e.g. 2,500" />
+                </div>
+                <div className={styles.inputGroup}>
                   <label>Price Unit</label>
                   <input name="unit" value={form.unit} onChange={handleChange} placeholder="e.g. per hour" />
                 </div>
+              </div>
                 <div className={styles.inputGroup}>
                   <label>Icon</label>
                   <select name="icon" value={form.icon} onChange={handleChange}>

@@ -24,12 +24,21 @@
 
 .statCard {
   background: white;
-  padding: 24px;
-  border-radius: 20px;
+  padding: 16px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
 }
 
 .statIcon {
@@ -53,7 +62,7 @@
 }
 
 .statInfo p {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: #1a1a1a;
 }

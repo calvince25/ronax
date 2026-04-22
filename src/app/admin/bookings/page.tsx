@@ -42,6 +42,9 @@ const BookingsManager = () => {
     
     if (!error) {
       setBookings(bookings.map(b => b.id === id ? { ...b, status: newStatus } : b));
+      alert(`Booking successfully marked as ${newStatus}.`);
+    } else {
+      alert('Failed to update booking status: ' + error.message);
     }
   };
 
@@ -54,6 +57,9 @@ const BookingsManager = () => {
       
       if (!error) {
         setBookings(bookings.filter(b => b.id !== id));
+        alert('Booking successfully deleted.');
+      } else {
+        alert('Failed to delete booking: ' + error.message);
       }
     }
   };

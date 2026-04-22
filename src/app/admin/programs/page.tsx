@@ -23,8 +23,30 @@ export default function AdminPrograms() {
   };
 
   const handleEdit = (program: any) => {
-    setEditingProgram({ ...program });
+    setEditingProgram({ 
+      ...program, 
+      upcoming_events: Array.isArray(program.upcoming_events) ? program.upcoming_events : [] 
+    });
     setFile(null);
+  };
+
+  const addEvent = () => {
+    setEditingProgram({
+      ...editingProgram,
+      upcoming_events: [...editingProgram.upcoming_events, { title: '', date: '' }]
+    });
+  };
+
+  const updateEvent = (index: number, field: string, value: string) => {
+    const updatedEvents = [...editingProgram.upcoming_events];
+    updatedEvents[index][field] = value;
+    setEditingProgram({ ...editingProgram, upcoming_events: updatedEvents });
+  };
+
+  const removeEvent = (index: number) => {
+    const updatedEvents = [...editingProgram.upcoming_events];
+    updatedEvents.splice(index, 1);
+    setEditingProgram({ ...editingProgram, upcoming_events: updatedEvents });
   };
 
   const handleSave = async (e: React.FormEvent) => {
@@ -161,6 +183,33 @@ export default function AdminPrograms() {
                   onChange={e => setEditingProgram({...editingProgram, main_description: e.target.value})} 
                   placeholder="Extended description about what to expect..."
                 />
+              </div>
+
+              <div className={styles.inputGroup}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <label style={{ margin: 0 }}>Upcoming Events</label>
+                  <button type="button" onClick={addEvent} style={{ padding: '4px 8px', fontSize: '0.8rem', background: '#eee', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>+ Add Event</button>
+                </div>
+                {editingProgram.upcoming_events.map((event: any, index: number) => (
+                  <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+                    <input 
+                      placeholder="Event Title" 
+                      value={event.title} 
+                      onChange={e => updateEvent(index, 'title', e.target.value)} 
+                      style={{ flex: 2 }}
+                    />
+                    <input 
+                      type="date" 
+                      value={event.date} 
+                      onChange={e => updateEvent(index, 'date', e.target.value)} 
+                      style={{ flex: 1 }}
+                    />
+                    <button type="button" onClick={() => removeEvent(index)} style={{ padding: '8px', background: '#fee2e2', color: '#dc2626', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                      <X size={16} />
+                    </button>
+                  </div>
+                ))}
+                {editingProgram.upcoming_events.length === 0 && <p style={{ fontSize: '0.85rem', color: '#666' }}>No upcoming events added.</p>}
               </div>
 
               <div className={styles.modalActions}>

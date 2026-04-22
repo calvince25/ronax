@@ -104,14 +104,22 @@ export default function TennisCamps() {
                   <div className="bg-gray-50 border border-gray-100 p-8 rounded-sm">
                     <h4 className="font-barlow text-xl font-bold uppercase tracking-wider mb-8 text-brand-black">Upcoming Dates</h4>
                     <ul className="space-y-6">
-                        <li className="flex flex-col gap-2">
-                            <div className="flex items-center gap-2">
-                                <Calendar size={18} className="text-brand-green" />
-                                <span className="text-[12px] font-bold text-brand-black uppercase tracking-widest">August Holiday Camp</span>
-                            </div>
-                            <span className="text-[14px] font-medium ml-6">17th – 21st August, 2025</span>
-                        </li>
-                        <li className="flex flex-col gap-2">
+                        {program?.upcoming_events && program.upcoming_events.length > 0 ? (
+                          program.upcoming_events.map((event: any, i: number) => (
+                            <li key={i} className="flex flex-col gap-2 border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                                <div className="flex items-center gap-2">
+                                    <Calendar size={18} className="text-brand-green" />
+                                    <span className="text-[12px] font-bold text-brand-black uppercase tracking-widest">{event.title}</span>
+                                </div>
+                                <span className="text-[14px] font-medium ml-6">{new Date(event.date).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                            </li>
+                          ))
+                        ) : (
+                          <li className="flex flex-col gap-2">
+                              <span className="text-[14px] font-medium text-gray-500">Contact us for upcoming camp dates.</span>
+                          </li>
+                        )}
+                        <li className="flex flex-col gap-2 pt-2 mt-2 border-t border-gray-100">
                              <div className="flex items-center gap-2">
                                 <MapPin size={18} className="text-brand-green" />
                                 <span className="text-[12px] font-bold text-brand-black uppercase tracking-widest">Location</span>

@@ -49,3 +49,9 @@ SELECT
 FROM auth.users u
 LEFT JOIN public.profiles p ON p.id = u.id
 WHERE u.email = 'omondicalvince4714@gmail.com';
+
+-- ============================================================
+-- STEP 5: Add category to prices and upcoming_events to programs
+-- ============================================================
+ALTER TABLE prices ADD COLUMN IF NOT EXISTS category TEXT DEFAULT 'General';
+ALTER TABLE programs ADD COLUMN IF NOT EXISTS upcoming_events JSONB DEFAULT '[]'::jsonb;

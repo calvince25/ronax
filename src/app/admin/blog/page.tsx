@@ -3,7 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Plus, Pencil, Trash2, X, Save, Upload, Loader2, Image as ImageIcon } from 'lucide-react';
+import dynamic from 'next/dynamic';
+import 'react-quill/dist/quill.snow.css';
 import styles from './AdminBlog.module.css';
+
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const emptyPost = {
   title: '',
@@ -244,7 +248,15 @@ const AdminBlogPage = () => {
               </div>
               <div className={styles.inputGroup}>
                 <label>Full Content</label>
-                <textarea name="content" value={form.content} onChange={handleChange} rows={8} placeholder="Full article content..." />
+                <div style={{ background: 'white', color: 'black' }}>
+                  <ReactQuill 
+                    theme="snow" 
+                    value={form.content} 
+                    onChange={(val) => setForm(prev => ({ ...prev, content: val }))} 
+                    placeholder="Full article content..."
+                    style={{ height: '300px', marginBottom: '50px' }}
+                  />
+                </div>
               </div>
             </div>
             <div className={styles.modalFooter}>

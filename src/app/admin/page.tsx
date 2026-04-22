@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { 
   Users, 
@@ -59,7 +60,7 @@ const Dashboard = () => {
   return (
     <div className={styles.dashboard}>
       <div className={styles.statsGrid}>
-        <div className={styles.statCard}>
+        <Link href="/admin/bookings" className={styles.statCard}>
           <div className={`${styles.statIcon} ${styles.blue}`}>
             <Calendar size={24} />
           </div>
@@ -67,8 +68,8 @@ const Dashboard = () => {
             <h4>Total Bookings</h4>
             <p>{stats.totalBookings}</p>
           </div>
-        </div>
-        <div className={styles.statCard}>
+        </Link>
+        <Link href="/admin/bookings" className={styles.statCard}>
           <div className={`${styles.statIcon} ${styles.yellow}`}>
             <Clock size={24} />
           </div>
@@ -76,8 +77,8 @@ const Dashboard = () => {
             <h4>Pending Review</h4>
             <p>{stats.pendingBookings}</p>
           </div>
-        </div>
-        <div className={styles.statCard}>
+        </Link>
+        <Link href="/admin/blog" className={styles.statCard}>
           <div className={`${styles.statIcon} ${styles.green}`}>
             <FileText size={24} />
           </div>
@@ -85,8 +86,8 @@ const Dashboard = () => {
             <h4>Blog Posts</h4>
             <p>{stats.totalPosts}</p>
           </div>
-        </div>
-        <div className={styles.statCard}>
+        </Link>
+        <Link href="/admin/prices" className={styles.statCard}>
           <div className={`${styles.statIcon} ${styles.purple}`}>
             <TrendingUp size={24} />
           </div>
@@ -94,7 +95,7 @@ const Dashboard = () => {
             <h4>Active Prices</h4>
             <p>{stats.totalPrices}</p>
           </div>
-        </div>
+        </Link>
       </div>
 
       <div className={styles.section}>
