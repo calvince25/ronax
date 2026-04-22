@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { ShieldCheck, XCircle, Clock } from 'lucide-react';
+import { ShieldCheck, XCircle, Clock, Trash2 } from 'lucide-react';
 import styles from './AdminUsers.module.css';
 
 export default function AdminUsers() {
@@ -38,6 +38,23 @@ export default function AdminUsers() {
       alert('Failed to update role: ' + error.message);
     }
   };
+
+  const handleDeleteUser = async (id: string, email: string) => {
+    if (!confirm(`Are you sure you want to delete user ${email}? This action cannot be undone.`)) {
+      return;
+    }
+
+    const { error } = await supabase.rpc('delete_user_by_admin', {
+      target_user_id: id
+    });
+
+    if (!error) {
+      setProfiles(profiles.filter(p => p.id !== id));
+    } else {
+      alert('Failed to delete user: ' + error.message);
+    }
+  };
+
 
   if (loading) return <div className={styles.loading}>Loading users...</div>;
 
@@ -82,7 +99,12 @@ export default function AdminUsers() {
                    Revoke Access
                 </button>
               )}
+
+              <button onClick={() => handleDeleteUser(profile.id, profile.email)} className={styles.deleteBtn} title="Delete User">
+                <Trash2 size={16} />
+              </button>
             </div>
+
           </div>
         ))}
         {profiles.length === 0 && <div className={styles.empty}>No users found.</div>}

@@ -83,3 +83,59 @@ CREATE POLICY "Admins can delete bookings"
       WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
     )
   );
+
+-- ============================================================
+-- STEP 7: Add RLS Policies for Gallery and Programs
+-- ============================================================
+
+-- GALLERY POLICIES
+DROP POLICY IF EXISTS "Admins can insert gallery" ON gallery;
+DROP POLICY IF EXISTS "Admins can update gallery" ON gallery;
+DROP POLICY IF EXISTS "Admins can delete gallery" ON gallery;
+
+CREATE POLICY "Admins can insert gallery" ON gallery FOR INSERT WITH CHECK (
+  EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
+);
+CREATE POLICY "Admins can update gallery" ON gallery FOR UPDATE USING (
+  EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
+);
+CREATE POLICY "Admins can delete gallery" ON gallery FOR DELETE USING (
+  EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
+);
+
+-- PROGRAMS POLICIES
+DROP POLICY IF EXISTS "Admins can insert programs" ON programs;
+DROP POLICY IF EXISTS "Admins can update programs" ON programs;
+DROP POLICY IF EXISTS "Admins can delete programs" ON programs;
+
+CREATE POLICY "Admins can insert programs" ON programs FOR INSERT WITH CHECK (
+  EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
+);
+CREATE POLICY "Admins can update programs" ON programs FOR UPDATE USING (
+  EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
+);
+CREATE POLICY "Admins can delete programs" ON programs FOR DELETE USING (
+  EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
+);
+
+-- ============================================================
+-- STEP 8: Create Secure Function to Delete Users
+-- ============================================================
+
+CREATE OR REPLACE FUNCTION delete_user_by_admin(target_user_id UUID)
+RETURNS VOID AS $$
+BEGIN
+  -- Check if the requester is an admin
+  IF EXISTS (
+    SELECT 1 FROM public.profiles 
+    WHERE id = auth.uid() AND role = 'admin'
+  ) THEN
+    -- Delete from profiles first
+    DELETE FROM public.profiles WHERE id = target_user_id;
+    -- Delete from auth.users
+    DELETE FROM auth.users WHERE id = target_user_id;
+  ELSE
+    RAISE EXCEPTION 'Only admins can delete users';
+  END IF;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;

@@ -9,7 +9,6 @@ import {
   FileText, 
   Tag, 
   LogOut,
-  Home,
   Users,
   Image as ImageIcon,
   BookOpen
@@ -64,15 +63,12 @@ const AdminSidebar = () => {
       </nav>
 
       <div className={styles.bottom}>
-        <Link href="/" className={styles.navLink}>
-          <Home size={20} />
-          <span>View Website</span>
-        </Link>
-        <button onClick={handleLogout} className={styles.logoutBtn} style={{ background: 'transparent', border: 'none', width: '100%', textAlign: 'left', cursor: 'pointer' }}>
+        <button onClick={handleLogout} className={styles.logoutBtn}>
           <LogOut size={20} />
           <span>Logout</span>
         </button>
       </div>
+
     </aside>
   );
 };
