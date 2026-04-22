@@ -55,3 +55,31 @@ WHERE u.email = 'omondicalvince4714@gmail.com';
 -- ============================================================
 ALTER TABLE prices ADD COLUMN IF NOT EXISTS category TEXT DEFAULT 'General';
 ALTER TABLE programs ADD COLUMN IF NOT EXISTS upcoming_events JSONB DEFAULT '[]'::jsonb;
+
+-- ============================================================
+-- STEP 6: Allow Admins to Update and Delete Bookings
+-- ============================================================
+
+-- Drop existing policies if necessary, then create new ones
+DROP POLICY IF EXISTS "Admins can update bookings" ON bookings;
+DROP POLICY IF EXISTS "Admins can delete bookings" ON bookings;
+
+CREATE POLICY "Admins can update bookings"
+  ON bookings
+  FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM profiles
+      WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
+    )
+  );
+
+CREATE POLICY "Admins can delete bookings"
+  ON bookings
+  FOR DELETE
+  USING (
+    EXISTS (
+      SELECT 1 FROM profiles
+      WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
+    )
+  );

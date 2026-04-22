@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase';
 import { 
   LayoutDashboard, 
   CalendarCheck, 
@@ -27,6 +28,13 @@ const navLinks = [
 
 const AdminSidebar = () => {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    await supabase.auth.signOut();
+    router.push('/admin/login');
+  };
 
   const isActive = (href: string, exact: boolean) => {
     if (exact) return pathname === href;
@@ -60,10 +68,10 @@ const AdminSidebar = () => {
           <Home size={20} />
           <span>View Website</span>
         </Link>
-        <Link href="/admin/login" className={styles.logoutBtn}>
+        <button onClick={handleLogout} className={styles.logoutBtn} style={{ background: 'transparent', border: 'none', width: '100%', textAlign: 'left', cursor: 'pointer' }}>
           <LogOut size={20} />
           <span>Logout</span>
-        </Link>
+        </button>
       </div>
     </aside>
   );

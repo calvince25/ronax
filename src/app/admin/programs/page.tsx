@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { Edit, Image as ImageIcon, Save, X } from 'lucide-react';
+import { Edit, Image as ImageIcon, Save, X, Plus } from 'lucide-react';
 import styles from './AdminPrograms.module.css';
 
 export default function AdminPrograms() {
@@ -20,6 +20,19 @@ export default function AdminPrograms() {
     const { data, error } = await supabase.from('programs').select('*').order('created_at');
     if (data) setPrograms(data);
     setLoading(false);
+  };
+
+  const openCreate = () => {
+    setEditingProgram({
+      title: '',
+      slug: '',
+      subtitle: '',
+      lead_description: '',
+      main_description: '',
+      image_url: '',
+      upcoming_events: []
+    });
+    setFile(null);
   };
 
   const handleEdit = (program: any) => {
@@ -102,10 +115,20 @@ export default function AdminPrograms() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2>Program Content Manager</h2>
-        <p>Edit descriptions, hero images, and details for all coaching programs.</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <h2>Program Content Manager</h2>
+            <p>Edit descriptions, hero images, and details for all coaching programs.</p>
+          </div>
+          <button 
+            onClick={openCreate} 
+            style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: '#c6eb1e', color: '#000', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' }}
+          >
+            <Plus size={18} /> New Program
+          </button>
+        </div>
         {programs.length === 0 && (
-          <button onClick={seedEmptyPrograms} className={styles.seedBtn}>Initialize Default Programs</button>
+          <button onClick={seedEmptyPrograms} className={styles.seedBtn} style={{ marginTop: '16px' }}>Initialize Default Programs</button>
         )}
       </div>
 
@@ -134,7 +157,7 @@ export default function AdminPrograms() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h3>Editing: {editingProgram.slug}</h3>
+              <h3>{editingProgram.id ? `Editing: ${editingProgram.slug}` : 'New Program'}</h3>
               <button onClick={() => setEditingProgram(null)} className={styles.closeBtn}><X size={24} /></button>
             </div>
             
@@ -143,10 +166,25 @@ export default function AdminPrograms() {
                 <label>Page Title</label>
                 <input 
                   value={editingProgram.title || ''} 
-                  onChange={e => setEditingProgram({...editingProgram, title: e.target.value})} 
+                  onChange={e => {
+                    const title = e.target.value;
+                    const slug = !editingProgram.id ? title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : editingProgram.slug;
+                    setEditingProgram({...editingProgram, title, slug});
+                  }} 
                   required 
                 />
               </div>
+
+              {!editingProgram.id && (
+                <div className={styles.inputGroup}>
+                  <label>URL Slug</label>
+                  <input 
+                    value={editingProgram.slug || ''} 
+                    onChange={e => setEditingProgram({...editingProgram, slug: e.target.value})} 
+                    required 
+                  />
+                </div>
+              )}
 
               <div className={styles.inputGroup}>
                 <label>Subtitle (Hero)</label>
