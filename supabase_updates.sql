@@ -166,16 +166,19 @@ ON CONFLICT DO NOTHING;
 -- STEP 10: Insert Default Pricing Plans
 -- ============================================================
 
+-- Ensure the features column is JSONB if it's not already (safety check)
+-- ALTER TABLE public.prices ALTER COLUMN features TYPE JSONB USING features::jsonb;
+
 INSERT INTO public.prices (name, price, unit, description, features, icon, popular, display_order, category)
 VALUES 
-  ('Single Session', '2,500', 'Hour', 'One-on-one focused training', ARRAY['Technical analysis', 'Customized drills'], 'Star', false, 1, 'Private Lessons'),
-  ('5 Session Pack', '11,500', '5 Hours', 'Accelerated improvement', ARRAY['Technical analysis', 'Video review', 'Save 1,000'], 'Zap', true, 2, 'Private Lessons'),
-  ('10 Session Pack', '22,000', '10 Hours', 'Best value for dedication', ARRAY['Technical analysis', 'Tournament prep', 'Best Value'], 'ShieldCheck', false, 3, 'Private Lessons'),
+  ('Single Session', '2,500', 'Hour', 'One-on-one focused training', '["Technical analysis", "Customized drills"]'::jsonb, 'Star', false, 1, 'Private Lessons'),
+  ('5 Session Pack', '11,500', '5 Hours', 'Accelerated improvement', '["Technical analysis", "Video review", "Save 1,000"]'::jsonb, 'Zap', true, 2, 'Private Lessons'),
+  ('10 Session Pack', '22,000', '10 Hours', 'Best value for dedication', '["Technical analysis", "Tournament prep", "Best Value"]'::jsonb, 'ShieldCheck', false, 3, 'Private Lessons'),
   
-  ('Drop-in', '1,500', 'Session', 'Single group session', ARRAY['Social play', 'Tactical drills'], 'Star', false, 1, 'Group Classes'),
-  ('Monthly (4)', '5,000', 'Month', 'Once a week training', ARRAY['Social play', 'Consistent progress'], 'Zap', true, 2, 'Group Classes'),
-  ('Unlimited', '12,000', 'Month', 'Access all groups', ARRAY['Social play', 'High volume hitting'], 'ShieldCheck', false, 3, 'Group Classes'),
+  ('Drop-in', '1,500', 'Session', 'Single group session', '["Social play", "Tactical drills"]'::jsonb, 'Star', false, 1, 'Group Classes'),
+  ('Monthly (4)', '5,000', 'Month', 'Once a week training', '["Social play", "Consistent progress"]'::jsonb, 'Zap', true, 2, 'Group Classes'),
+  ('Unlimited', '12,000', 'Month', 'Access all groups', '["Social play", "High volume hitting"]'::jsonb, 'ShieldCheck', false, 3, 'Group Classes'),
   
-  ('Single Lesson', '1,500', 'Session', 'Fun development session', ARRAY['Ages 5-17', 'Skill-based groups'], 'Star', false, 1, 'Junior Tennis'),
-  ('Termly (10)', '13,500', 'Term', 'Best for progress', ARRAY['Ages 5-17', 'Report cards', 'Save 1,500'], 'Zap', true, 2, 'Junior Tennis')
+  ('Single Lesson', '1,500', 'Session', 'Fun development session', '["Ages 5-17", "Skill-based groups"]'::jsonb, 'Star', false, 1, 'Junior Tennis'),
+  ('Termly (10)', '13,500', 'Term', 'Best for progress', '["Ages 5-17", "Report cards", "Save 1,500"]'::jsonb, 'Zap', true, 2, 'Junior Tennis')
 ON CONFLICT DO NOTHING;
