@@ -19,7 +19,6 @@ const emptyPrice = {
 
 const AdminPricesPage = () => {
   const [prices, setPrices] = useState<any[]>([]);
-  const [programs, setPrograms] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editingPrice, setEditingPrice] = useState<any>(null);
@@ -30,9 +29,7 @@ const AdminPricesPage = () => {
   const fetchPrices = async () => {
     setLoading(true);
     const { data: pricesData } = await supabase.from('prices').select('*').order('display_order', { ascending: true });
-    const { data: programsData } = await supabase.from('programs').select('title');
     setPrices(pricesData || []);
-    setPrograms(programsData || []);
     setLoading(false);
   };
 
@@ -179,13 +176,8 @@ const AdminPricesPage = () => {
                   <input name="name" value={form.name} onChange={handleChange} placeholder="e.g. Private Lessons" />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Category (Program)</label>
-                  <select name="category" value={form.category} onChange={handleChange}>
-                    <option value="General">General</option>
-                    {programs.map(p => (
-                      <option key={p.title} value={p.title}>{p.title}</option>
-                    ))}
-                  </select>
+                  <label>Category (Group Name)</label>
+                  <input name="category" value={form.category} onChange={handleChange} placeholder="e.g. Private Lessons, Juniors" />
                 </div>
               </div>
               <div className={styles.formRow}>

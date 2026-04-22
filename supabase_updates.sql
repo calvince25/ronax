@@ -92,6 +92,7 @@ CREATE POLICY "Admins can delete bookings"
 DROP POLICY IF EXISTS "Admins can insert gallery" ON gallery;
 DROP POLICY IF EXISTS "Admins can update gallery" ON gallery;
 DROP POLICY IF EXISTS "Admins can delete gallery" ON gallery;
+DROP POLICY IF EXISTS "Gallery is viewable by everyone" ON gallery;
 
 CREATE POLICY "Admins can insert gallery" ON gallery FOR INSERT WITH CHECK (
   EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
@@ -102,11 +103,13 @@ CREATE POLICY "Admins can update gallery" ON gallery FOR UPDATE USING (
 CREATE POLICY "Admins can delete gallery" ON gallery FOR DELETE USING (
   EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
 );
+CREATE POLICY "Gallery is viewable by everyone" ON gallery FOR SELECT USING (true);
 
 -- PROGRAMS POLICIES
 DROP POLICY IF EXISTS "Admins can insert programs" ON programs;
 DROP POLICY IF EXISTS "Admins can update programs" ON programs;
 DROP POLICY IF EXISTS "Admins can delete programs" ON programs;
+DROP POLICY IF EXISTS "Programs are viewable by everyone" ON programs;
 
 CREATE POLICY "Admins can insert programs" ON programs FOR INSERT WITH CHECK (
   EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
@@ -117,6 +120,11 @@ CREATE POLICY "Admins can update programs" ON programs FOR UPDATE USING (
 CREATE POLICY "Admins can delete programs" ON programs FOR DELETE USING (
   EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'admin')
 );
+CREATE POLICY "Programs are viewable by everyone" ON programs FOR SELECT USING (true);
+
+-- PRICES POLICIES
+DROP POLICY IF EXISTS "Prices are viewable by everyone" ON prices;
+CREATE POLICY "Prices are viewable by everyone" ON prices FOR SELECT USING (true);
 
 -- ============================================================
 -- STEP 8: Create Secure Function to Delete Users
@@ -139,3 +147,17 @@ BEGIN
   END IF;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- ============================================================
+-- STEP 9: Insert Seed Gallery Images
+-- ============================================================
+
+INSERT INTO public.gallery (image_url, alt_text, description)
+VALUES 
+  ('https://images.unsplash.com/photo-1542144582-1ba00540f367?q=80&w=1200', 'Advanced Training Session', 'Coach Ronax works one-on-one with advanced players to sharpen technique and mental focus.'),
+  ('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1200', 'Junior Tennis Development', 'Our junior program uses the Red-Orange-Green ball progression system to build confidence and skill.'),
+  ('https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?q=80&w=1200', 'Group Training At Westlands', 'Our flagship Westlands location hosts group sessions every Monday, Wednesday, and Friday.'),
+  ('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1200', 'Serving Technique Clinic', 'A focused serving clinic that covers biomechanics, toss consistency, and power generation.'),
+  ('https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=1200', 'Karen Private Court Sessions', 'Exclusive private sessions at our Karen courts — serene, focused, and premium.'),
+  ('https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?q=80&w=1200', 'Adults Beginner Class', 'It''s never too late to start. Our adult beginner program makes learning fun and comfortable.')
+ON CONFLICT DO NOTHING;
