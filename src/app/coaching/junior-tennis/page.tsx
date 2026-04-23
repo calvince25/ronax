@@ -17,7 +17,7 @@ export default function JuniorTennis() {
       const { data } = await supabase.from('programs').select('*').eq('slug', 'junior-tennis').single();
       if (data) setProgram(data);
 
-      const { data: priceData } = await supabase.from('prices').select('*').eq('category', 'Junior Program').order('display_order', { ascending: true });
+      const { data: priceData } = await supabase.from('prices').select('*').eq('category', 'After School Program').order('display_order', { ascending: true });
       if (priceData) setPrices(priceData);
     };
     fetchProgram();
@@ -89,29 +89,14 @@ export default function JuniorTennis() {
                 <div className="relative z-10">
                     <h3 className="font-barlow text-3xl font-bold uppercase mb-8 tracking-wide">Investment In Their Future</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {prices.map((p, i) => (
-                          <div key={i} className="flex flex-col border-l border-white/10 pl-6 py-2">
-                             <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-2">{p.name}</span>
+                        <div className="flex flex-col border-l border-white/10 pl-6 py-2">
+                             <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-2">After School Program (4-16 years)</span>
                              <div className="font-barlow text-3xl font-bold mb-1">
                                 <span className="text-sm font-normal opacity-60 mr-1">Ksh</span>
-                                {p.price}
+                                10,200
                              </div>
-                             <span className="text-[11px] font-light text-white/50">{p.unit}</span>
+                             <span className="text-[11px] font-light text-white/50">Monthly (Mon, Wed, Fri sessions)</span>
                           </div>
-                        ))}
-                        {prices.length === 0 && [
-                          { name: 'Weekly Session', price: '1,200', note: '1.5 Hours Training' },
-                          { name: 'Full Term (12Wk)', price: '12,000', note: 'Best Value' }
-                        ].map((p, i) => (
-                          <div key={i} className="flex flex-col border-l border-white/10 pl-6 py-2">
-                             <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-2">{p.name}</span>
-                             <div className="font-barlow text-3xl font-bold mb-1">
-                                <span className="text-sm font-normal opacity-60 mr-1">Ksh</span>
-                                {p.price}
-                             </div>
-                             <span className="text-[11px] font-light text-white/50">{p.note}</span>
-                          </div>
-                        ))}
                     </div>
                     <div className="mt-12">
                         <button 

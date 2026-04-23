@@ -10,13 +10,15 @@ import {
   Tag, 
   LogOut,
   Users,
-  Image as ImageIcon
+  Image as ImageIcon,
+  MessageSquare
 } from 'lucide-react';
 import styles from './AdminSidebar.module.css';
 
 const navLinks = [
   { href: '/admin', icon: <LayoutDashboard size={20} />, label: 'Dashboard', exact: true },
   { href: '/admin/bookings', icon: <CalendarCheck size={20} />, label: 'Bookings', exact: false },
+  { href: '/admin/messages', icon: <MessageSquare size={20} />, label: 'Messages', exact: false },
   { href: '/admin/blog', icon: <FileText size={20} />, label: 'Blog Posts', exact: false },
   { href: '/admin/prices', icon: <Tag size={20} />, label: 'Pricing', exact: false },
   { href: '/admin/gallery', icon: <ImageIcon size={20} />, label: 'Gallery', exact: false },

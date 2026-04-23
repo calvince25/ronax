@@ -4,9 +4,27 @@ import React from 'react';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import { useBooking } from '@/context/BookingContext';
+import { supabase } from '@/lib/supabase';
 
 export default function Contact() {
   const { openBookingModal } = useBooking();
+  const [form, setForm] = React.useState({ name: '', email: '', subject: 'General Inquiry', message: '' });
+  const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const { error } = await supabase.from('messages').insert([form]);
+    setLoading(false);
+    if (!error) {
+      setSuccess(true);
+      setForm({ name: '', email: '', subject: 'General Inquiry', message: '' });
+      setTimeout(() => setSuccess(false), 5000);
+    } else {
+      alert('Error sending message: ' + error.message);
+    }
+  };
 
   return (
     <>
@@ -25,34 +43,65 @@ export default function Contact() {
               <h2 className="font-barlow text-[42px] font-bold text-brand-black uppercase mb-4">Send a Message</h2>
               <div className="w-12 h-1 bg-brand-green mb-12"></div>
               
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Full Name</label>
-                    <input type="text" placeholder="Your Name" className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors" />
+              {success ? (
+                <div className="bg-brand-green/10 border border-brand-green/20 p-8 rounded-sm text-brand-green mb-8">
+                  <h3 className="font-barlow text-xl font-bold uppercase mb-2">Message Sent!</h3>
+                  <p className="font-dm text-sm">Thank you for reaching out. Coach Ronax will get back to you shortly.</p>
+                </div>
+              ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="flex flex-col gap-2">
+                      <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Full Name</label>
+                      <input 
+                        required
+                        value={form.name}
+                        onChange={e => setForm({...form, name: e.target.value})}
+                        type="text" placeholder="Your Name" className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors" 
+                      />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Email Address</label>
+                      <input 
+                        required
+                        value={form.email}
+                        onChange={e => setForm({...form, email: e.target.value})}
+                        type="email" placeholder="email@example.com" className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors" 
+                      />
+                    </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Email Address</label>
-                    <input type="email" placeholder="email@example.com" className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors" />
+                    <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Subject</label>
+                    <select 
+                      value={form.subject}
+                      onChange={e => setForm({...form, subject: e.target.value})}
+                      className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors"
+                    >
+                      <option>General Inquiry</option>
+                      <option>Trial Session</option>
+                      <option>Private Coaching</option>
+                      <option>Junior Programs</option>
+                      <option>Other</option>
+                    </select>
                   </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Subject</label>
-                  <select className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors appearance-none">
-                    <option>General Inquiry</option>
-                    <option>Trial Session</option>
-                    <option>Private Coaching</option>
-                    <option>Junior Programs</option>
-                  </select>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Message</label>
-                  <textarea rows={5} placeholder="How can we help you?" className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors resize-none"></textarea>
-                </div>
-                <button type="submit" className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[12px] tracking-[0.15em] px-10 py-5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 w-fit">
-                  Send Message
-                </button>
-              </form>
+                  <div className="flex flex-col gap-2">
+                    <label className="font-dm text-[11px] font-bold uppercase tracking-widest text-gray-500">Message</label>
+                    <textarea 
+                      required
+                      value={form.message}
+                      onChange={e => setForm({...form, message: e.target.value})}
+                      rows={5} placeholder="How can we help you?" className="bg-gray-50 border border-gray-100 p-4 rounded-sm font-dm text-sm focus:outline-none focus:border-brand-green transition-colors resize-none"
+                    ></textarea>
+                  </div>
+                  <button 
+                    type="submit" 
+                    disabled={loading}
+                    className="bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[12px] tracking-[0.15em] px-10 py-5 rounded-full uppercase transition-all shadow-lg shadow-brand-green/20 w-fit disabled:opacity-50"
+                  >
+                    {loading ? 'Sending...' : 'Send Message'}
+                  </button>
+                </form>
+              )}
             </div>
 
             <div className="w-full lg:w-1/2 flex flex-col justify-center">

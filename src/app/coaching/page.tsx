@@ -25,7 +25,7 @@ export default function CoachingHub() {
       title: '10 Session Pack',
       description: 'Commit to your game with our bulk session packages. Ideal for players looking for consistent weekly training.',
       image: 'https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      link: '/pricing'
+      link: '/coaching/ten-session-pack'
     },
     {
       title: 'After School Program',

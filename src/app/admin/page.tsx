@@ -10,7 +10,8 @@ import {
   TrendingUp,
   Clock,
   CheckCircle,
-  XCircle
+  XCircle,
+  MessageSquare
 } from 'lucide-react';
 import styles from './AdminDashboard.module.css';
 
@@ -19,7 +20,8 @@ const Dashboard = () => {
     totalBookings: 0,
     pendingBookings: 0,
     totalPosts: 0,
-    totalPrices: 0
+    totalPrices: 0,
+    totalMessages: 0
   });
   const [recentBookings, setRecentBookings] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -33,12 +35,14 @@ const Dashboard = () => {
       const { count: pendingCount } = await supabase.from('bookings').select('*', { count: 'exact', head: true }).eq('status', 'pending');
       const { count: postCount } = await supabase.from('posts').select('*', { count: 'exact', head: true });
       const { count: priceCount } = await supabase.from('prices').select('*', { count: 'exact', head: true });
+      const { count: messageCount } = await supabase.from('messages').select('*', { count: 'exact', head: true });
 
       setStats({
         totalBookings: bookingCount || 0,
         pendingBookings: pendingCount || 0,
         totalPosts: postCount || 0,
-        totalPrices: priceCount || 0
+        totalPrices: priceCount || 0,
+        totalMessages: messageCount || 0
       });
 
       // Fetch recent bookings
@@ -94,6 +98,15 @@ const Dashboard = () => {
           <div className={styles.statInfo}>
             <h4>Active Prices</h4>
             <p>{stats.totalPrices}</p>
+          </div>
+        </Link>
+        <Link href="/admin/messages" className={styles.statCard}>
+          <div className={`${styles.statIcon} ${styles.blue}`}>
+            <MessageSquare size={24} />
+          </div>
+          <div className={styles.statInfo}>
+            <h4>Messages</h4>
+            <p>{stats.totalMessages}</p>
           </div>
         </Link>
       </div>

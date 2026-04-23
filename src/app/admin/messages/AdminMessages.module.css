@@ -1,0 +1,265 @@
+.container {
+  padding: 2rem;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #c6eb1e;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.list {
+  width: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.messageCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.messageCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(198, 235, 30, 0.3);
+}
+
+.messageCard.selected {
+  background: rgba(198, 235, 30, 0.05);
+  border-color: #c6eb1e;
+}
+
+.messageCard.unread {
+  border-left: 4px solid #c6eb1e;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.subject {
+  font-size: 0.85rem;
+  color: #c6eb1e;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.snippet {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.messageCard:hover .actions {
+  opacity: 1;
+}
+
+.deleteBtn {
+  color: #ff4d4d;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.deleteBtn:hover {
+  background: rgba(255, 77, 77, 0.1);
+}
+
+.detail {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow-y: auto;
+}
+
+.detailCard {
+  padding: 2.5rem;
+}
+
+.detailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.userInfo {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: #c6eb1e;
+  color: #0a192f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-radius: 50%;
+}
+
+.userInfo h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.email {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detailActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.detailActions button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.detailActions button:hover {
+  background: rgba(198, 235, 30, 0.1);
+  color: #c6eb1e;
+  border-color: #c6eb1e;
+}
+
+.deleteBtnDetail:hover {
+  background: rgba(255, 77, 77, 0.1) !important;
+  color: #ff4d4d !important;
+  border-color: #ff4d4d !important;
+}
+
+.detailBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailSubject, .detailDate {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+.detailSubject span {
+  color: #c6eb1e;
+  font-weight: 600;
+}
+
+.messageBody {
+  margin-top: 2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  white-space: pre-wrap;
+}
+
+.noSelection {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.1);
+  gap: 1.5rem;
+}
+
+.noSelection p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.loading, .empty {
+  text-align: center;
+  padding: 4rem;
+  color: rgba(255, 255, 255, 0.4);
+}
