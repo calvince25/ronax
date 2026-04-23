@@ -10,7 +10,10 @@ export default function AboutCoach() {
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBqdW1waW5nJTIwY2VsZWJyYXRpbmd8ZW58MXx8fHwxNzc2NzU0ODM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Tennis player celebration"
-            className="w-full h-full object-cover opacity-80"
+            fill
+            priority
+            className="object-cover opacity-80"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-brand-dark/40"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-brand-dark/40"></div>
@@ -62,7 +65,10 @@ export default function AboutCoach() {
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                 alt="Coach Ronax on court"
-                className="w-full h-full object-cover"
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-brand-green flex items-center justify-center p-8 text-white z-20 hidden md:flex">

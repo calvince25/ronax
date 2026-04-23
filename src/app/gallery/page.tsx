@@ -49,7 +49,9 @@ export default function GalleryPage() {
                     <ImageWithFallback
                       src={img.image_url}
                       alt={img.alt_text}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className={styles.hoverOverlay}>
                       <Camera size={28} className="text-white" />

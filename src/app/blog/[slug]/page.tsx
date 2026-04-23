@@ -6,6 +6,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Calendar, User } from 'lucide-react';
 import styles from '../Blog.module.css';
+import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 
 export default function BlogPost() {
   const params = useParams();

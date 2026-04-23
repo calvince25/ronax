@@ -34,7 +34,10 @@ export default function Home() {
               <ImageWithFallback
                  src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBqdW1waW5nJTIwY2VsZWJyYXRpbmd8ZW58MXx8fHwxNzc2NzU0ODM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                  alt="Tennis player jumping"
-                 className="w-full h-full object-cover object-center"
+                 fill
+                 priority
+                 className="object-cover object-center"
+                 sizes="(max-width: 768px) 0vw, 50vw"
                  style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}
               />
             </div>
@@ -43,6 +46,7 @@ export default function Home() {
                    src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBqdW1waW5nJTIwY2VsZWJyYXRpbmd8ZW58MXx8fHwxNzc2NzU0ODM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                    alt="Tennis player jumping"
                    className="w-full h-64 object-cover rounded-lg shadow-xl"
+                   sizes="100vw"
                 />
              </div>
           </div>
@@ -108,6 +112,7 @@ export default function Home() {
               src="https://images.unsplash.com/photo-1660463529569-17f8c4d16fbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb2FjaCUyMGNsYXklMjBjb3VydHxlbnwxfHx8fDE3NzY3NTU4NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
               alt="Tennis coach on clay court"
               className="w-full h-auto aspect-[4/3] object-cover rounded-sm"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>

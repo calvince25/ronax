@@ -28,7 +28,10 @@ const PageHero: React.FC<PageHeroProps> = ({
         <ImageWithFallback
           src={imageSrc}
           alt={title}
-          className="w-full h-full object-cover opacity-80"
+          fill
+          priority
+          className="object-cover opacity-80"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-brand-dark/40"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-brand-dark/40"></div>
