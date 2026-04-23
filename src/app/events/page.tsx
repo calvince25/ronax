@@ -18,7 +18,7 @@ const EventsPage = () => {
       const { data, error } = await supabase
         .from('events')
         .select('*')
-        .eq('status', 'upcoming')
+        .neq('status', 'cancelled')
         .order('date', { ascending: true });
       
       if (!error && data) {

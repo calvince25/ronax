@@ -35,6 +35,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'ABOUT', path: '/about/coach-ronax' },
     { name: 'COACHING', path: '/coaching' },
+    { name: 'EVENTS', path: '/events' },
     { name: 'LOCATIONS', path: '/locations' },
     { name: 'GALLERY', path: '/gallery' },
     { name: 'BLOG', path: '/blog' },
