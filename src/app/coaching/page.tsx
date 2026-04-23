@@ -12,19 +12,19 @@ export default function CoachingHub() {
     {
       title: 'Private Lessons',
       description: 'Personalized 1-on-1 coaching to accelerate your technical and tactical development. Available for adults and kids.',
-      image: 'https://images.unsplash.com/photo-1773081364166-74db8910af47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBmYWNpbGl0eXxlbnwxfHx8fDE3NzY3NTU3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a631d6?q=80&w=1080',
       link: '/coaching/private-lessons'
     },
     {
       title: 'Group Classes',
       description: 'Social and competitive drills for all levels (minimum 3 players). Learn in a dynamic group environment.',
-      image: 'https://images.unsplash.com/photo-1634567220268-20d009b11910?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBncm91cHxlbnwxfHx8fDE3NzY3NTU3ODl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1080',
       link: '/coaching/group-classes'
     },
     {
       title: '10 Session Pack',
       description: 'Commit to your game with our bulk session packages. Ideal for players looking for consistent weekly training.',
-      image: 'https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      image: 'https://images.unsplash.com/photo-1551608770-b1d6b0ff6bb7?q=80&w=1080',
       link: '/coaching/ten-session-pack'
     },
     {
