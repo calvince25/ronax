@@ -6,59 +6,50 @@ interface CountdownTimerProps {
   targetDate: string;
 }
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState<{
-    days: number;
-    hours: number;
-    minutes: number;
-    seconds: number;
-  } | null>(null);
+const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
 
   useEffect(() => {
-    const calculateTimeLeft = () => {
-      const difference = +new Date(targetDate) - +new Date();
-      
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      } else {
-        setTimeLeft(null);
-      }
-    };
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = new Date(targetDate).getTime() - now;
 
-    const timer = setInterval(calculateTimeLeft, 1000);
-    calculateTimeLeft();
+      if (distance < 0) {
+        clearInterval(timer);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
 
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  if (!timeLeft) return <div className="text-brand-green font-bold text-xs uppercase tracking-widest">Event has started</div>;
+  const TimeBlock = ({ label, value }: { label: string, value: number }) => (
+    <div className="flex flex-col items-center">
+      <div className="bg-brand-dark text-brand-green font-barlow text-2xl md:text-3xl font-bold w-12 md:w-16 h-12 md:h-16 rounded-xl flex items-center justify-center shadow-lg border border-white/10 mb-2">
+        {value.toString().padStart(2, '0')}
+      </div>
+      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{label}</span>
+    </div>
+  );
 
   return (
-    <div className="flex gap-4 items-center">
-      <div className="flex flex-col items-center">
-        <span className="text-2xl font-bold font-barlow text-brand-green leading-none">{timeLeft.days}</span>
-        <span className="text-[8px] uppercase tracking-widest opacity-50 font-bold">Days</span>
-      </div>
-      <span className="text-xl opacity-20 font-light mb-4">:</span>
-      <div className="flex flex-col items-center">
-        <span className="text-2xl font-bold font-barlow text-brand-green leading-none">{timeLeft.hours}</span>
-        <span className="text-[8px] uppercase tracking-widest opacity-50 font-bold">Hrs</span>
-      </div>
-      <span className="text-xl opacity-20 font-light mb-4">:</span>
-      <div className="flex flex-col items-center">
-        <span className="text-2xl font-bold font-barlow text-brand-green leading-none">{timeLeft.minutes}</span>
-        <span className="text-[8px] uppercase tracking-widest opacity-50 font-bold">Min</span>
-      </div>
-      <span className="text-xl opacity-20 font-light mb-4">:</span>
-      <div className="flex flex-col items-center">
-        <span className="text-2xl font-bold font-barlow text-brand-green leading-none">{timeLeft.seconds}</span>
-        <span className="text-[8px] uppercase tracking-widest opacity-50 font-bold">Sec</span>
-      </div>
+    <div className="flex items-center gap-4 md:gap-8 justify-center">
+      <TimeBlock label="Days" value={timeLeft.days} />
+      <TimeBlock label="Hrs" value={timeLeft.hours} />
+      <TimeBlock label="Min" value={timeLeft.minutes} />
+      <TimeBlock label="Sec" value={timeLeft.seconds} />
     </div>
   );
 };
