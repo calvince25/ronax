@@ -75,7 +75,12 @@ export default function BlogPost() {
           </header>
 
           <div className={styles.heroImage}>
-            <img src={post.image_url || '/images/hero.png'} alt={post.title} className="w-full h-full object-cover" />
+            <ImageWithFallback 
+              src={post.image_url} 
+              alt={post.title} 
+              fill 
+              priority 
+            />
           </div>
 
           <div className={styles.content}>

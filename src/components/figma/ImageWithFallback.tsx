@@ -1,29 +1,43 @@
 'use client';
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Image from 'next/image';
 
-const ERROR_IMG_SRC =
-  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg=='
+interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  src: string;
+  alt: string;
+  fill?: boolean;
+  priority?: boolean;
+}
 
-export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElement>) {
-  const [didError, setDidError] = useState(false)
+export function ImageWithFallback({ src, alt, className, fill, priority, ...rest }: ImageWithFallbackProps) {
+  const [error, setError] = useState(false);
 
-  const handleError = () => {
-    setDidError(true)
+  const fallbackSrc = 'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=800';
+
+  if (fill) {
+    return (
+      <Image
+        src={error ? fallbackSrc : src}
+        alt={alt}
+        fill
+        className={`object-cover ${className}`}
+        onError={() => setError(true)}
+        priority={priority}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      />
+    );
   }
 
-  const { src, alt, style, className, ...rest } = props
-
-  return didError ? (
-    <div
-      className={`inline-block bg-gray-100 text-center align-middle ${className ?? ''}`}
-      style={style}
-    >
-      <div className="flex items-center justify-center w-full h-full">
-        <img src={ERROR_IMG_SRC} alt="Error loading image" {...rest} data-original-url={src} />
-      </div>
-    </div>
-  ) : (
-    <img src={src} alt={alt} className={className} style={style} {...rest} onError={handleError} />
-  )
+  return (
+    <Image
+      src={error ? fallbackSrc : src}
+      alt={alt}
+      width={800}
+      height={500}
+      className={`object-cover ${className}`}
+      onError={() => setError(true)}
+      priority={priority}
+    />
+  );
 }
