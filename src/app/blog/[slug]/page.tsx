@@ -2,12 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Calendar, User } from 'lucide-react';
 import styles from '../Blog.module.css';
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
+export default function BlogPost() {
+  const params = useParams();
+  const slug = params?.slug as string;
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -17,12 +19,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       const { data, error } = await supabase
         .from('posts')
         .select('*')
-        .eq('slug', params.slug)
+        .eq('slug', slug)
         .single();
 
       if (error || !data) {
         // Fallback for demo or if not found
-        if (params.slug === 'best-tennis-courts-nairobi') {
+        if (slug === 'best-tennis-courts-nairobi') {
           setPost({
             title: "Best Tennis Courts in Nairobi (2025 Guide)",
             content: "Nairobi has a variety of tennis courts ranging from public spaces to exclusive clubs...",
@@ -38,8 +40,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       setLoading(false);
     };
 
-    fetchPost();
-  }, [params.slug]);
+    if (slug) fetchPost();
+  }, [slug]);
 
   if (loading) return <div className={styles.loading}>Loading post...</div>;
   if (!post) return <div className={styles.error}>Post not found.</div>;
