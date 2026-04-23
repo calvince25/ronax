@@ -59,6 +59,12 @@ export default function AdminLayout({
     };
   }, [pathname, router]);
 
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileOpen(false); // Close sidebar on route change
+  }, [pathname]);
+
   if (loading) {
     return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: '#0a192f', color: '#fff' }}>Loading Admin...</div>;
   }
@@ -86,16 +92,22 @@ export default function AdminLayout({
 
   return (
     <div className={styles.layout}>
-      <AdminSidebar />
+      <AdminSidebar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+      {mobileOpen && <div className={styles.overlay} onClick={() => setMobileOpen(false)}></div>}
       <main className={styles.content}>
         <header className={styles.header}>
-          <div className={styles.headerInfo}>
-            <h1>Admin Control Center</h1>
-            <p>Manage your tennis school's digital presence</p>
+          <div className="flex items-center gap-4">
+            <button onClick={() => setMobileOpen(true)} className={styles.menuBtn}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <div className={styles.headerInfo}>
+              <h1>Admin Control Center</h1>
+              <p>Manage your tennis school's digital presence</p>
+            </div>
           </div>
           <div className={styles.userProfile}>
             <div className={styles.avatar}>{userEmail.charAt(0).toUpperCase()}</div>
-            <span>{userEmail.split('@')[0]}</span>
+            <span className="hidden sm:inline">{userEmail.split('@')[0]}</span>
           </div>
         </header>
         <div className={styles.pageContent}>

@@ -24,7 +24,12 @@ const Footer = () => {
             Nairobi's premium tennis club and coaching hub. Train with the best and elevate your game on our beautiful courts.
           </p>
           <div className="flex gap-4">
-             {/* Social placeholders could go here */}
+             <a href="https://www.instagram.com/revolutiontennis_kenya?igsh=MWhnbTRsZHljaTFkaA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center rounded-full text-white hover:bg-brand-green hover:border-brand-green hover:text-brand-dark transition-all duration-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+             </a>
+             <a href="https://www.tiktok.com/@revolution_tennis?_r=1&_t=ZS-95lxbJVXS5P" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center rounded-full text-white hover:bg-brand-green hover:border-brand-green hover:text-brand-dark transition-all duration-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31 5.141 5.411 8.412 10.296 8.507v4.73c-2.673-.021-5.285-.739-7.603-2.106v12.871c0 4.467-3.614 8.082-8.082 8.082a8.082 8.082 0 01-8.082-8.082c0-4.467 3.614-8.082 8.082-8.082.401 0 .79.03 1.171.089V11.202a8.058 8.058 0 00-1.171-.089C3.136 11.112 0 14.168 0 17.925v5.992C0 27.674 3.136 30.73 7.14 30.73c3.992 0 7.144-3.055 7.144-6.812V0h5.25c.11.106.222.211.332.316V0h-7.341z"/></svg>
+             </a>
           </div>
         </div>
 

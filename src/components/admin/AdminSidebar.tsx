@@ -25,7 +25,7 @@ const navLinks = [
   { href: '/admin/users', icon: <Users size={20} />, label: 'Users', exact: false },
 ];
 
-const AdminSidebar = () => {
+const AdminSidebar = ({ mobileOpen, setMobileOpen }: { mobileOpen: boolean, setMobileOpen: (o: boolean) => void }) => {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -41,11 +41,16 @@ const AdminSidebar = () => {
   };
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={`${styles.sidebar} ${mobileOpen ? styles.mobileOpen : ''}`}>
       <div className={styles.top}>
-        <div className={styles.logo}>
-          <span className={styles.logoIcon}>🎾</span>
-          <span className={styles.logoText}>AdminPanel</span>
+        <div className="flex justify-between items-center mb-8 lg:mb-0">
+          <div className={styles.logo}>
+            <span className={styles.logoIcon}>🎾</span>
+            <span className={styles.logoText}>AdminPanel</span>
+          </div>
+          <button onClick={() => setMobileOpen(false)} className="lg:hidden text-white/50 hover:text-white">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
         </div>
       </div>
 

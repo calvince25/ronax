@@ -135,7 +135,7 @@ export default function Contact() {
                       <MapPin size={24} />
                     </div>
                     <h4 className="font-barlow text-[20px] font-bold text-brand-black uppercase mb-2 group-hover:text-white">Our Courts</h4>
-                    <span className="font-dm text-sm text-gray-500 group-hover:text-gray-300 transition-colors text-xs">Westlands & Karen, Nairobi</span>
+                    <span className="font-dm text-sm text-gray-500 group-hover:text-gray-300 transition-colors text-xs text-center px-4">Aga Khan (Parklands), Public Service Club & Karura, Nairobi</span>
                   </div>
                </div>
 

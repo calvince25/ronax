@@ -6,7 +6,7 @@
 
 .content {
   flex: 1;
-  margin-left: 280px;
+  margin-left: 240px;
   display: flex;
   flex-direction: column;
 }
@@ -59,8 +59,34 @@
   flex: 1;
 }
 
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 900;
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  cursor: pointer;
+  padding: 8px;
+}
+
 @media (max-width: 1024px) {
   .content {
     margin-left: 0;
+  }
+  .menuBtn {
+    display: block;
+  }
+  .header {
+    padding: 0 20px;
+  }
+  .pageContent {
+    padding: 20px;
   }
 }
