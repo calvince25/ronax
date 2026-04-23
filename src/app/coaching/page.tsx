@@ -12,25 +12,25 @@ export default function CoachingHub() {
     {
       title: 'Private Lessons',
       description: 'Personalized 1-on-1 coaching to accelerate your technical and tactical development. Available for adults and kids.',
-      image: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/images/locations_coaching/private_lessons.jpg',
       link: '/coaching/private-lessons'
     },
     {
       title: 'Group Classes',
       description: 'Social and competitive drills for all levels (minimum 3 players). Learn in a dynamic group environment.',
-      image: 'https://images.unsplash.com/flagged/photo-1576972405668-2d020a01cbfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/images/locations_coaching/group_classes.jpg',
       link: '/coaching/group-classes'
     },
     {
       title: '10 Session Pack',
       description: 'Commit to your game with our bulk session packages. Ideal for players looking for consistent weekly training.',
-      image: 'https://images.unsplash.com/photo-1542144582-1ba00456b5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/images/locations_coaching/ten_session_pack.jpg',
       link: '/coaching/ten-session-pack'
     },
     {
       title: 'After School Program',
       description: 'Structured youth development for ages 4-16. Sessions on Mon, Wed, and Fri to build future champions.',
-      image: 'https://images.unsplash.com/photo-1587683437362-da7775ffc532?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/images/locations_coaching/after_school.jpg',
       link: '/coaching/junior-tennis'
     }
   ];
