@@ -182,14 +182,16 @@
 .modal {
   background: white;
   width: 100%;
-  max-width: 650px;
-  border-radius: 20px;
+  max-width: 500px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modalHeader {
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.5rem;
   background: #f8f9fa;
   display: flex;
   justify-content: space-between;
@@ -199,7 +201,7 @@
 
 .modalHeader h3 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
   color: #1a1a1a;
 }
@@ -207,24 +209,24 @@
 .closeBtn {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #999;
   cursor: pointer;
 }
 
 .form {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .formGroup {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .formGroup label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #1a1a1a;
   text-transform: uppercase;
@@ -234,11 +236,11 @@
 .formGroup input, 
 .formGroup textarea, 
 .formGroup select {
-  padding: 12px 16px;
+  padding: 10px 14px;
   border: 1px solid #eee;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   background: #fdfdfd;
 }
 
@@ -250,27 +252,28 @@
 .row {
   display: grid;
   grid-template-cols: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.modalFooter {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: flex-end;
   gap: 1rem;
 }
 
+.modalFooter {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
 .cancelBtn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   background: #f8f9fa;
   border: none;
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
+  font-size: 0.85rem;
 }
 
 .saveBtn {
-  padding: 12px 32px;
+  padding: 10px 28px;
   background: #c6eb1e;
   color: #1a1a1a;
   border: none;
@@ -278,7 +281,7 @@
   font-weight: 800;
   cursor: pointer;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .loading, .empty {
