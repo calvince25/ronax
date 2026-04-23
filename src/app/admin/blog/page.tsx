@@ -103,11 +103,15 @@ const AdminBlogPage = () => {
       const { error } = await supabase.from('posts').update(form).eq('id', editingPost.id);
       if (!error) {
         setPosts(posts.map(p => p.id === editingPost.id ? { ...p, ...form } : p));
+      } else {
+        alert('Error updating post: ' + error.message);
       }
     } else {
       const { data, error } = await supabase.from('posts').insert([form]).select().single();
       if (!error && data) {
         setPosts([data, ...posts]);
+      } else {
+        alert('Error saving post: ' + (error?.message || 'Check your database permissions.'));
       }
     }
     
