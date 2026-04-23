@@ -147,10 +147,10 @@ const BookingModal = () => {
                       <label><MapPin size={13} /> Preferred Location</label>
                       <select name="location" required value={form.location} onChange={handleChange}>
                         <option value="">Select Location</option>
-                        <option value="Westlands">Westlands</option>
-                        <option value="Karen">Karen</option>
-                        <option value="Riverside">Riverside</option>
-                        <option value="Nairobi Club">Nairobi Club</option>
+                        <option value="Aga Khan, Parklands">Aga Khan, Parklands</option>
+                        <option value="Public Service Club">Public Service Club</option>
+                        <option value="Karura">Karura</option>
+                        <option value="Other">Other (At my Court)</option>
                       </select>
                     </div>
                     <div className={`${styles.inputGroup} ${styles.fullWidth}`}>
@@ -159,10 +159,8 @@ const BookingModal = () => {
                         <option value="">Select a Program</option>
                         <option value="Private Lessons">Private Lessons</option>
                         <option value="Group Classes">Group Classes</option>
-                        <option value="Junior Program">Junior Program</option>
-                        <option value="Adult Beginners">Adult Beginners</option>
-                        <option value="Advanced Training">Advanced Training</option>
-                        <option value="Tennis Camps">Tennis Camps</option>
+                        <option value="10 Session Pack">10 Session Pack</option>
+                        <option value="After School Program">After School Program</option>
                       </select>
                     </div>
                   </div>

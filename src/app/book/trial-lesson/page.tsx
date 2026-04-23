@@ -11,7 +11,7 @@ const TrialLessonBooking = () => {
     phone: '',
     email: '',
     level: 'Beginner',
-    location: 'Westlands',
+    location: 'Aga Khan, Parklands',
     message: ''
   });
   const [loading, setLoading] = useState(false);
@@ -61,7 +61,7 @@ const TrialLessonBooking = () => {
         phone: '',
         email: '',
         level: 'Beginner',
-        location: 'Westlands',
+        location: 'Aga Khan, Parklands',
         message: ''
       });
 
@@ -144,9 +144,9 @@ const TrialLessonBooking = () => {
               <div className={styles.inputGroup}>
                 <label>Preferred Location</label>
                 <select name="location" value={formData.location} onChange={handleChange}>
-                  <option>Westlands</option>
-                  <option>Karen</option>
-                  <option>Nairobi CBD Area</option>
+                  <option>Aga Khan, Parklands</option>
+                  <option>Public Service Club</option>
+                  <option>Karura</option>
                   <option>Other / At my Court</option>
                 </select>
               </div>

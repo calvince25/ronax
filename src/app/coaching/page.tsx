@@ -11,33 +11,27 @@ export default function CoachingHub() {
   const categories = [
     {
       title: 'Private Lessons',
-      description: 'Personalized 1-on-1 coaching to accelerate your technical and tactical development.',
+      description: 'Personalized 1-on-1 coaching to accelerate your technical and tactical development. Available for adults and kids.',
       image: 'https://images.unsplash.com/photo-1773081364166-74db8910af47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBmYWNpbGl0eXxlbnwxfHx8fDE3NzY3NTU3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       link: '/coaching/private-lessons'
     },
     {
       title: 'Group Classes',
-      description: 'Social and competitive drills for all levels. Learn in a dynamic group environment.',
+      description: 'Social and competitive drills for all levels (minimum 3 players). Learn in a dynamic group environment.',
       image: 'https://images.unsplash.com/photo-1634567220268-20d009b11910?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBncm91cHxlbnwxfHx8fDE3NzY3NTU3ODl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       link: '/coaching/group-classes'
     },
     {
-      title: 'Junior Program',
-      description: 'Structured youth development from ages 5-17. Building the future of Kenyan tennis.',
+      title: '10 Session Pack',
+      description: 'Commit to your game with our bulk session packages. Ideal for players looking for consistent weekly training.',
+      image: 'https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      link: '/pricing'
+    },
+    {
+      title: 'After School Program',
+      description: 'Structured youth development for ages 4-16. Sessions on Mon, Wed, and Fri to build future champions.',
       image: 'https://images.unsplash.com/photo-1627341398579-2d128de1dc8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraWQlMjB0ZW5uaXN8ZW58MXx8fHwxNzc2NzU1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       link: '/coaching/junior-tennis'
-    },
-    {
-      title: 'Adult Beginners',
-      description: "It's never too late to start. Master the basics and start playing matches quickly.",
-      image: 'https://images.unsplash.com/photo-1542144582-1ba0045d45e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXNlcnxlbnwxfHx8fDE3NzY3NTU3OTF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      link: '/coaching/adult-beginners'
-    },
-    {
-      title: 'Advanced Training',
-      description: 'Intensive drills and high-performance strategy for competitive tournament players.',
-      image: 'https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      link: '/coaching/advanced-training'
     }
   ];
 

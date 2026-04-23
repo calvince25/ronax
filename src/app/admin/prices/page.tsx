@@ -8,9 +8,8 @@ import styles from './AdminPrices.module.css';
 const CATEGORIES = [
   'Private Lessons',
   'Group Classes',
-  'Junior Program',
-  'Adult Beginners',
-  'Advanced Training'
+  '10 Session Pack',
+  'After School Program'
 ];
 
 const emptyPrice = {
