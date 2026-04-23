@@ -21,7 +21,8 @@ const Dashboard = () => {
     pendingBookings: 0,
     totalPosts: 0,
     totalPrices: 0,
-    totalMessages: 0
+    totalMessages: 0,
+    upcomingEvents: 0
   });
   const [recentBookings, setRecentBookings] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,13 +37,15 @@ const Dashboard = () => {
       const { count: postCount } = await supabase.from('posts').select('*', { count: 'exact', head: true });
       const { count: priceCount } = await supabase.from('prices').select('*', { count: 'exact', head: true });
       const { count: messageCount } = await supabase.from('messages').select('*', { count: 'exact', head: true });
+      const { count: eventCount } = await supabase.from('events').select('*', { count: 'exact', head: true }).eq('status', 'upcoming');
 
       setStats({
         totalBookings: bookingCount || 0,
         pendingBookings: pendingCount || 0,
         totalPosts: postCount || 0,
         totalPrices: priceCount || 0,
-        totalMessages: messageCount || 0
+        totalMessages: messageCount || 0,
+        upcomingEvents: eventCount || 0
       });
 
       // Fetch recent bookings
@@ -107,6 +110,15 @@ const Dashboard = () => {
           <div className={styles.statInfo}>
             <h4>Messages</h4>
             <p>{stats.totalMessages}</p>
+          </div>
+        </Link>
+        <Link href="/admin/events" className={styles.statCard}>
+          <div className={`${styles.statIcon} ${styles.yellow}`}>
+            <Calendar size={24} />
+          </div>
+          <div className={styles.statInfo}>
+            <h4>Upcoming Events</h4>
+            <p>{stats.upcomingEvents}</p>
           </div>
         </Link>
       </div>
