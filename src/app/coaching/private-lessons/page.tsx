@@ -27,7 +27,7 @@ export default function PrivateLessons() {
   const subtitle = program?.subtitle || "Personalized Performance";
   const leadDesc = program?.lead_description || "Elevate your game with dedicated attention from Coach Ronax. Private lessons are the fastest way to master technique and tactical awareness.";
   const mainDesc = program?.main_description || "In a private setting, every minute is focused on your specific needs. Whether you are correcting a serve, perfecting your backhand, or learning match strategy, 1-on-1 coaching provides the immediate feedback necessary for rapid improvement.";
-  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1773081364166-74db8910af47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBmYWNpbGl0eXxlbnwxfHx8fDE3NzY3NTU3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1080";
 
   return (
     <>
@@ -36,10 +36,7 @@ export default function PrivateLessons() {
           <ImageWithFallback
             src={imageUrl}
             alt={title}
-            fill
-            priority
-            className="object-cover opacity-80"
-            sizes="100vw"
+            className="w-full h-full object-cover opacity-80"
           />
           <div className="absolute inset-0 bg-brand-dark/40"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-brand-dark/40"></div>

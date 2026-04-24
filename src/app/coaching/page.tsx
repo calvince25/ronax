@@ -48,7 +48,7 @@ export default function CoachingHub() {
         <div className="max-w-[1440px] mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
             {categories.map((item, index) => (
-              <div key={index} className="flex flex-col group cursor-pointer">
+              <Link href={item.link} key={index} className="flex flex-col group cursor-pointer">
                 <div className="relative w-full h-64 overflow-hidden mb-8 rounded-sm">
                   <ImageWithFallback
                     src={item.image}
@@ -63,11 +63,11 @@ export default function CoachingHub() {
                 <p className="font-dm text-gray-500 text-[14px] leading-relaxed mb-8 flex-grow font-light">
                   {item.description}
                 </p>
-                <Link href={item.link} className="flex items-center gap-3 font-dm font-bold text-[11px] tracking-[0.2em] uppercase text-brand-black hover:text-brand-green transition-colors">
+                <div className="flex items-center gap-3 font-dm font-bold text-[11px] tracking-[0.2em] uppercase text-brand-black group-hover:text-brand-green transition-colors">
                   <span>View Program Details</span>
                   <div className="w-8 h-[1px] bg-current"></div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
