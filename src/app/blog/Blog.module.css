@@ -257,12 +257,24 @@
 }
 
 .heroImage {
+  position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 8px;
+  height: 300px;
+  border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 60px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+@media (min-width: 768px) {
+  .heroImage {
+    height: 450px;
+    margin-bottom: 60px;
+  }
+}
+
+.heroImage img {
+  object-fit: cover;
 }
 
 .content {
