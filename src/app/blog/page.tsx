@@ -43,9 +43,7 @@ const BlogPage = () => {
             <ImageWithFallback 
               src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=2000" 
               alt="Featured Post" 
-              fill
-              priority
-              className="object-cover" 
+              className="object-cover w-full h-full" 
               sizes="100vw"
             />
           </div>
@@ -64,8 +62,7 @@ const BlogPage = () => {
                 <ImageWithFallback 
                   src={post.image_url || 'https://images.unsplash.com/photo-1627341398579-2d128de1dc8c?q=80&w=1080'} 
                   alt={post.title} 
-                  fill
-                  className="object-cover" 
+                  className="object-cover w-full h-full" 
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
