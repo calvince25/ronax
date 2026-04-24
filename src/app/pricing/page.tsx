@@ -44,7 +44,7 @@ export default function Pricing() {
         title="Pricing & Packages"
         subtitle="Investment in your Game"
         description="Transparent pricing for all coaching programs at Aga Khan (Parklands), Public Service Club, and Karura. Private lessons, group classes, 10-session packs, and after-school programs."
-        imageSrc="https://images.unsplash.com/photo-1773081364166-74db8910af47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBmYWNpbGl0eXxlbnwxfHx8fDE3NzY3NTU3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        imageSrc="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1440"
       />
 
       <div className="pt-24 pb-32 px-8 md:px-12 bg-brand-white">

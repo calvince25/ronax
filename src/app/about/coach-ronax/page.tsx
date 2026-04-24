@@ -8,7 +8,7 @@ export default function AboutCoach() {
       <div className="relative w-full h-[60vh] min-h-[500px] bg-brand-black flex items-center">
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBqdW1waW5nJTIwY2VsZWJyYXRpbmd8ZW58MXx8fHwxNzc2NzU0ODM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?q=80&w=1440"
             alt="Tennis player celebration"
             fill
             priority
@@ -61,9 +61,9 @@ export default function AboutCoach() {
           </div>
           
           <div className="w-full md:w-1/2 relative">
-            <div className="aspect-[3/4] overflow-hidden rounded-sm shadow-2xl relative z-10">
+            <div className="relative w-full h-[500px] overflow-hidden rounded-sm shadow-2xl z-10">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?q=80&w=1080"
                 alt="Coach Ronax on court"
                 fill
                 priority

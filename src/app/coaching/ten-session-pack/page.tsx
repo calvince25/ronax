@@ -23,7 +23,7 @@ export default function TenSessionPack() {
         title="10 Session Pack"
         subtitle="Commit to Excellence"
         description="The ultimate training package for dedicated players. Consistent practice is the only way to transform your game."
-        imageSrc="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?q=80&w=2000"
+        imageSrc="/images/locations_coaching/ten_session_pack.jpg"
       />
 
       <div className="py-24 pb-40 px-8 md:px-12 bg-brand-white">

@@ -27,7 +27,7 @@ export default function PrivateLessons() {
   const subtitle = program?.subtitle || "Personalized Performance";
   const leadDesc = program?.lead_description || "Elevate your game with dedicated attention from Coach Ronax. Private lessons are the fastest way to master technique and tactical awareness.";
   const mainDesc = program?.main_description || "In a private setting, every minute is focused on your specific needs. Whether you are correcting a serve, perfecting your backhand, or learning match strategy, 1-on-1 coaching provides the immediate feedback necessary for rapid improvement.";
-  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1080";
+  const imageUrl = program?.image_url || "/images/locations_coaching/private_lessons.jpg";
 
   return (
     <>
