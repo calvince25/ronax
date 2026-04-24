@@ -41,7 +41,7 @@ export default function CoachingHub() {
         title="Tennis Coaching Programs"
         subtitle="Professional Training"
         description="From your very first rally to tournament-level performance. Find the perfect program to elevate your game on court."
-        imageSrc="https://images.unsplash.com/photo-1773081364166-74db8910af47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBmYWNpbGl0eXxlbnwxfHx8fDE3NzY3NTU3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        imageSrc="/images/locations_coaching/coaching_hero.jpg"
       />
 
       <div className="py-32 px-8 md:px-12 bg-brand-white">

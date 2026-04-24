@@ -34,7 +34,7 @@ export default function Locations() {
         title="Training Locations"
         subtitle="Where We Play"
         description="Experience world-class coaching in the most convenient and beautiful venues across Nairobi. From clay to hard courts, we have you covered."
-        imageSrc="https://images.unsplash.com/photo-1660463529569-17f8c4d16fbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb2FjaCUyMGNsYXklMjBjb3VydHxlbnwxfHx8fDE3NzY3NTU4NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        imageSrc="/images/locations_coaching/locations_hero.jpg"
       />
 
       <div className="py-32 px-8 md:px-12 bg-brand-white">
