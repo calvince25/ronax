@@ -86,7 +86,7 @@ const AdminEventsPage = () => {
         setEvents(events.map(e => e.id === editingEvent.id ? { ...e, ...form } : e));
         setShowModal(false);
       } else {
-        alert('Error: ' + error.message);
+        alert('Error: ' + error?.message);
       }
     } else {
       const { data, error } = await supabase.from('events').insert([form]).select().single();
@@ -94,7 +94,7 @@ const AdminEventsPage = () => {
         setEvents([...events, data]);
         setShowModal(false);
       } else {
-        alert('Error: ' + error.message);
+        alert('Error: ' + error?.message);
       }
     }
     setSaving(false);

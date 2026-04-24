@@ -54,21 +54,21 @@ export default function Pricing() {
             <div className="py-20 text-gray-500 font-dm italic">Loading current rates...</div>
           ) : (
             <>
-              {Object.entries(
+              {(Object.entries(
                 plans.reduce((acc, plan) => {
                   const category = plan.category || 'General';
                   if (!acc[category]) acc[category] = [];
                   acc[category].push(plan);
                   return acc;
                 }, {} as Record<string, any[]>)
-              ).map(([category, categoryPlans]) => (
+              ) as [string, any[]][]).map(([category, categoryPlans]) => (
                 <div key={category} className="mb-24">
                   <h3 className="text-3xl font-barlow font-bold uppercase tracking-widest text-brand-dark mb-12 relative inline-block">
                     {category}
                     <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-1 bg-brand-green"></span>
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-                    {categoryPlans.map((plan, i) => (
+                    {categoryPlans.map((plan: any, i: number) => (
                       <div key={i} className={`bg-white border ${plan.popular ? 'border-2 border-brand-green scale-105 z-10 shadow-2xl' : 'border-gray-200 shadow-lg'} rounded-sm overflow-hidden flex flex-col text-left transition-transform duration-300 hover:z-20`}>
                         {plan.popular && (
                           <div className="bg-brand-green text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 text-center">
