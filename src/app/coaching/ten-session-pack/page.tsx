@@ -2,12 +2,26 @@
 
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
+import { supabase } from '@/lib/supabase';
 import { Check, Clock, Calendar, ShieldCheck } from 'lucide-react';
 import { useBooking } from '@/context/BookingContext';
 import PageHero from '@/components/ui/PageHero';
 
 export default function TenSessionPack() {
   const { openBookingModal } = useBooking();
+  const [prices, setPrices] = React.useState<any[]>([]);
+
+  React.useEffect(() => {
+    const fetchPrices = async () => {
+      const { data } = await supabase
+        .from('prices')
+        .select('*')
+        .eq('category', '10 Session Pack')
+        .order('display_order', { ascending: true });
+      if (data) setPrices(data);
+    };
+    fetchPrices();
+  }, []);
 
   const features = [
     "At least 2 sessions per week",
@@ -37,35 +51,55 @@ export default function TenSessionPack() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                 <div className="bg-brand-dark p-10 rounded-sm text-white">
-                    <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-4 block">Adult Package</span>
-                    <div className="font-barlow text-[56px] font-bold mb-4">
-                       <span className="text-xl font-normal opacity-60 mr-2">Ksh</span>
-                       23,500
-                    </div>
-                    <p className="text-white/60 text-sm font-light mb-8 italic">Valid for 2 months from first session</p>
-                    <button 
-                      onClick={() => openBookingModal('10 Session Pack - Adult')}
-                      className="w-full bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] py-4 rounded-full uppercase transition-all"
-                    >
-                      Book Adult Pack
-                    </button>
-                 </div>
-
-                 <div className="bg-white border border-gray-100 p-10 rounded-sm shadow-sm">
-                    <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-4 block">Kids Package</span>
-                    <div className="font-barlow text-[56px] font-bold text-brand-black mb-4">
-                       <span className="text-xl font-normal opacity-60 mr-2">Ksh</span>
-                       13,500
-                    </div>
-                    <p className="text-gray-400 text-sm font-light mb-8 italic">Valid for 2 months from first session</p>
-                    <button 
-                      onClick={() => openBookingModal('10 Session Pack - Kids')}
-                      className="w-full bg-brand-dark hover:bg-black text-white font-bold text-[11px] tracking-[0.2em] py-4 rounded-full uppercase transition-all"
-                    >
-                      Book Kids Pack
-                    </button>
-                 </div>
+                 {prices.map((p, i) => (
+                   <div key={i} className={`${p.popular ? 'bg-brand-dark text-white' : 'bg-white border border-gray-100'} p-10 rounded-sm shadow-sm`}>
+                      <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-4 block">{p.name}</span>
+                      <div className={`font-barlow text-[56px] font-bold ${p.popular ? 'text-white' : 'text-brand-black'} mb-4`}>
+                         <span className="text-xl font-normal opacity-60 mr-2">Ksh</span>
+                         {p.price}
+                      </div>
+                      <p className={`${p.popular ? 'text-white/60' : 'text-gray-400'} text-sm font-light mb-8 italic`}>{p.unit}</p>
+                      <button 
+                        onClick={() => openBookingModal(p.name)}
+                        className={`w-full ${p.popular ? 'bg-brand-green hover:bg-brand-green/90' : 'bg-brand-dark hover:bg-black'} text-white font-bold text-[11px] tracking-[0.2em] py-4 rounded-full uppercase transition-all`}
+                      >
+                        Book {p.name}
+                      </button>
+                   </div>
+                 ))}
+                 
+                 {prices.length === 0 && (
+                   <>
+                     <div className="bg-brand-dark p-10 rounded-sm text-white">
+                        <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-4 block">Adult Package</span>
+                        <div className="font-barlow text-[56px] font-bold mb-4">
+                           <span className="text-xl font-normal opacity-60 mr-2">Ksh</span>
+                           23,500
+                        </div>
+                        <p className="text-white/60 text-sm font-light mb-8 italic">Valid for 2 months from first session</p>
+                        <button 
+                          onClick={() => openBookingModal('10 Session Pack - Adult')}
+                          className="w-full bg-brand-green hover:bg-brand-green/90 text-white font-bold text-[11px] tracking-[0.2em] py-4 rounded-full uppercase transition-all"
+                        >
+                          Book Adult Pack
+                        </button>
+                     </div>
+                     <div className="bg-white border border-gray-100 p-10 rounded-sm shadow-sm">
+                        <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest mb-4 block">Kids Package</span>
+                        <div className="font-barlow text-[56px] font-bold text-brand-black mb-4">
+                           <span className="text-xl font-normal opacity-60 mr-2">Ksh</span>
+                           13,500
+                        </div>
+                        <p className="text-gray-400 text-sm font-light mb-8 italic">Valid for 2 months from first session</p>
+                        <button 
+                          onClick={() => openBookingModal('10 Session Pack - Kids')}
+                          className="w-full bg-brand-dark hover:bg-black text-white font-bold text-[11px] tracking-[0.2em] py-4 rounded-full uppercase transition-all"
+                        >
+                          Book Kids Pack
+                        </button>
+                     </div>
+                   </>
+                 )}
               </div>
 
               <div className="space-y-12">

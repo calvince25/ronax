@@ -8,8 +8,10 @@ import styles from './AdminPrices.module.css';
 const CATEGORIES = [
   'Private Lessons',
   'Group Classes',
-  '10 Session Pack',
-  'After School Program'
+  'Junior Program',
+  'Adult Beginners',
+  'Advanced Training',
+  '10 Session Pack'
 ];
 
 const emptyPrice = {
@@ -102,20 +104,31 @@ const AdminPricesPage = () => {
       const { error } = await supabase.from('prices').update(payload).eq('id', editingPrice.id);
       if (!error) {
         setPrices(prices.map(p => p.id === editingPrice.id ? { ...p, ...payload } : p));
+        setShowModal(false);
+      } else {
+        alert('Failed to update price: ' + error.message);
       }
     } else {
       const { data, error } = await supabase.from('prices').insert([payload]).select().single();
-      if (!error && data) setPrices([...prices, data]);
+      if (!error && data) {
+        setPrices([...prices, data]);
+        setShowModal(false);
+      } else {
+        alert('Failed to create price: ' + (error?.message || 'Unknown error'));
+      }
     }
 
     setSaving(false);
-    setShowModal(false);
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm('Delete this pricing plan?')) return;
     const { error } = await supabase.from('prices').delete().eq('id', id);
-    if (!error) setPrices(prices.filter(p => p.id !== id));
+    if (!error) {
+      setPrices(prices.filter(p => p.id !== id));
+    } else {
+      alert('Failed to delete: ' + error.message);
+    }
   };
 
   const getIconComponent = (name: string) => {
