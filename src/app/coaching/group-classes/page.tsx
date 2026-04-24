@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import React from 'react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import Link from 'next/link';
