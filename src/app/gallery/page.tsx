@@ -48,12 +48,10 @@ export default function GalleryPage() {
               {images.map((img) => (
                 <div key={img.id} className={styles.card}>
                   <div className={styles.imgWrapper}>
-                    <ImageWithFallback
+                    <img
                       src={img.image_url}
                       alt={img.alt_text}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className={styles.hoverOverlay}>
                       <Camera size={28} className="text-white" />
