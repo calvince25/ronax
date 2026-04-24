@@ -42,8 +42,8 @@ Please confirm my slot. Thanks!`;
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] flex items-center justify-center p-6">
-      <div className="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300">
-        <div className="relative h-32 bg-brand-dark flex items-center justify-center p-8">
+      <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300">
+        <div className="relative h-24 bg-brand-dark flex items-center justify-center p-6">
           <button onClick={onClose} className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors">
             <X size={24} />
           </button>
@@ -53,12 +53,12 @@ Please confirm my slot. Thanks!`;
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-8">
-          <div className="flex gap-4 mb-8">
+        <form onSubmit={handleSubmit} className="p-6">
+          <div className="flex gap-4 mb-6">
             <button 
               type="button"
               onClick={() => setBookingType('individual')}
-              className={`flex-1 py-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${
+              className={`flex-1 py-3 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${
                 bookingType === 'individual' 
                 ? 'border-brand-green bg-brand-green/5 text-brand-dark' 
                 : 'border-gray-100 text-gray-400 hover:border-gray-200'
@@ -71,7 +71,7 @@ Please confirm my slot. Thanks!`;
             <button 
               type="button"
               onClick={() => setBookingType('group')}
-              className={`flex-1 py-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${
+              className={`flex-1 py-3 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${
                 bookingType === 'group' 
                 ? 'border-brand-green bg-brand-green/5 text-brand-dark' 
                 : 'border-gray-100 text-gray-400 hover:border-gray-200'
@@ -83,14 +83,14 @@ Please confirm my slot. Thanks!`;
             </button>
           </div>
 
-          <div className="space-y-4 mb-8">
+          <div className="space-y-3 mb-6">
             <div className="relative">
               <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
               <input 
                 required
                 type="text" 
                 placeholder="Full Name"
-                className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm focus:outline-none focus:border-brand-green transition-colors"
+                className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm focus:outline-none focus:border-brand-green transition-colors"
                 value={form.name}
                 onChange={e => setForm({...form, name: e.target.value})}
               />
@@ -101,7 +101,7 @@ Please confirm my slot. Thanks!`;
                 required
                 type="tel" 
                 placeholder="Phone Number"
-                className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm focus:outline-none focus:border-brand-green transition-colors"
+                className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm focus:outline-none focus:border-brand-green transition-colors"
                 value={form.phone}
                 onChange={e => setForm({...form, phone: e.target.value})}
               />
@@ -126,7 +126,7 @@ Please confirm my slot. Thanks!`;
             )}
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mb-8 flex justify-between items-center">
+          <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-6 flex justify-between items-center">
              <div>
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">Total to Pay</span>
                 <span className="text-2xl font-bold text-brand-dark">Ksh {totalPrice}</span>
@@ -136,7 +136,7 @@ Please confirm my slot. Thanks!`;
 
           <button 
             type="submit"
-            className="w-full bg-brand-dark hover:bg-black text-brand-green font-bold text-sm tracking-[0.2em] py-5 rounded-xl uppercase transition-all shadow-xl flex items-center justify-center gap-3"
+            className="w-full bg-brand-dark hover:bg-black text-brand-green font-bold text-sm tracking-[0.2em] py-4 rounded-xl uppercase transition-all shadow-xl flex items-center justify-center gap-3"
           >
             <MessageSquare size={18} />
             Confirm via WhatsApp
