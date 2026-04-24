@@ -39,7 +39,6 @@ export function ImageWithFallback({
         src={safeSrc}
         alt={alt}
         fill
-        unoptimized
         className={`object-cover ${className || ''}`}
         onError={() => setError(true)}
         priority={priority}
@@ -55,7 +54,6 @@ export function ImageWithFallback({
       alt={alt}
       width={width || 1200}
       height={height || 800}
-      unoptimized
       className={`object-cover ${className || ''}`}
       onError={() => setError(true)}
       priority={priority}

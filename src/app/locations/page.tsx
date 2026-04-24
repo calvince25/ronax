@@ -9,21 +9,21 @@ export default function Locations() {
       name: 'Aga Khan, Parklands',
       address: 'Aga Khan Sports Club, Parklands, Nairobi',
       description: 'Our premier location featuring international standard courts and a family-friendly atmosphere in the heart of Parklands.',
-      image: 'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?q=80&w=1200',
+      image: '/images/locations_coaching/aga_khan.jpg',
       hours: 'Mon - Sun: 6:30 AM - 8:30 PM'
     },
     {
       name: 'Public Service Club',
       address: 'Mara Road, Upper Hill, Nairobi',
       description: 'Conveniently located in Upper Hill, providing excellent facilities for professionals and residents alike.',
-      image: 'https://images.unsplash.com/photo-1542144582-1ba0045d35e3?q=80&w=1200',
+      image: '/images/locations_coaching/public_service_club.jpg',
       hours: 'Mon - Sun: 7:00 AM - 9:00 PM'
     },
     {
       name: 'Karura',
       address: 'Karura Forest (Limuru Road Entrance), Nairobi',
       description: 'Experience tennis in the serene environment of Karura Forest. Perfect for a refreshing outdoor session.',
-      image: 'https://images.unsplash.com/photo-1531315630201-bb15b9944a36?q=80&w=1200',
+      image: '/images/locations_coaching/karura.jpg',
       hours: 'Mon - Sun: 8:00 AM - 6:00 PM'
     }
   ];
