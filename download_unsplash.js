@@ -4,7 +4,7 @@ const https = require('https');
 
 const images = {
   'private_lessons.jpg': 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8dGVubmlzfGVufDB8fHx8MTc3Njk2NzM1MXww&ixlib=rb-4.1.0&q=80&w=1080',
-  'group_classes.jpg': 'https://images.unsplash.com/photo-1576972405668-2d020a01cbfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8OHx8dGVubmlzfGVufDB8fHx8MTc3Njk2NzM1MXww&ixlib=rb-4.1.0&q=80&w=1080',
+  'group_classes.jpg': 'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=800',
   'ten_session_pack.jpg': 'https://images.unsplash.com/photo-1542144582-1ba00456b5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8dGVubmlzfGVufDB8fHx8MTc3Njk2NzM1MXww&ixlib=rb-4.1.0&q=80&w=1080',
   'after_school.jpg': 'https://images.unsplash.com/photo-1587683437362-da7775ffc532?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8a2lkcyUyMHRlbm5pc3xlbnwwfHx8fDE3NzY5Njc0NDV8MA&ixlib=rb-4.1.0&q=80&w=1080',
   
