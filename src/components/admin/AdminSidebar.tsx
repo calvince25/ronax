@@ -22,7 +22,6 @@ const navLinks = [
   { href: '/admin/events', icon: <Calendar size={20} />, label: 'Events', exact: false },
   { href: '/admin/messages', icon: <MessageSquare size={20} />, label: 'Messages', exact: false },
   { href: '/admin/blog', icon: <FileText size={20} />, label: 'Blog Posts', exact: false },
-  { href: '/admin/prices', icon: <Tag size={20} />, label: 'Pricing', exact: false },
   { href: '/admin/gallery', icon: <ImageIcon size={20} />, label: 'Gallery', exact: false },
   { href: '/admin/users', icon: <Users size={20} />, label: 'Users', exact: false },
 ];
