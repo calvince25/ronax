@@ -47,9 +47,7 @@ export default function Locations() {
                         <ImageWithFallback
                           src={venue.image}
                           alt={venue.name}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute top-6 left-6 bg-brand-green text-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
                            PREMIUM VENUE

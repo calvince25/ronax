@@ -1,66 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React, { useState } from 'react'
 
-interface ImageWithFallbackProps {
-  src?: string | null;
-  alt: string;
-  className?: string;
-  fill?: boolean;
-  priority?: boolean;
-  sizes?: string;
-  style?: React.CSSProperties;
-  width?: number;
-  height?: number;
-}
+const ERROR_IMG_SRC =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg=='
 
-export function ImageWithFallback({
-  src,
-  alt,
-  className,
-  fill,
-  priority,
-  sizes,
-  style,
-  width,
-  height,
-}: ImageWithFallbackProps) {
-  const [error, setError] = useState(false);
+export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElement>) {
+  const [didError, setDidError] = useState(false)
 
-  const fallbackSrc =
-    'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=800';
-
-  const safeSrc = error || !src ? fallbackSrc : src;
-
-  if (fill) {
-    return (
-      <Image
-        src={safeSrc}
-        alt={alt}
-        fill
-        unoptimized={true}
-        className={`object-cover ${className || ''}`}
-        onError={() => setError(true)}
-        priority={priority}
-        sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
-        style={style}
-      />
-    );
+  const handleError = () => {
+    setDidError(true)
   }
 
-  return (
-    <Image
-      src={safeSrc}
-      alt={alt}
-      width={width || 1200}
-      height={height || 800}
-      unoptimized={true}
-      className={`object-cover ${className || ''}`}
-      onError={() => setError(true)}
-      priority={priority}
-      sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'}
+  const { src, alt, style, className, ...rest } = props
+
+  return didError ? (
+    <div
+      className={`inline-block bg-gray-100 text-center align-middle ${className ?? ''}`}
       style={style}
-    />
-  );
+    >
+      <div className="flex items-center justify-center w-full h-full">
+        <img src={ERROR_IMG_SRC} alt="Error loading image" {...rest} data-original-url={src} />
+      </div>
+    </div>
+  ) : (
+    <img src={src} alt={alt} className={className} style={style} {...rest} onError={handleError} />
+  )
 }
