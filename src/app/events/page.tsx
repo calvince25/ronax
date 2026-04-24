@@ -58,6 +58,7 @@ const EventsPage = () => {
                         src={event.image_url} 
                         alt={event.title}
                         fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/0 transition-colors duration-500"></div>
                    </div>
