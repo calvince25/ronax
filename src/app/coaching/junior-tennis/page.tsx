@@ -27,7 +27,7 @@ export default function JuniorTennis() {
   const subtitle = program?.subtitle || "Building the Next Generation";
   const leadDesc = program?.lead_description || "Instilling a love for the game in young athletes. Our junior programs focus on hand-eye coordination, basic technique, and sportsmanship.";
   const mainDesc = program?.main_description || "Under Coach Ronax, juniors follow a structured development pathway. We use the 'Red, Orange, Green' ball progression system to ensure students learn at a pace that matches their physical and technical growth.";
-  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1627341398579-2d128de1dc8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraWQlMjB0ZW5uaXN8ZW58MXx8fHwxNzc2NzU1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1627341398579-2d128de1dc8c?q=80&w=1080";
 
   return (
     <>

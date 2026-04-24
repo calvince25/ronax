@@ -27,7 +27,7 @@ export default function GroupClasses() {
   const subtitle = program?.subtitle || "Social, Competitive & Fun";
   const leadDesc = program?.lead_description || "Join a vibrant community of players. Our group classes are designed to improve your game in a dynamic, social environment.";
   const mainDesc = program?.main_description || "Our group sessions focus on high-volume hitting, tactical drills, and live ball games. It is the perfect way to apply technical skills in real match-play scenarios while meeting other tennis enthusiasts in Nairobi.";
-  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1634567220268-20d009b11910?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBncm91cHxlbnwxfHx8fDE3NzY3NTU3ODl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1634567220268-20d009b11910?q=80&w=1080";
 
   return (
     <>

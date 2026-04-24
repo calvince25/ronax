@@ -15,7 +15,7 @@ export default function Home() {
         title="Revolutionary Tennis Coaching"
         subtitle="Nairobi's #1 Tennis Hub"
         description="Train with Ronax, Nairobi's top tennis coach. Private lessons, junior programs & group classes. Book your session today."
-        imageSrc="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        imageSrc="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?q=80&w=1440"
         height="h-screen"
         textAlign="left"
       >
@@ -32,7 +32,7 @@ export default function Home() {
           <div className="w-full md:w-[45%] relative min-h-[400px]">
             <div className="absolute bottom-0 -left-6 w-[110%] h-[120%] max-w-[600px] z-10 hidden md:block">
               <ImageWithFallback
-                 src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBqdW1waW5nJTIwY2VsZWJyYXRpbmd8ZW58MXx8fHwxNzc2NzU0ODM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                   src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?q=80&w=1080"
                  alt="Tennis player jumping"
                  fill
                  priority
@@ -43,7 +43,7 @@ export default function Home() {
             </div>
              <div className="block md:hidden mb-12">
                 <ImageWithFallback
-                   src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBqdW1waW5nJTIwY2VsZWJyYXRpbmd8ZW58MXx8fHwxNzc2NzU0ODM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                     src="https://images.unsplash.com/photo-1661474974389-2c1ad53c9ab0?q=80&w=1080"
                    alt="Tennis player jumping"
                    className="w-full h-64 object-cover rounded-lg shadow-xl"
                    sizes="100vw"
@@ -109,7 +109,7 @@ export default function Home() {
           
           <div className="w-full md:w-1/2">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1660463529569-17f8c4d16fbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb2FjaCUyMGNsYXklMjBjb3VydHxlbnwxfHx8fDE3NzY3NTU4NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              src="https://images.unsplash.com/photo-1660463529569-17f8c4d16fbe?q=80&w=1080"
               alt="Tennis coach on clay court"
               className="w-full h-auto aspect-[4/3] object-cover rounded-sm"
               sizes="(max-width: 768px) 100vw, 50vw"

@@ -27,7 +27,7 @@ export default function AdultBeginners() {
   const subtitle = program?.subtitle || "Start Your Tennis Journey Today";
   const leadDesc = program?.lead_description || "It is never too late to pick up a racket. Our Adult Beginner program is designed to take you from zero to rally in record time.";
   const mainDesc = program?.main_description || "We understand that starting a new sport as an adult can be intimidating. That is why Coach Ronax uses a simplified, mechanics-first approach. We focus on the most important fundamentals: contact point, balance, and follow-through.";
-  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1542144582-1ba0045d45e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXNlcnxlbnwxfHx8fDE3NzY3NTU3OTF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1542144582-1ba0045d45e3?q=80&w=1080";
 
   return (
     <>

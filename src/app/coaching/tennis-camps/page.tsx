@@ -27,7 +27,7 @@ export default function TennisCamps() {
   const subtitle = program?.subtitle || "Intensive Training. Lasting Friendships.";
   const leadDesc = program?.lead_description || "Make the most of the school break with our immersive holiday camps. It is a week of intensive tennis, physical education, and fun.";
   const mainDesc = program?.main_description || "Held during the April, August, and December school holidays, our camps are designed for all levels. We combine professional instruction with team-based challenges and tournaments to keep students engaged and improving rapidly.";
-  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb3VydHxlbnwxfHx8fDE3NzY3NTU3OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=1080";
 
   return (
     <>

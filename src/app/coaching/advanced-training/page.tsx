@@ -27,7 +27,7 @@ export default function AdvancedTraining() {
   const subtitle = program?.subtitle || "Precision. Power. Performance.";
   const leadDesc = program?.lead_description || "For tournament players and high-level recreational athletes. Experience the intensity of professional-grade training.";
   const mainDesc = program?.main_description || "Advanced training moves beyond basic technique and dives into tactical patterns, mental resilience, and physical conditioning. Coach Ronax uses video analysis to identify micro-flaws in strokes and match-play strategy to give you a competitive edge in Nairobi's tennis circuits.";
-  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwdGVubmlzJTIwcGxheWVyJTIwY3JvdWNoaW5nJTIwYXQlMjBuZXQlMjBkYXJrfGVufDF8fHx8MTc3Njc1NDgzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+  const imageUrl = program?.image_url || "https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?q=80&w=1080";
 
   return (
     <>

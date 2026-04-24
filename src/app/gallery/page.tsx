@@ -33,7 +33,7 @@ export default function GalleryPage() {
         title="Our Gallery"
         subtitle="Moments From The Court"
         description="Experience the energy, training, and community at Revolutionary Tennis — from junior tournaments to elite adult squads."
-        imageSrc="https://images.unsplash.com/photo-1542144582-1ba00540f367?q=80&w=2000"
+        imageSrc="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2000"
       />
 
       <div className="py-24 pb-40 px-8 md:px-12 bg-brand-white">
