@@ -49,7 +49,7 @@ export default function CoachingHub() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
             {categories.map((item, index) => (
               <div key={index} className="flex flex-col group cursor-pointer">
-                <div className="relative aspect-[4/3] overflow-hidden mb-8 rounded-sm">
+                <div className="relative w-full h-64 overflow-hidden mb-8 rounded-sm">
                   <ImageWithFallback
                     src={item.image}
                     alt={item.title}

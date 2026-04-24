@@ -43,7 +43,7 @@ export default function Locations() {
             {venues.map((venue, index) => (
               <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-16 md:gap-24`}>
                 <div className="w-full md:w-1/2">
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-sm group">
+                    <div className="relative w-full h-80 overflow-hidden rounded-sm group">
                         <ImageWithFallback
                           src={venue.image}
                           alt={venue.name}
