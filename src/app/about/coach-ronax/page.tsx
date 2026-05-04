@@ -1,4 +1,7 @@
 import { Metadata } from 'next';
+import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
+import Link from 'next/link';
+import React from 'react';
 
 export const metadata: Metadata = {
   alternates: {
