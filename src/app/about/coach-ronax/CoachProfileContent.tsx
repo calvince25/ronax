@@ -123,7 +123,7 @@ export default function CoachProfileContent() {
             <span className="text-brand-green font-barlow text-xl font-bold tracking-widest uppercase mb-4 block">
               The Journey of Excellence
             </span>
-            <h1 className="text-white text-5xl md:text-8xl font-bold uppercase leading-[0.9] mb-6">
+            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.9] mb-6">
               Meet Coach Ronax — <br />
               <span className="text-brand-green">Nairobi's Premier</span> <br />
               Tennis Coach
@@ -167,7 +167,7 @@ export default function CoachProfileContent() {
             <motion.div {...fadeInUp}>
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?q=80&w=1080"
+                  src="https://images.unsplash.com/photo-1622279457486-62dcc4a4bd13?q=80&w=1080"
                   alt="Coach Ronax in Action"
                   fill
                   className="object-cover"
