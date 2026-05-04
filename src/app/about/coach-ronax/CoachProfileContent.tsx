@@ -167,8 +167,8 @@ export default function CoachProfileContent() {
             <motion.div {...fadeInUp}>
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/images/coach_ronax_action.png"
-                  alt="Coach Ronax in Action"
+                  src="/images/tennis_action_v2.jpg"
+                  alt="Tennis Action"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-brand-green p-6 text-white">
