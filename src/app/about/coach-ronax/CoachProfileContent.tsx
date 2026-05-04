@@ -167,7 +167,7 @@ export default function CoachProfileContent() {
             <motion.div {...fadeInUp}>
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1622279457486-62dcc4a4bd13?q=80&w=1080"
+                  src="/images/coach_ronax_action.png"
                   alt="Coach Ronax in Action"
                   fill
                   className="object-cover"
