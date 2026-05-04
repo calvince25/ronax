@@ -234,7 +234,7 @@ export default function CoachProfileContent() {
       {/* 4. IMMERSIVE ACTION IMAGE */}
       <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1595435066344-77e871868352?q=80&w=1440"
+          src="https://images.unsplash.com/photo-1599586120429-48281b6f0ece?q=80&w=1440"
           alt="Tennis Action Shot"
           fill
           className="object-cover"
