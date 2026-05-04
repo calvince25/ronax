@@ -44,38 +44,6 @@ const stats = [
   { label: 'Age Groups Served', value: 'All (5yrs – 60+)', icon: <Target className="w-6 h-6" /> },
 ];
 
-const specialties = [
-  { 
-    title: 'Junior Development', 
-    desc: 'Structured programs for children aged 5–17 focusing on technique, coordination, and fun.',
-    icon: <Star className="text-brand-green" /> 
-  },
-  { 
-    title: 'Biomechanical Correction', 
-    desc: 'Video-supported analysis to fix stroke mechanics and prevent injury.',
-    icon: <Zap className="text-brand-green" /> 
-  },
-  { 
-    title: 'High-Performance Drills', 
-    desc: 'Competitive players taken through match-intensity training sessions.',
-    icon: <Trophy className="text-brand-green" /> 
-  },
-  { 
-    title: 'Tactical Pattern Development', 
-    desc: 'Court geometry, shot selection, and match strategy.',
-    icon: <Brain className="text-brand-green" /> 
-  },
-  { 
-    title: 'Adult Beginners', 
-    desc: 'Zero-judgment, beginner-friendly programs for adults picking up the sport.',
-    icon: <Users className="text-brand-green" /> 
-  },
-  { 
-    title: 'Competition Prep', 
-    desc: 'Players trained to compete in local and national tournaments.',
-    icon: <Target className="text-brand-green" /> 
-  },
-];
 
 const philosophy = [
   { 
@@ -263,46 +231,25 @@ export default function CoachProfileContent() {
         </div>
       </section>
 
-      {/* 4. SPECIALTIES */}
-      <section className="py-24 md:py-32 bg-gray-50">
-        <div className="container">
-          <div className="text-center mb-16">
-            <motion.span 
-              {...fadeInUp}
-              className="text-brand-green font-barlow text-xl font-bold tracking-widest uppercase mb-4 block"
-            >
-              What We Excel At
-            </motion.span>
-            <motion.h2 
-              {...fadeInUp}
-              className="text-4xl md:text-5xl font-bold uppercase"
-            >
-              Coaching Specialties
-            </motion.h2>
-          </div>
-
+      {/* 4. IMMERSIVE ACTION IMAGE */}
+      <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
+        <ImageWithFallback
+          src="https://images.unsplash.com/photo-1595435066344-77e871868352?q=80&w=1440"
+          alt="Tennis Action Shot"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-brand-dark/20"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
           <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="text-center"
           >
-            {specialties.map((specialty, idx) => (
-              <motion.div 
-                key={idx}
-                variants={fadeInUp}
-                className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group"
-              >
-                <div className="mb-6 p-4 bg-brand-green/5 rounded-xl w-fit group-hover:bg-brand-green group-hover:text-white transition-colors">
-                  {React.cloneElement(specialty.icon as React.ReactElement, { className: 'w-8 h-8 group-hover:text-white transition-colors' })}
-                </div>
-                <h3 className="text-2xl font-bold mb-4 uppercase">{specialty.title}</h3>
-                <p className="text-gray-500 leading-relaxed">
-                  {specialty.desc}
-                </p>
-              </motion.div>
-            ))}
+            <h2 className="text-white text-4xl md:text-6xl font-bold uppercase tracking-tighter drop-shadow-2xl">
+              Precision. Power. <span className="text-brand-green">Passion.</span>
+            </h2>
           </motion.div>
         </div>
       </section>
