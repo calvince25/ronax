@@ -166,12 +166,10 @@ export default function CoachProfileContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                <ImageWithFallback
+                <img
                   src="/images/coach_ronax_action.png"
                   alt="Coach Ronax in Action"
-                  fill
-                  unoptimized={true}
-                  className="object-cover"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-brand-green p-6 text-white">
                   <p className="font-barlow text-sm tracking-widest uppercase mb-1 opacity-80">Certified Coach</p>
