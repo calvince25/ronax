@@ -170,6 +170,7 @@ export default function CoachProfileContent() {
                   src="/images/coach_ronax_action.png"
                   alt="Coach Ronax in Action"
                   fill
+                  unoptimized={true}
                   className="object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-brand-green p-6 text-white">
