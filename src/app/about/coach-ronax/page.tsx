@@ -1,6 +1,10 @@
-import React from 'react';
-import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
-import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.revolutiontennis.co.ke/about/coach-ronax",
+  },
+};
 
 export default function AboutCoach() {
   return (
@@ -21,7 +25,7 @@ export default function AboutCoach() {
         <div className="relative z-10 max-w-[1440px] mx-auto w-full px-8 md:px-12">
           <h1 className="text-white font-barlow text-[64px] md:text-[84px] font-bold uppercase tracking-tight leading-[0.9] mb-6 max-w-4xl">
             The Passion Behind <br />
-            <span className="text-brand-green">Revolutionary Tennis</span>
+            <span className="text-brand-green">Revolution Tennis</span>
           </h1>
           <div className="w-12 h-1 bg-brand-green mb-8"></div>
           <p className="text-white/80 font-dm text-[16px] max-w-xl font-light leading-relaxed">

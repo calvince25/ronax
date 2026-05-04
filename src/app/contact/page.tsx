@@ -127,7 +127,7 @@ export default function Contact() {
                       <Mail size={24} />
                     </div>
                     <h4 className="font-barlow text-[20px] font-bold text-brand-black uppercase mb-2 group-hover:text-white">Email Us</h4>
-                    <a href="mailto:info@revolutionarytennis.co.ke" className="font-dm text-sm text-gray-500 group-hover:text-gray-300 transition-colors">info@revolutionarytennis...</a>
+                    <a href="mailto:info@revolutiontennis.co.ke" className="font-dm text-sm text-gray-500 group-hover:text-gray-300 transition-colors">info@revolutiontennis.co.ke</a>
                   </div>
 
                   <div className="bg-gray-50 p-10 rounded-sm flex flex-col items-center text-center group hover:bg-brand-dark transition-colors duration-500">

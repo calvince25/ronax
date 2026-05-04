@@ -65,7 +65,7 @@ export default function AdminLogin() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required 
-              placeholder="admin@revolutionarytennis.co.ke"
+              placeholder="admin@revolutiontennis.co.ke"
             />
           </div>
           <div className={styles.inputGroup}>

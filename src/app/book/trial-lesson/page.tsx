@@ -91,7 +91,7 @@ const TrialLessonBooking = () => {
               <li>Transparent coaching rates</li>
             </ul>
             <div className={styles.guarantee}>
-              <p>Join 200+ students who have elevated their game with Revolutionary Tennis.</p>
+              <p>Join 200+ students who have elevated their game with Revolution Tennis.</p>
             </div>
           </div>
 

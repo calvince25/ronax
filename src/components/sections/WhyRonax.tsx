@@ -31,7 +31,7 @@ const WhyRonax = () => {
     <section className="section" style={{ background: 'var(--bg-alt)' }}>
       <div className="container">
         <SectionHeading 
-          title="Why Choose Revolutionary Tennis" 
+          title="Why Choose Revolution Tennis" 
           subtitle="The Difference" 
         />
         <div className={styles.grid}>

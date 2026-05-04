@@ -51,7 +51,7 @@ const Navbar = () => {
     >
       <Link href="/" className="flex items-center gap-3 text-white group" onClick={() => setMobileMenuOpen(false)}>
         <RacketIcon />
-        <span className="font-dm font-normal tracking-[0.2em] text-sm uppercase mt-0.5 group-hover:text-brand-green transition-colors">Revolutionary</span>
+        <span className="font-dm font-normal tracking-[0.2em] text-sm uppercase mt-0.5 group-hover:text-brand-green transition-colors">Revolution</span>
       </Link>
 
       {/* Desktop Nav */}

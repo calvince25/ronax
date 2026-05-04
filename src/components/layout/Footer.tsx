@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center gap-3 mb-8 text-brand-green">
             <RacketIcon />
-            <span className="font-dm font-normal tracking-[0.2em] text-sm uppercase mt-0.5 text-white">Revolutionary</span>
+            <span className="font-dm font-normal tracking-[0.2em] text-sm uppercase mt-0.5 text-white">Revolution</span>
           </div>
           <p className="text-gray-400 text-[14px] leading-relaxed mb-8 font-light max-w-[300px]">
             Nairobi's premium tennis club and coaching hub. Train with the best and elevate your game on our beautiful courts.
@@ -69,7 +69,7 @@ const Footer = () => {
             </li>
             <li className="flex flex-col gap-1">
                 <span className="text-white font-medium uppercase text-[10px] tracking-widest opacity-50">Email</span>
-                <a href="mailto:info@revolutionarytennis.co.ke" className="hover:text-brand-green transition-colors text-sm">info@revolutionarytennis.co.ke</a>
+                <a href="mailto:info@revolutiontennis.co.ke" className="hover:text-brand-green transition-colors text-sm">info@revolutiontennis.co.ke</a>
             </li>
           </ul>
         </div>
@@ -77,7 +77,7 @@ const Footer = () => {
 
       <div className="max-w-[1440px] mx-auto mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-gray-500 text-[10px] tracking-[0.2em] font-medium uppercase">
-          © {new Date().getFullYear()} Revolutionary Tennis. All rights reserved.
+          © {new Date().getFullYear()} Revolution Tennis. All rights reserved.
         </div>
         <div className="text-gray-500 text-[10px] tracking-[0.2em] font-medium uppercase">
           Designed by <a href="https://growthlab.co.ke" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-white transition-colors">growthlab.co.ke</a>

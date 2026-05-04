@@ -62,7 +62,7 @@ export default function BlogPost() {
             <div className={styles.meta}>
               <div className={styles.metaItem}>
                 <User size={14} />
-                <span>{post.author || 'Revolutionary Tennis'}</span>
+                <span>{post.author || 'Revolution Tennis'}</span>
               </div>
               <div className={styles.metaItem}>
                 <Calendar size={14} />

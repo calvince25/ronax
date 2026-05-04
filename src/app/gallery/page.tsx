@@ -34,7 +34,7 @@ export default function GalleryPage() {
       <PageHero
         title="Our Gallery"
         subtitle="Moments From The Court"
-        description="Experience the energy, training, and community at Revolutionary Tennis — from junior tournaments to elite adult squads."
+        description="Experience the energy, training, and community at Revolution Tennis — from junior tournaments to elite adult squads."
         imageSrc="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2000"
       />
 

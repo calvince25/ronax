@@ -34,7 +34,7 @@ const BlogPage = () => {
     <div className={styles.page}>
       <div className="container">
         <SectionHeading 
-          title="Revolutionary Tennis Blog" 
+          title="Revolution Tennis Blog" 
           subtitle="Tips, News & Techniques" 
         />
         

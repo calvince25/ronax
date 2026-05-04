@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <PageHero 
-        title="Revolutionary Tennis Coaching"
+        title="Revolution Tennis"
         subtitle="Nairobi's #1 Tennis Hub"
         description="Train with Ronax, Nairobi's top tennis coach. Private lessons, junior programs & group classes. Book your session today."
         imageSrc="https://images.unsplash.com/photo-1634090213390-9f4b0dc4b09b?q=80&w=1440"
@@ -56,7 +56,7 @@ export default function Home() {
               About The Coach
             </h2>
             <p className="font-dm text-brand-black text-[16px] leading-[1.7] mb-6 font-medium max-w-[480px]">
-              With its diverse list of members, professional equipment and lots of tidy courts the Revolutionary Tennis club is your perfect getaway.
+              With its diverse list of members, professional equipment and lots of tidy courts the Revolution Tennis club is your perfect getaway.
             </p>
             <p className="font-dm text-gray-500 text-[14px] leading-[1.8] mb-12 font-light max-w-[480px]">
               Renown as one of the country's most outstanding facilities, this complex offers a "home away from home" country club setting for resort visitors and Nairobi residents alike. Experience passionate coaching tailored to all skill levels.
