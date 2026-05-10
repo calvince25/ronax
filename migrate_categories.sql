@@ -10,4 +10,4 @@ WHERE category = 'Private';
 
 UPDATE public.prices 
 SET category = 'Group Classes' 
-WHERE category = 'Group';
+WHERE category = 'Gro
